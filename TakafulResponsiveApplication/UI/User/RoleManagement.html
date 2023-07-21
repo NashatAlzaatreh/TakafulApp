@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html class="no-js loading" lang="ar" dir="rtl">
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link href="../../Content/Style/foundation.css" rel="stylesheet" />
+    <link href="../../Content/Style/foundation-datepicker.css" rel="stylesheet" />
+    <link href="../../Content/Style/normalize.css" rel="stylesheet" />
+    <link href="../../Content/Style/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../Content/Style/component.css" rel="stylesheet" />  <!-- InputFile -->
+    <link href="../../Content/Style/loadingScreen.css" rel="stylesheet" />
+    <link href="../../Content/Style/app.css" rel="stylesheet" />
+
+    <title>إدارة صلاحيات المشتركين</title>
+
+</head>
+
+<body>
+
+    <div class="off-canvas-wrap" data-offcanvas>
+        <div class="inner-wrap">
+            <!-- Canvas -->
+            <nav class="tab-bar hide-for-large">
+
+                <section class="middle tab-bar-section">
+                    <p class="title">دائرة الشؤون الاسلامية والعمل الخيري</p>
+                </section>
+
+                <section class="right-small">
+                    <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
+                </section>
+
+            </nav>
+            <!-- Aside Convas-Off -->
+            <aside class="right-off-canvas-menu">
+                <ul id="ulInternalMenu_Small" class="off-canvas-list"></ul>
+            </aside>
+
+            <!-- MODAL POPUPs (Msg - Confirmation - ...etc) -->
+            <div id="myModal" class="reveal-modal visible text-center medium" data-reveal data-options="close_on_background_click:true;close_on_esc:true;">
+                <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+                <p></p>
+                <div class="row">
+                    <div class="large-12 columns">
+                        <table id="mainTableModal" class="table">
+                            <thead>
+                                <tr>
+                                    <th width="200">الرقم الوظيفي</th>
+                                    <th width="" style="width: 30%;" class="hidden-for-small">الإســــم</th>
+                                    <th width="" style="width: 20%;" class="hidden-for-small">الإدارة</th>
+                                    <th width="" class="">إداري نظام</th>
+                                    <th width="" class="">عضو لجنة</th>
+                                    <th width="" class="">خدمة عملاء</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tblSearch">
+                                <!--<tr>
+                                        <td class="">202020</td>
+                                        <td class="hidden-for-small">عبد المجيد محمد عبد الفتاح بن سويلم</td>
+                                        <td class="hidden-for-small">إدارة الحسابات</td>
+                                        <td class="text-center"><input type="checkbox" /></td>
+                                        <td class="text-center"><input type="checkbox" /></td>
+                                        <td class="text-center"><input type="checkbox" /></td>
+                                    </tr>-->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- END MODAL -->
+
+            <div class="contain-to-grid">
+                <!-- Top Menu For PC -->
+                <nav class="top-bar hide-for-medium hide-for-small" data-topbar role="navigation">
+                    <ul class="title-area">
+                        <li class="name">
+                            <h1><a href="#"></a></h1>
+                        </li>
+                    </ul>
+
+                    <section class="top-bar-section">
+                        <!-- Right Nav Section -->
+                        <ul class="right">
+                            <li class="active"><a href="../Home/Main.html">الصفحة الرئيسية</a></li>
+                            <li class=""><a href="../Misc/ContactUs.html">اتصل بنا</a></li>
+                        </ul>
+
+                        <!-- Left Nav Section -->
+                        <ul id="ulInternalMenu_Large" class="left"></ul>
+                    </section>
+                </nav>
+                <!-- END Top Menu For PC -->
+                <!-- Content of child page -->
+                <section class="">
+                    <div class="row page-container">
+
+                        <div class="row collapse">
+                            <div class="large-1 small-2 columns"><img src="../../Content/Images/edit_subscription-icon.png" alt="" class="" /></div>
+                            <div class="large-3 small-10 columns" id="divTitle">إدارة صلاحيات المشتركين</div>
+                            <div class="large-8 hide-for-small columns"><div class="lineB"></div></div>
+                        </div>
+
+                        <div class="large-12 columns">
+                            <div class="row BG-W">
+
+                                <div class="row min-hight">
+                                    <div class="large-2 small-12  columns">الرقم الوظيفي</div>
+                                    <div class="large-4 small-12 columns">
+                                        <input id="txtEmployeeNumber" type="number" min="1" max="99999999">
+                                    </div>
+                                    <div class="large-3 small-12 columns"><div id="btnSearch" class=" subscribe-btn1">استعلام</div></div>
+                                    <div class="large-3 small-12 columns"></div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="large-12 columns">
+                                        <table id="mainTable" class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th width="200">الرقم الوظيفي</th>
+                                                    <th width="" style="width: 30%;" class="hidden-for-small">الإســــم</th>
+                                                    <th width="" style="width: 20%;" class="hidden-for-small">الإدارة</th>
+                                                    <th width="" class="">إداري نظام</th>
+                                                    <th width="" class="">عضو لجنة</th>
+                                                    <th width="" class="">خدمة عملاء</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tblEmployees">
+                                                <!--<tr>
+                                                        <td class="">202020</td>
+                                                        <td class="hidden-for-small">عبد المجيد محمد عبد الفتاح بن سويلم</td>
+                                                        <td class="hidden-for-small">إدارة الحسابات</td>
+                                                        <td class="text-center"><input type="checkbox" /></td>
+                                                        <td class="text-center"><input type="checkbox" /></td>
+                                                        <td class="text-center"><input type="checkbox" /></td>
+                                                    </tr>-->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="large-12 columns"><a id="btnExport">استخراج الجدول الى ملف اكسل </a></div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="large-5 columns">&nbsp;</div>
+                                    <div class="large-3 columns"><div id="btnHistoryBack" class="subscribe-btn2">رجــــــــــــــــــــــوع</div></div>
+                                    <div class="large-4 columns">&nbsp;</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- END Content of child page -->
+                <!-- Footer -->
+                <footer class="">
+                    <div class="row text-center">
+                        <div class="large-12 columns footer">
+                            <span>جميع الحقوق محفوظة</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- END Footer -->
+
+                <a class="exit-off-canvas"></a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Master Page Scripts -->
+    <!--<script type="text/javascript" src="cordova.js"></script>-->
+    <script src="../../Scripts/Tools/JQuery/jquery-2.1.3.min.js"></script>
+    <script src="../../Scripts/Tools/JQuery/jquery.dataTables.min.js"></script>
+    <script src="../../Scripts/Tools/JQuery/jquery.dataTables.row().show().js"></script>
+    <script src="../../Scripts/Tools/Foundation/vendor/modernizr.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/foundation.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation-datepicker/foundation-datepicker.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/foundation.offcanvas.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/foundation.orbit.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/foundation.tooltip.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/foundation.reveal.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/foundation.topbar.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/dataTables.foundation.min.js"></script>
+    <!-- InputFile -->
+    <script src="../../Scripts/Tools/inputfile/custom-file-input.js"></script>
+    <script src="../../Scripts/Tools/inputfile/jquery.custom-file-input.js"></script>
+
+    <script src="../../Scripts/App/Shared/Config.js"></script>
+    <script src="../../Scripts/App/Shared/Utility.js"></script>
+    <script src="../../Scripts/App/Shared/CommonMethods.js"></script>
+
+    <script src="../../Scripts/App/UI/Master/01-UiMapping.js"></script>
+    <script src="../../Scripts/App/UI/Master/02-EventHandlers.js"></script>
+    <script src="../../Scripts/App/UI/Master/03-CustomMethods.js"></script>
+    <script src="../../Scripts/App/UI/Master/Main.js"></script>
+
+    <!-- Child Page Scripts -->
+    <script src="../../Scripts/App/UI/User/RoleManagement/01-UiMapping.js"></script>
+    <script src="../../Scripts/App/UI/User/RoleManagement/02-EventHandlers.js"></script>
+    <script src="../../Scripts/App/UI/User/RoleManagement/03-CustomMethods.js"></script>
+    <script src="../../Scripts/App/UI/User/RoleManagement/Main.js"></script>
+
+
+</body>
+
+</html>

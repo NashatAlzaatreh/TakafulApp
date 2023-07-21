@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <link href="../../Content/Style/app.css" rel="stylesheet" />
+    <link href="../../Content/Style/foundation.min.css" rel="stylesheet" />
+    <link href="../../Content/Style/normalize.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Messages With 1 Buttons -->
+
+    <button href="#" data-reveal-id="myModal">Messages With 1 Buttons</button>
+
+    <div id="myModal" class="reveal-modal text-center" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" data-options="close_on_background_click:false;close_on_esc:false;">
+        <h2 id="modalTitle">هذه الرسالة تحتوي علي</h2>
+
+        <p class="lead">يرجى التأكد من أسم المستخدم وكلمة المرور</p>
+        <p>يرجى التأكد من أسم المستخدم وكلمة المرور </p>
+        <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+        <div class="row text-center">
+            <div class="medium-3 columns">&nbsp;</div>
+            <div class="medium-6 columns"><a id="" href="#" class="subscribe-btn2 hover round medium-12 column">محاولة اخرى</a></div>
+            <div class="medium-3 columns">&nbsp;</div>
+        </div>
+    </div>
+
+
+
+    <!-- Messages With 2 Buttons -->
+
+    <button href="#" data-reveal-id="myModal2">Messages With 2 Buttons</button>
+
+    <div id="myModal2" class="reveal-modal text-center" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" data-options="close_on_background_click:false;close_on_esc:false;">
+        <h2 id="modalTitle">هذه الرسالة تحتوي علي</h2>
+
+        <p class="lead">هل تريد الغاء التعديلات</p>
+        <p>سوف يتم إلغاء كل ما حدث </p>
+        <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+        <div class="row text-center">
+            <div class="medium-3 columns">&nbsp;</div>
+            <div class="medium-3 columns"><a id="" href="#" class="subscribe-btn2 hover round medium-12 column">نعم</a></div>
+            <div class="medium-3 columns"><a id="" href="#" class="subscribe-btn2 hover round medium-12 column">لا</a></div>
+            <div class="medium-3 columns">&nbsp;</div>
+        </div>
+    </div>
+
+    <!-- Messages Alert -->
+
+    <button href="#" data-reveal-id="myModal3">Messages Alert</button>
+
+    <div id="myModal3" class="reveal-modal text-center small" data-reveal aria-labelledby="modalTitle">
+        <h2 id="modalTitle">هذه الرسالة تحتوي علي</h2>
+
+        <p class="lead">لقد تم تسجيل البيانات بشكل صحيح</p>
+        <p>  </p>
+        <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+
+    </div>
+    
+    <div id="myModal4" class="reveal-modal text-center small" data-reveal aria-labelledby="modalTitle">
+        <h2 id="modalTitle">هذه الرsdfsdsdfسالة تحتوي علي</h2>
+
+        <p class="lead">لقد تم تسجيل اsdfsdfsdfلبيانات بشكل صحيح</p>
+        <p>  </p>
+        <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+
+    </div>
+
+    <button id="btn"></button>
+
+    <!-- JS -->
+    <script src="../../Scripts/Tools/JQuery/jquery-2.1.3.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/foundation.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/foundation.reveal.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            $("#btn").bind("click", function() {
+                $('#myModal3').foundation('reveal', 'open');
+                $('#myModal4').foundation('reveal', 'open');
+
+                setTimeout(function () {
+                    $('#myModal3').foundation('reveal', 'close');
+                }, 8000);
+
+            });
+
+            $(document).foundation('reveal');
+
+            // <!-- Messages Alert -->
+            //↓↓↓↓↓↓↓
+            //setTimeout(function () {
+            //    $('#myModal3').foundation('reveal', 'close');
+            //    alert("Hello");
+            //}, 2000);
+        });
+    </script>
+</body>
+</html>

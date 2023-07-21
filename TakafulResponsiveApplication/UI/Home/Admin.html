@@ -1,0 +1,536 @@
+﻿<!DOCTYPE html>
+<html class="no-js loading" lang="ar" dir="rtl">
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link href="../../Content/Style/foundation.css" rel="stylesheet" />
+    <link href="../../Content/Style/normalize.css" rel="stylesheet" />
+    <link href="../../Content/Style/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../Content/Style/loadingScreen.css" rel="stylesheet" />
+    <link href="../../Content/Style/app.css" rel="stylesheet" />
+
+    <title>صفحتى</title>
+
+</head>
+
+<body>
+
+    <div class="off-canvas-wrap" data-offcanvas>
+        <div class="inner-wrap">
+            <!-- Canvas -->
+            <nav class="tab-bar hide-for-large">
+
+                <section class="middle tab-bar-section">
+                    <p class="title">دائرة الشؤون الاسلامية والعمل الخيري</p>
+                </section>
+
+                <section class="right-small">
+                    <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
+                </section>
+
+            </nav>
+            <!-- Aside Convas-Off -->
+            <aside class="right-off-canvas-menu">
+                <ul id="ulInternalMenu_Small" class="off-canvas-list"></ul>
+            </aside>
+
+            <!-- MODAL POPUPs (Msg - Confirmation - ...etc) -->
+            <!-- END MODAL -->
+
+            <div class="contain-to-grid">
+                <!-- Top Menu For PC -->
+                <nav class="top-bar hide-for-medium hide-for-small" data-topbar role="navigation">
+                    <ul class="title-area">
+                        <li class="name">
+                            <h1><a href="#"></a></h1>
+                        </li>
+                    </ul>
+
+                    <section class="top-bar-section">
+                        <!-- Right Nav Section -->
+                        <ul class="right">
+                            <li class="active"><a href="../Home/Main.html">الصفحة الرئيسية</a></li>
+                            <li class=""><a href="../Misc/ContactUs.html">اتصل بنا</a></li>
+                        </ul>
+
+                        <!-- Left Nav Section -->
+                        <ul id="ulInternalMenu_Large" class="left"></ul>
+                    </section>
+                </nav>
+                <!-- END Top Menu For PC -->
+                <!-- Content of child page -->
+                <div class="row page-container">
+                    <div class="NtfMob hide-for-medium hide-for-large hide-for-xlarge hide-for-xxlarge">
+                        <div class="row collapse  ">
+                            <!-- Notification mobile -->
+                            <div class="small-12 columns " id="OpenNotifi-page">
+                                <i class="fi-alert large" style="font-size: 20px;"></i>
+                                <span style="font-size: 20px;">التنبيهات</span>
+                            </div>
+
+                            <div class="small-12 columns notification-panel-List" id="Notifi-page">
+                                <ul class=" vertical">
+                                    <li>عدد الطلبات المقدمة:</li>
+                                    <li id="Requests_Subscription_New2">عدد الطلبات المقدمة لطلب اشتراك 1 طلبات</li>
+                                    <li id="Requests_Subscription_Modification2">لا توجد طلبات مقدمة لتعديل اشتراك</li>
+                                    <li id="Requests_Subscription_Cancellation2">لا توجد طلبات مقدمة لإلغاء اشتراك</li>
+                                    <li id="Requests_Loan_New2">لا توجد طلبات مقدمة لطلب قرض</li>
+                                    <li id="Requests_Loan_Modification2">لا توجد طلبات مقدمة لتعديل قرض</li>
+                                    <li id="Requests_Loan_Cancellation2">لا توجد طلبات مقدمة لإلغاء قرض</li>
+                                </ul>
+                            </div>
+
+                            <!--  -->
+
+
+                        </div>
+                    </div>
+
+                    <div class="large-9 medium-9 columns ">
+                        <div class="row">
+                            <div class="large-12 columns ">
+                                <div class="title-section ">
+                                    <div class="row">
+                                        <div class="large-1 small-2 columns"><!--<img src="../../Content/Images/box.svg" alt="" class="" />--><i class="fa fa-chevron-circle-left fa-2x"></i></div>
+                                        <div class="large-11 small-10 columns"><p>طلبات صندوق التكافل</p></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="large-12 columns">
+                                <div class="content-section">
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2 columns"><img src="../../Content/Images/icon-17.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Request/SubmittedRequests.html?type=1">اعتماد طلبات الاشتراك فى الصندوق</a></div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2  columns"><img src="../../Content/Images/icon-18.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Request/SubmittedRequests.html?type=2">اعتماد طلبات تعديل الاشتراك فى الصندوق</a></div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2  columns"><img src="../../Content/Images/icon-19.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Request/SubmittedRequests.html?type=3">اعتماد طلبات الانسحاب من الصندوق</a></div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2  columns"><img src="../../Content/Images/icon-20.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Exception/Subscription.html">الاستثناءات الخاصة بالاشتراكات</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="large-12 columns ">
+                                <div class="title-section ">
+                                    <div class="row">
+                                        <div class="large-1 small-2 columns"><!--<img src="../../Content/Images/loan.svg" alt="" class="" />--><i class="fa fa-gg fa-2x"></i></div>
+                                        <div class="large-11 small-10 columns"><p>طلبات القروض</p></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="large-12 columns">
+                                <div class="content-section">
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2 columns"><img src="../../Content/Images/icon-21.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Request/SubmittedRequests.html?type=4">اعتماد طلبات القروض</a></div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2  columns"><img src="../../Content/Images/icon-22.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Request/SubmittedRequests.html?type=5">اعتماد طلبات تعديل قسط القرض</a></div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2  columns"><img src="../../Content/Images/icon-23.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Request/SubmittedRequests.html?type=6">اعتماد طلبات تسديد رصيد القرض بالكامل</a></div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2  columns"><img src="../../Content/Images/icon-20.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Exception/Loan.html">الاستثناءات الخاصة بالقروض</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="large-12 columns ">
+                                <div class="title-section ">
+                                    <div class="row">
+                                        <div class="large-1 small-2 columns"><!--<img src="../../Content/Images/board.svg" alt="" class="" />--><i class="fa fa-users fa-2x"></i></div>
+                                        <div class="large-11 small-10 columns"><p>أعمال اللجنة</p></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="large-12 columns">
+                                <div class="content-section">
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2 columns"><img src="../../Content/Images/icon-25.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Meeting/MeetingList.html">مواعيد اجتماعات اللجنة</a></div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2 columns"><img src="../../Content/Images/icon-20.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Meeting/ActiveMeeting.html">الإجتماع الفعال لللجنة</a></div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2  columns"><img src="../../Content/Images/icon-28.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Meeting/AddRequestToMeeting.html">كشوف العرض علي اللجنة</a></div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2  columns"><img src="../../Content/Images/icon-28.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Meeting/SendRequestToCommitee.html">إرسال الطلبات للاعتماد من أعضاء اللجنة إلكترونياً</a></div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2  columns"><img src="../../Content/Images/icon-29.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Request/AdminCommiteeSubmittedRequests.html">إدخال قرارات عضو لجنة</a></div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2  columns"><img src="../../Content/Images/icon-29.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Meeting/ApprovedLoanAmount.html">إدخال المبلغ المعتمد من اللجنة لطلبات القروض</a></div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2  columns"><img src="../../Content/Images/icon-27.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Request/CommitteeDecisionApproval.html">قرارات اجتماعات اللجنة</a></div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2 columns"><img src="../../Content/Images/icon-20.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Report/CommitteeMeetingDecisions.html">نتائج اجتماعات اللجنة</a></div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2 columns"><img src="../../Content/Images/icon-20.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Report/AdminDecisions.html">قرارات ادارى النظام</a></div>
+                                    </div>
+
+
+
+                                    <!--<div class="row min-hight">
+                                            <div class="large-2 small-2  columns"><img src="../../Content/Images/icon-31.png" alt="" class="" /></div>
+                                            <div class="large-10 small-10 columns"><a href="#">إرسال كشف الموارد البشرية</a></div>
+                                        </div>-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="large-12 columns ">
+                                <div class="title-section ">
+                                    <div class="row">
+                                        <div class="large-1 small-2 columns"><!--<img src="../../Content/Images/financial.svg" alt="" class="" />--><i class="fa fa-shopping-cart fa-2x"></i></div>
+                                        <div class="large-11 small-10 columns"><p>اجراءات كشوفات الموارد البشرية</p></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="large-12 columns">
+                                <div class="content-section">
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2 columns"><img src="../../Content/Images/icon-27.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/HR/HRSheet.html">انشاء كشف الموارد البشرية</a></div>
+                                    </div>
+
+                                    <div class="row min-hight" style="display: none;">
+                                        <div class="large-2 small-2 columns"><img src="../../Content/Images/icon-08.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/HR/HRSheetSub.html">انشاء كشف الطلبات التى لم يتم اختيارها</a></div>
+                                    </div>
+
+                                    <div class="row min-hight" style="display: none;">
+                                        <div class="large-2 small-2  columns"><img src="../../Content/Images/icon-30.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/HR/HRSheetModification.html">موقف الاشتراكات والقروض</a></div>
+                                    </div>
+
+                                    <div class="row min-hight" style="display: none;">
+                                        <div class="large-2 small-2  columns"><img src="../../Content/Images/icon-08.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/HR/HRSheetModificationSub.html">موقف الاشتراكات والقروض - الطلبات التى لم يتم اختيارها</a></div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2  columns"><img src="../../Content/Images/icon-30.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/HR/HRSheetModification_NewSubscriptions.html">الاشتراكات الجديدة</a></div>
+                                    </div>
+                                    
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2  columns"><img src="../../Content/Images/icon-30.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/HR/HRSheetModification_ModifiedSubscriptions.html">تعديلات الاشتراك</a></div>
+                                    </div>
+
+                                    <div class="row min-hight" style="display: none;">
+                                        <div class="large-2 small-2  columns"><img src="../../Content/Images/icon-08.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/HR/HRSheetModification_NewSubscriptionsSub.html">الاشتراكات الجديدة - الطلبات التى لم يتم اختيارها</a></div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2  columns"><img src="../../Content/Images/icon-30.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/HR/HRSheetModification_CancelledSubscriptions.html">المنسحبين من الصندوق</a></div>
+                                    </div>
+
+                                    <div class="row min-hight" style="display: none;">
+                                        <div class="large-2 small-2  columns"><img src="../../Content/Images/icon-08.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/HR/HRSheetModification_CancelledSubscriptionsSub.html">المنسحبين من الصندوق - الطلبات التى لم يتم اختيارها</a></div>
+                                    </div>
+
+                                    <div class="row min-hight" style="display: none;">
+                                        <div class="large-2 small-2  columns"><img src="../../Content/Images/icon-08.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/HR/HRSheetModification_ModifiedSubscriptionsSub.html">تعديلات الاشتراك وقسط القرض - الطلبات التى لم يتم اختيارها</a></div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2  columns"><img src="../../Content/Images/icon-30.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/HR/HRSheetModification_NewLoans.html">القروض الجديدة</a></div>
+                                    </div>
+
+                                    <div class="row min-hight" style="display: none;">
+                                        <div class="large-2 small-2  columns"><img src="../../Content/Images/icon-08.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/HR/HRSheetModification_NewLoansSub.html">القروض الجديدة - الطلبات التى لم يتم اختيارها</a></div>
+                                    </div>
+                                    
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2  columns"><img src="../../Content/Images/icon-30.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/HR/HRSheetModification_ModifiedInstallments.html">تعديلات قسط القرض</a></div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2  columns"><img src="../../Content/Images/icon-30.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/HR/HRSheetModification_CancelledLoans.html">القروض المسددة</a></div>
+                                    </div>
+
+                                    <div class="row min-hight" style="display: none;">
+                                        <div class="large-2 small-2  columns"><img src="../../Content/Images/icon-08.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/HR/HRSheetModification_CancelledLoansSub.html">القروض المسددة - الطلبات التى لم يتم اختيارها</a></div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="large-12 columns ">
+                                <div class="title-section ">
+                                    <div class="row">
+                                        <div class="large-1 small-2 columns"><!--<img src="../../Content/Images/financial.svg" alt="" class="" />--><i class="fa fa-shopping-cart fa-2x"></i></div>
+                                        <div class="large-11 small-10 columns"><p>الاجراءات المالية</p></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="large-12 columns">
+                                <div class="content-section">
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2 columns"><img src="../../Content/Images/icon-20.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Employee/FinancialStatus.html">الموقف المالى للموظف</a></div>
+                                    </div>
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2 columns"><img src="../../Content/Images/icon-11.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Employee/FinancialTransactionsManagement.html">الاجراءات المالية للموظف</a></div>
+                                    </div>
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2 columns"><img src="../../Content/Images/icon-20.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Employee/UpdateSubscription.html">تحديث قيمة الاشتراك الشهرى للموظفين</a></div>
+                                    </div>
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2 columns"><img src="../../Content/Images/icon-20.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Employee/UpdatePaidSubscriptions.html">تحديث المسدد الشهرى للاشتراك</a></div>
+                                    </div>
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2 columns"><img src="../../Content/Images/icon-20.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Employee/UploadPaidSubscriptions.html">تحميل بيانات المسدد الشهرى للاشتراك</a></div>
+                                    </div>
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2 columns"><img src="../../Content/Images/icon-20.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Employee/UpdatePaidInstallments.html">تحديث المسدد الشهرى لقسط القرض</a></div>
+                                    </div>
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2 columns"><img src="../../Content/Images/icon-20.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Employee/UploadPaidInstallments.html">تحميل بيانات المسدد الشهرى لقسط القرض</a></div>
+                                    </div>
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2 columns"><img src="../../Content/Images/icon-20.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Employee/LoanClosing.html">اغلاق القروض المسددة</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="large-12 columns ">
+                                <div class="title-section ">
+                                    <div class="row">
+                                        <div class="large-1 small-2 columns"><!--<img src="../../Content/Images/financial.svg" alt="" class="" />--><i class="fa fa-archive fa-2x"></i></div>
+                                        <div class="large-11 small-10 columns"><p>اجراءات عامة</p></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="large-12 columns">
+                                <div class="content-section">
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2 columns"><img src="../../Content/Images/icon-20.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Employee/DataManagement.html">إدارة بيانات الموظفين</a></div>
+                                    </div>
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2 columns"><img src="../../Content/Images/icon-20.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/User/RoleManagement.html">إدارة صلاحيات المشتركين</a></div>
+                                    </div>
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2 columns"><img src="../../Content/Images/icon-20.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/User/RoleManagementNonEmployees.html">إدارة صلاحيات غير المشتركين</a></div>
+                                    </div>
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2 columns"><img src="../../Content/Images/icon-20.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Employee/CommitteeManagement.html">إدارة أعضاء اللجنة</a></div>
+                                    </div>
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2 columns"><img src="../../Content/Images/icon-20.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Misc/SystemConfiguration.html">إعدادات النظام</a></div>
+                                    </div>
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2 columns"><img src="../../Content/Images/icon-20.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/Misc/HomePageSettings.html">إعدادات الصفحة الرئيسية</a></div>
+                                    </div>
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-2 columns"><img src="../../Content/Images/icon-20.png" alt="" class="" /></div>
+                                        <div class="large-10 small-10 columns"><a href="../../UI/User/AuditManagement.html">ادارة بيانات الدخول للمراجع</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="large-3 medium-3 columns  hide-for-small ">
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <div class="row notification-panel">
+                                    <div class="large-3 small-3 columns"><i class="fi-list"></i></div>
+                                    <div class="large-9 small-9 columns">القائمة</div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="large-12 columns notification-panel-List">
+                                <div class=" ">
+                                    <div class="row">
+                                        <div class="large-3 small-3 columns"><img src="../../Content/Images/icon-02.png" alt="" /></div>
+                                        <div class="large-9 small-9 columns"><a href="../Misc/CommitteeMembers.html">أعضاء اللجنة</a></div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="large-3 small-3 columns"><img src="../../Content/Images/icon-03.png" alt="" /></div>
+                                        <div class="large-9 small-9 columns"><a id="InfoFile_1" href="#">النظام الاساسي للتكافل</a></div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="large-3 small-3 columns"><img src="../../Content/Images/icon-04.png" alt="" /></div>
+                                        <div class="large-9 small-9 columns"><a id="InfoFile_2" href="#">شروط الاشتراك بالصندوق</a></div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="large-3 small-3 columns"><img src="../../Content/Images/icon-05.png" alt="" /></div>
+                                        <div class="large-9 small-9 columns"><a id="InfoFile_3" href="#">مزايا المشتركين</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <div class="row notification-panel">
+                                    <div class="large-3 small-3 columns"><i class="fi-alert large"></i></div>
+                                    <div class="large-9 small-9 columns">التنبيهات</div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row ">
+                            <div class="large-12 columns notification-panel-List">
+                                <ul class=" vertical">
+                                    <li>عدد الطلبات المقدمة:</li>
+                                    <li id="Requests_Subscription_New">عدد الطلبات المقدمة لطلب اشتراك 1 طلبات</li>
+                                    <li id="Requests_Subscription_Modification">لا توجد طلبات مقدمة لتعديل اشتراك</li>
+                                    <li id="Requests_Subscription_Cancellation">لا توجد طلبات مقدمة لإلغاء اشتراك</li>
+                                    <li id="Requests_Loan_New">لا توجد طلبات مقدمة لطلب قرض</li>
+                                    <li id="Requests_Loan_Modification">لا توجد طلبات مقدمة لتعديل قرض</li>
+                                    <li id="Requests_Loan_Cancellation">لا توجد طلبات مقدمة لإلغاء قرض</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Content of child page -->
+                <!-- Footer -->
+                <footer class="">
+                    <div class="row text-center">
+                        <div class="large-12 columns footer">
+                            <span>جميع الحقوق محفوظة</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- END Footer -->
+
+                <a class="exit-off-canvas"></a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Master Page Scripts -->
+    <script src="../../Scripts/Tools/JQuery/jquery-2.1.3.min.js"></script>
+    <!--    <script src="/Scripts/Tools/JQuery/jquery-ui-1.11.2.js"></script>-->
+    <!--    <script src="/Scripts/Tools/JQuery/jquery.mobile-1.4.5.js"></script>-->
+    <script src="../../Scripts/Tools/Foundation/vendor/modernizr.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/foundation.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/foundation.offcanvas.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/foundation.orbit.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/foundation.tooltip.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/foundation.reveal.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/foundation.topbar.js"></script>
+
+    <script src="../../Scripts/App/Shared/Config.js"></script>
+    <script src="../../Scripts/App/Shared/Utility.js"></script>
+    <script src="../../Scripts/App/Shared/CommonMethods.js"></script>
+
+    <script src="../../Scripts/App/UI/Master/01-UiMapping.js"></script>
+    <script src="../../Scripts/App/UI/Master/02-EventHandlers.js"></script>
+    <script src="../../Scripts/App/UI/Master/03-CustomMethods.js"></script>
+    <script src="../../Scripts/App/UI/Master/Main.js"></script>
+
+    <!-- Child Page Scripts -->
+    <script src="../../Scripts/App/UI/Home/Admin/01-UiMapping.js"></script>
+    <script src="../../Scripts/App/UI/Home/Admin/02-EventHandlers.js"></script>
+    <script src="../../Scripts/App/UI/Home/Admin/03-CustomMethods.js"></script>
+    <script src="../../Scripts/App/UI/Home/Admin/Main.js"></script>
+
+    <!--<script>
+        $(document).ready(function () {
+            $("#OpenNotifi-page").click(function () {
+                $("#Notifi-page").toggle();
+            });
+        });
+    </script>-->
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakafulResponsiveApplication", "TakafulResponsiveApplication\TakafulResponsiveApplication.csproj", "{FC8E146D-7291-4B30-AF3E-143266B7E7DF}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TakafulResponsiveSSDT", "TakafulResponsiveSSDT\TakafulResponsiveSSDT.sqlproj", "{C38F92D2-BAA3-4560-AEB5-69E41BF682BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Releases", "Releases", "{F5364556-FBE7-4CBD-BAD7-BAA5DAC48A5B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v4.9", "v4.9", "{CF0E5550-7AC2-4C84-85C6-AF9EAC46667D}"
+	ProjectSection(SolutionItems) = preProject
+		Releases\v4.9\DDL.sql = Releases\v4.9\DDL.sql
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Staging|Any CPU = Staging|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC8E146D-7291-4B30-AF3E-143266B7E7DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC8E146D-7291-4B30-AF3E-143266B7E7DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC8E146D-7291-4B30-AF3E-143266B7E7DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC8E146D-7291-4B30-AF3E-143266B7E7DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC8E146D-7291-4B30-AF3E-143266B7E7DF}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{FC8E146D-7291-4B30-AF3E-143266B7E7DF}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{C38F92D2-BAA3-4560-AEB5-69E41BF682BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C38F92D2-BAA3-4560-AEB5-69E41BF682BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C38F92D2-BAA3-4560-AEB5-69E41BF682BE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C38F92D2-BAA3-4560-AEB5-69E41BF682BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C38F92D2-BAA3-4560-AEB5-69E41BF682BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C38F92D2-BAA3-4560-AEB5-69E41BF682BE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C38F92D2-BAA3-4560-AEB5-69E41BF682BE}.Staging|Any CPU.ActiveCfg = Debug|Any CPU
+		{C38F92D2-BAA3-4560-AEB5-69E41BF682BE}.Staging|Any CPU.Build.0 = Debug|Any CPU
+		{C38F92D2-BAA3-4560-AEB5-69E41BF682BE}.Staging|Any CPU.Deploy.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CF0E5550-7AC2-4C84-85C6-AF9EAC46667D} = {F5364556-FBE7-4CBD-BAD7-BAA5DAC48A5B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3F254063-E8BE-4B21-9E69-565A96BB6178}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://iacadtfs:8080/tfs/externalprojects
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = TakafulResponsiveApplication\\TakafulResponsiveApplication.csproj
+		SccProjectName1 = TakafulResponsiveApplication
+		SccLocalPath1 = TakafulResponsiveApplication
+		SccProjectUniqueName2 = TakafulResponsiveSSDT\\TakafulResponsiveSSDT.sqlproj
+		SccProjectName2 = TakafulResponsiveSSDT
+		SccLocalPath2 = TakafulResponsiveSSDT
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,335 @@
+﻿<!DOCTYPE html>
+<html class="no-js loading" lang="ar" dir="rtl">
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link href="../../Content/Style/foundation.css" rel="stylesheet" />
+    <link href="../../Content/Style/foundation-datepicker.css" rel="stylesheet" />
+    <link href="../../Content/Style/normalize.css" rel="stylesheet" />
+    <link href="../../Content/Style/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../Content/Style/component.css" rel="stylesheet" />  <!-- InputFile -->
+    <link href="../../Content/Style/loadingScreen.css" rel="stylesheet" />
+    <link href="../../Content/Style/app.css" rel="stylesheet" />
+
+    <title>اعدادات الصفحة الرئيسية</title>
+
+</head>
+
+<body>
+
+    <div class="off-canvas-wrap" data-offcanvas>
+        <div class="inner-wrap">
+            <!-- Canvas -->
+            <nav class="tab-bar hide-for-large">
+
+                <section class="middle tab-bar-section">
+                    <p class="title">دائرة الشؤون الاسلامية والعمل الخيري</p>
+                </section>
+
+                <section class="right-small">
+                    <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
+                </section>
+
+            </nav>
+            <!-- Aside Convas-Off -->
+            <aside class="right-off-canvas-menu">
+                <ul id="ulInternalMenu_Small" class="off-canvas-list"></ul>
+            </aside>
+
+            <!-- MODAL POPUPs (Msg - Confirmation - ...etc) -->
+            <!-- END MODAL -->
+
+            <div class="contain-to-grid">
+                <!-- Top Menu For PC -->
+                <nav class="top-bar hide-for-medium hide-for-small" data-topbar role="navigation">
+                    <ul class="title-area">
+                        <li class="name">
+                            <h1><a href="#"></a></h1>
+                        </li>
+                    </ul>
+
+                    <section class="top-bar-section">
+                        <!-- Right Nav Section -->
+                        <ul class="right">
+                            <li class="active"><a href="../Home/Main.html">الصفحة الرئيسية</a></li>
+                            <li class=""><a href="../Misc/ContactUs.html">اتصل بنا</a></li>
+                        </ul>
+
+                        <!-- Left Nav Section -->
+                        <ul id="ulInternalMenu_Large" class="left"></ul>
+                    </section>
+                </nav>
+                <!-- END Top Menu For PC -->
+                <!-- Content of child page -->
+                <section class="">
+                    <div class="row page-container">
+
+                        <div class="row collapse">
+                            <div class="large-1 small-2 columns"><img src="../../Content/Images/edit_subscription-icon.png" alt="" class="" /></div>
+                            <div class="large-3 small-10 columns">اعدادات الصفحة الرئيسية</div>
+                            <div class="large-8 hide-for-small columns"><div class="lineB"></div></div>
+
+                        </div>
+                        <br />
+                        <div class="large-12 columns">
+
+                            <div class="row">
+                                <div class="content-section">
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-12  columns">النص الأول</div>
+                                        <div class="large-10 small-12 columns"><input id="txtTitle1" type="text" maxlength="100" /></div>
+                                    </div>
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-12  columns">النص الثانى</div>
+                                        <div class="large-10 small-12 columns"><input id="txtTitle2" type="text" maxlength="100" /></div>
+                                    </div>
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-12  columns">النص الثالث</div>
+                                        <div class="large-10 small-12 columns"><input id="txtTitle3" type="text" maxlength="100" /></div>
+                                    </div>
+                                    
+                                    <div class="row ">
+                                        <div class="large-4 columns">&nbsp;</div>
+                                        <div class="large-4 small-12 columns"><div id="btnSave" data-reveal-id="" class="subscribe-btn2">حفظ</div></div>
+                                        <div class="large-4 columns">&nbsp;</div>
+                                    </div>
+                                    
+                                    <div class="lineB"></div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 columns">
+                                            <div class="row">
+                                                <div class="large-12 small-12  columns">ملف الصورة الأولى</div>
+                                            </div>
+                                        </div>
+                                        <div class="large-7 columns">
+                                            <div class="row">
+                                                <div class="large-12 small-12  columns">
+                                                    <!--<input type="file" name="file-2[]" id="file-2" class="inputfile inputfile-2" data-multiple-caption="{count} files selected" multiple />-->
+                                                    <form>
+                                                        <input type="file" id="filUpload1" class="inputfile inputfile-2" />
+                                                        <label for="filUpload1"><i class="fa fa-upload"></i><span> إختر الملف &hellip;</span></label>
+                                                    </form>
+                                                    <progress id="progUpload1" value="0" max="100"></progress>
+                                                    <button id="btnCancelUpload1">إلغاء تحميل الملف</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="large-3 columns">
+                                            <div class="large-12 small-12 columns">
+                                                <div id="btnUpload1" class=" subscribe-btn1">تحميل الملف</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row min-hight">
+                                        <div class="large-2 columns">
+                                            <div class="row">
+                                                <div class="large-12 small-12  columns">ملف الصورة الثانية</div>
+                                            </div>
+                                        </div>
+                                        <div class="large-7 columns">
+                                            <div class="row">
+                                                <div class="large-12 small-12  columns">
+                                                    <!--<input type="file" name="file-2[]" id="file-2" class="inputfile inputfile-2" data-multiple-caption="{count} files selected" multiple />-->
+                                                    <form>
+                                                        <input type="file" id="filUpload2" class="inputfile inputfile-2" />
+                                                        <label for="filUpload2"><i class="fa fa-upload"></i><span> إختر الملف &hellip;</span></label>
+                                                    </form>
+                                                    <progress id="progUpload2" value="0" max="100"></progress>
+                                                    <button id="btnCancelUpload2">إلغاء تحميل الملف</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="large-3 columns">
+                                            <div class="large-12 small-12 columns">
+                                                <div id="btnUpload2" class=" subscribe-btn1">تحميل الملف</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row min-hight">
+                                        <div class="large-2 columns">
+                                            <div class="row">
+                                                <div class="large-12 small-12  columns">ملف الصورة الثالثة</div>
+                                            </div>
+                                        </div>
+                                        <div class="large-7 columns">
+                                            <div class="row">
+                                                <div class="large-12 small-12  columns">
+                                                    <!--<input type="file" name="file-2[]" id="file-2" class="inputfile inputfile-2" data-multiple-caption="{count} files selected" multiple />-->
+                                                    <form>
+                                                        <input type="file" id="filUpload3" class="inputfile inputfile-2" />
+                                                        <label for="filUpload3"><i class="fa fa-upload"></i><span> إختر الملف &hellip;</span></label>
+                                                    </form>
+                                                    <progress id="progUpload3" value="0" max="100"></progress>
+                                                    <button id="btnCancelUpload3">إلغاء تحميل الملف</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="large-3 columns">
+                                            <div class="large-12 small-12 columns">
+                                                <div id="btnUpload3" class=" subscribe-btn1">تحميل الملف</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                    </div>
+                                    
+                                    <div class="lineB"></div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 columns">
+                                            <div class="row">
+                                                <div class="large-12 small-12  columns">ملف النظام الاساسي للتكافل</div>
+                                            </div>
+                                        </div>
+                                        <div class="large-7 columns">
+                                            <div class="row">
+                                                <div class="large-12 small-12  columns">
+                                                    <!--<input type="file" name="file-2[]" id="file-2" class="inputfile inputfile-2" data-multiple-caption="{count} files selected" multiple />-->
+                                                    <form>
+                                                        <input type="file" id="filUpload4" class="inputfile inputfile-2" />
+                                                        <label for="filUpload4"><i class="fa fa-upload"></i><span> إختر الملف &hellip;</span></label>
+                                                    </form>
+                                                    <progress id="progUpload4" value="0" max="100"></progress>
+                                                    <button id="btnCancelUpload4">إلغاء تحميل الملف</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="large-3 columns">
+                                            <div class="large-12 small-12 columns">
+                                                <div id="btnUpload4" class=" subscribe-btn1">تحميل الملف</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 columns">
+                                            <div class="row">
+                                                <div class="large-12 small-12  columns">ملف شروط الاشتراك بالصندوق</div>
+                                            </div>
+                                        </div>
+                                        <div class="large-7 columns">
+                                            <div class="row">
+                                                <div class="large-12 small-12  columns">
+                                                    <!--<input type="file" name="file-2[]" id="file-2" class="inputfile inputfile-2" data-multiple-caption="{count} files selected" multiple />-->
+                                                    <form>
+                                                        <input type="file" id="filUpload5" class="inputfile inputfile-2" />
+                                                        <label for="filUpload5"><i class="fa fa-upload"></i><span> إختر الملف &hellip;</span></label>
+                                                    </form>
+                                                    <progress id="progUpload5" value="0" max="100"></progress>
+                                                    <button id="btnCancelUpload5">إلغاء تحميل الملف</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="large-3 columns">
+                                            <div class="large-12 small-12 columns">
+                                                <div id="btnUpload5" class=" subscribe-btn1">تحميل الملف</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 columns">
+                                            <div class="row">
+                                                <div class="large-12 small-12  columns">ملف مزايا المشتركين</div>
+                                            </div>
+                                        </div>
+                                        <div class="large-7 columns">
+                                            <div class="row">
+                                                <div class="large-12 small-12  columns">
+                                                    <!--<input type="file" name="file-2[]" id="file-2" class="inputfile inputfile-2" data-multiple-caption="{count} files selected" multiple />-->
+                                                    <form>
+                                                        <input type="file" id="filUpload6" class="inputfile inputfile-2" />
+                                                        <label for="filUpload6"><i class="fa fa-upload"></i><span> إختر الملف &hellip;</span></label>
+                                                    </form>
+                                                    <progress id="progUpload6" value="0" max="100"></progress>
+                                                    <button id="btnCancelUpload6">إلغاء تحميل الملف</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="large-3 columns">
+                                            <div class="large-12 small-12 columns">
+                                                <div id="btnUpload6" class=" subscribe-btn1">تحميل الملف</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                    </div>
+
+                                    <!--  -->
+                                    <div class="lineB"></div>
+                                    <div class="row ">
+                                        <div class="large-4 columns">&nbsp;</div>
+                                        <div class="large-4 small-12 columns"><div id="btnHistoryBack" data-reveal-id="" class="subscribe-btn2">رجــــــــــــــــوع</div></div>
+                                        <div class="large-4 columns">&nbsp;</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </section>
+                <!-- END Content of child page -->
+                <!-- Footer -->
+                <footer class="">
+                    <div class="row text-center">
+                        <div class="large-12 columns footer">
+                            <span>جميع الحقوق محفوظة</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- END Footer -->
+
+                <a class="exit-off-canvas"></a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Master Page Scripts -->
+    <!--<script type="text/javascript" src="cordova.js"></script>-->
+    <script src="../../Scripts/Tools/JQuery/jquery-2.1.3.min.js"></script>
+    <script src="../../Scripts/Tools/JQuery/jquery.dataTables.min.js"></script>
+    <script src="../../Scripts/Tools/Foundation/vendor/modernizr.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/foundation.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation-datepicker/foundation-datepicker.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/foundation.offcanvas.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/foundation.orbit.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/foundation.tooltip.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/foundation.reveal.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/foundation.topbar.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/dataTables.foundation.min.js"></script>
+    <!-- InputFile -->
+    <script src="../../Scripts/Tools/inputfile/custom-file-input.js"></script>
+    <script src="../../Scripts/Tools/inputfile/jquery.custom-file-input.js"></script>
+
+    <script src="../../Scripts/App/Shared/Config.js"></script>
+    <script src="../../Scripts/App/Shared/Utility.js"></script>
+    <script src="../../Scripts/App/Shared/CommonMethods.js"></script>
+
+    <script src="../../Scripts/App/UI/Master/01-UiMapping.js"></script>
+    <script src="../../Scripts/App/UI/Master/02-EventHandlers.js"></script>
+    <script src="../../Scripts/App/UI/Master/03-CustomMethods.js"></script>
+    <script src="../../Scripts/App/UI/Master/Main.js"></script>
+
+    <!-- Child Page Scripts -->
+    <script src="../../Scripts/App/UI/Misc/HomePageSettings/01-UiMapping.js"></script>
+    <script src="../../Scripts/App/UI/Misc/HomePageSettings/02-EventHandlers.js"></script>
+    <script src="../../Scripts/App/UI/Misc/HomePageSettings/03-CustomMethods.js"></script>
+    <script src="../../Scripts/App/UI/Misc/HomePageSettings/Main.js"></script>
+    
+
+</body>
+
+</html>

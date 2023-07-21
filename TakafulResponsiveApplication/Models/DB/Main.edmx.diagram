@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e697c2b909f944f28033ffc09c503b1b" Name="Diagram1" ZoomLevel="77">
+        <EntityTypeShape EntityType="TakafulDBModel.ApprovalStatu" Width="2" PointX="5.375" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TakafulDBModel.CommitteeMember" Width="2.25" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TakafulDBModel.CostingBreakdownDetail" Width="1.5" PointX="5.375" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TakafulDBModel.EmailConfiguration" Width="1.875" PointX="8.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TakafulDBModel.FundSubscription" Width="2" PointX="2.5" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TakafulDBModel.LoanAmount" Width="2.125" PointX="3" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TakafulDBModel.Meeting" Width="2" PointX="8.75" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TakafulDBModel.RoleControlPage" Width="1.75" PointX="10.75" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TakafulDBModel.SolidarityFundInformation" Width="2.5" PointX="5.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TakafulDBModel.SubscriptionInformation" Width="2.5" PointX="5.375" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TakafulDBModel.SubscriptionTransaction" Width="2.375" PointX="8" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TakafulDBModel.TransactionCommitteeDecision" Width="2.375" PointX="11.125" PointY="9.875" IsExpanded="true" />
+        <AssociationConnector Association="TakafulDBModel.FK_SubscriptionTransaction_ApprovalStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="TakafulDBModel.FK_CostingBreakdownDetail_FundSubscription" ManuallyRouted="false" />
+        <AssociationConnector Association="TakafulDBModel.FK_CostingBreakdownDetail_LoanAmount" ManuallyRouted="false" />
+        <AssociationConnector Association="TakafulDBModel.FK_SubscriptionTransaction_SubscriptionInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="TakafulDBModel.FK_TransactionCommitteeDecision_SubscriptionTransaction" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TakafulDBModel.ContactUs" Width="1.625" PointX="3" PointY="0.5" />
+        <EntityTypeShape EntityType="TakafulDBModel.SystemExceptionLog" Width="1.875" PointX="0.875" PointY="0.5" />
+        <AssociationConnector Association="TakafulDBModel.FK_SubscriptionTransaction_FundSubscription" />
+        <AssociationConnector Association="TakafulDBModel.FK_SubscriptionTransaction_LoanAmount" />
+        <EntityTypeShape EntityType="TakafulDBModel.Employee" Width="2" PointX="0.5" PointY="11.5" />
+        <AssociationConnector Association="TakafulDBModel.FK_CommitteeMember_Employee" />
+        <AssociationConnector Association="TakafulDBModel.FK_CostingBreakdownDetail_Employee" />
+        <AssociationConnector Association="TakafulDBModel.FK_LoanAmount_Employee" />
+        <AssociationConnector Association="TakafulDBModel.FK_SubscriptionTransaction_Employee" />
+        <AssociationConnector Association="TakafulDBModel.FK_TransactionCommitteeDecision_Employee" />
+        <EntityTypeShape EntityType="TakafulDBModel.EmployeeService" Width="2" PointX="2.875" PointY="13.25" />
+        <AssociationConnector Association="TakafulDBModel.FK_EmployeeService_Employee" />
+        <AssociationConnector Association="TakafulDBModel.FK_FundSubscription_Employee" />
+        <EntityTypeShape EntityType="TakafulDBModel.ExceptionAmount" Width="1.625" PointX="9.125" PointY="23.25" />
+        <EntityTypeShape EntityType="TakafulDBModel.LoanException" Width="1.5" PointX="12.25" PointY="17.75" />
+        <AssociationConnector Association="TakafulDBModel.FK_Exception_Employee" />
+        <AssociationConnector Association="TakafulDBModel.FK_LoanException_Employee" />
+        <AssociationConnector Association="TakafulDBModel.FK_ExceptionAmount_FundSubscription" />
+        <AssociationConnector Association="TakafulDBModel.FK_LoanException_FundSubscription" />
+        <AssociationConnector Association="TakafulDBModel.FK_TransactionCommitteeDecision_Employee1" />
+        <AssociationConnector Association="TakafulDBModel.FK_SubscriptionTransaction_Employee1" />
+        <EntityTypeShape EntityType="TakafulDBModel.HRSheet" Width="3.125" PointX="2.25" PointY="6.875" />
+        <AssociationConnector Association="TakafulDBModel.FK_SubscriptionTransaction_Employee2" />
+        <EntityTypeShape EntityType="TakafulDBModel.MeetingTransaction" Width="2.5" PointX="11" PointY="13.25" />
+        <AssociationConnector Association="TakafulDBModel.FK_MeetingTransaction_Employee" />
+        <AssociationConnector Association="TakafulDBModel.FK_MeetingTransaction_Meeting" />
+        <AssociationConnector Association="TakafulDBModel.FK_MeetingTransaction_SubscriptionTransaction1" />
+        <EntityTypeShape EntityType="TakafulDBModel.HRSheetData" Width="3" PointX="6.375" PointY="3.875" />
+        <AssociationConnector Association="TakafulDBModel.FK_HRSheetData_Employee" />
+        <AssociationConnector Association="TakafulDBModel.FK_HRSheetData_HRSheet" />
+        <AssociationConnector Association="TakafulDBModel.FK_HRSheetData_HRSheet1" />
+        <AssociationConnector Association="TakafulDBModel.FK_HRSheetData_HRSheet2" />
+        <AssociationConnector Association="TakafulDBModel.FK_HRSheetData_HRSheet3" />
+        <AssociationConnector Association="TakafulDBModel.FK_HRSheetData_HRSheet4" />
+        <AssociationConnector Association="TakafulDBModel.FK_HRSheetData_HRSheet5" />
+        <AssociationConnector Association="TakafulDBModel.FK_HRSheetData_HRSheet6" />
+        <AssociationConnector Association="TakafulDBModel.FK_HRSheetData_HRSheet7" />
+        <EntityTypeShape EntityType="TakafulDBModel.HRSheetData_New" Width="2.375" PointX="10.25" PointY="4.25" />
+        <AssociationConnector Association="TakafulDBModel.FK_HRSheetData_New_HRSheet" />
+        <AssociationConnector Association="TakafulDBModel.FK_HRSheetData_New_SubscriptionTransaction" />
+        <EntityTypeShape EntityType="TakafulDBModel.SubscriptionRulesAcceptance" Width="1.5" PointX="13.375" PointY="3.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,51 @@
+﻿@media only screen and (min-width: 120.0625em) {
+    *, html, body {
+        font-size: 100px;
+    }
+
+    img {
+        width: 50%;
+        height: 50%;
+    }
+
+    .Gallery {
+        max-width: 100%;
+        min-width: 100%;
+    }
+
+    .inner-Gallery {
+        max-width: 100%;
+        min-width: 100%;
+    }
+
+    .Group-of-sections {
+        min-height: 50vh;
+        max-height: 100%;
+        max-width: 100%;
+        min-width: 100%;
+    }
+
+    .page-container {
+        min-height: 100%;
+        max-width: 100%;
+        min-width: 100%;
+    }
+
+    #footer {
+        background-color: #9a060f;
+        max-width: 100%;
+        min-width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 768px) and (min-width: 275px) {
+    .off-canvas-wrap {
+        top: 20px;
+    }
+
+    /*.tab-bar {
+        line-height: 5;
+        padding: 33px;
+    }*/
+}

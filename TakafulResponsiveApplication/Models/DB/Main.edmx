@@ -1,0 +1,2338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TakafulDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ApprovalStatus">
+          <Key>
+            <PropertyRef Name="ApS_ID" />
+          </Key>
+          <Property Name="ApS_ID" Type="int" Nullable="false" />
+          <Property Name="ApS_ApprovalStatus" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CommitteeMember">
+          <Key>
+            <PropertyRef Name="Emp_ID" />
+          </Key>
+          <Property Name="Emp_ID" Type="bigint" Nullable="false" />
+          <Property Name="CoM_Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="CoM_ImagePath" Type="nvarchar" MaxLength="500" />
+          <Property Name="CoM_OrganizationalStructure" Type="nvarchar" MaxLength="100" />
+          <Property Name="CoM_OSSortingOrder" Type="int" />
+        </EntityType>
+        <EntityType Name="ContactUs">
+          <Key>
+            <PropertyRef Name="CU_ID" />
+          </Key>
+          <Property Name="CU_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CU_Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="CU_Mobile" Type="nvarchar" MaxLength="20" />
+          <Property Name="CU_Email" Type="nvarchar" MaxLength="300" />
+          <Property Name="CU_Message" Type="nvarchar" MaxLength="3000" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CostingBreakdownDetail">
+          <Key>
+            <PropertyRef Name="Emp_ID" />
+            <PropertyRef Name="CBD_Date" />
+            <PropertyRef Name="CBD_Details" />
+          </Key>
+          <Property Name="Emp_ID" Type="bigint" Nullable="false" />
+          <Property Name="CBD_Date" Type="datetime" Nullable="false" />
+          <Property Name="CBD_Details" Type="int" Nullable="false" />
+          <Property Name="CBD_PaidAmount" Type="int" />
+          <Property Name="LAm_ID" Type="int" />
+          <Property Name="FSu_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="EmailConfiguration">
+          <Key>
+            <PropertyRef Name="SMTPServer_ID" />
+          </Key>
+          <Property Name="SMTPServer_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SMTPHost" Type="varchar" MaxLength="200" />
+          <Property Name="SMTPPort" Type="int" />
+          <Property Name="SignInName" Type="varchar" MaxLength="200" />
+          <Property Name="Password" Type="varchar" MaxLength="20" />
+          <Property Name="MailFrom" Type="nvarchar" MaxLength="300" />
+          <Property Name="DisplayName" Type="nvarchar" MaxLength="300" />
+          <Property Name="SSLEnabled" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Emp_ID" />
+          </Key>
+          <Property Name="Emp_ID" Type="bigint" Nullable="false" />
+          <Property Name="Emp_Password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Emp_Role" Type="int" />
+          <Property Name="Emp_IsAdmin" Type="bit" />
+          <Property Name="Emp_IsHelpDesk" Type="bit" />
+          <Property Name="Emp_AccountStatus" Type="bit" />
+          <Property Name="Emp_FullName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Emp_Position" Type="nvarchar" MaxLength="100" />
+          <Property Name="Emp_Department" Type="nvarchar" MaxLength="300" />
+          <Property Name="Emp_Nationality" Type="nvarchar" MaxLength="100" />
+          <Property Name="Emp_JoiningDate" Type="date" />
+          <Property Name="Emp_Gender" Type="int" />
+          <Property Name="Emp_Email" Type="varchar" MaxLength="100" />
+          <Property Name="Emp_MobileNumber" Type="varchar" MaxLength="20" />
+          <Property Name="Emp_DateOfBirth" Type="date" />
+          <Property Name="Emp_JobDegree" Type="nvarchar" MaxLength="100" />
+          <Property Name="Emp_IsLocalCitizen" Type="bit" />
+          <Property Name="Emp_Password_Enc" Type="nvarchar" MaxLength="100" />
+          <Property Name="SecurityStamp" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EmployeeService">
+          <Key>
+            <PropertyRef Name="Emp_ID" />
+            <PropertyRef Name="EmS_OnDate" />
+          </Key>
+          <Property Name="Emp_ID" Type="bigint" Nullable="false" />
+          <Property Name="EmS_OnDate" Type="datetime" Nullable="false" />
+          <Property Name="EmS_TotalSalary" Type="int" />
+          <Property Name="EmS_EndOfServiceBenefit" Type="int" />
+        </EntityType>
+        <EntityType Name="ExceptionAmount">
+          <Key>
+            <PropertyRef Name="Emp_ID" />
+            <PropertyRef Name="Exc_PrimaryBalancer" />
+          </Key>
+          <Property Name="Emp_ID" Type="bigint" Nullable="false" />
+          <Property Name="Exc_PrimaryBalancer" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FSu_ID" Type="int" />
+          <Property Name="Exc_Amount" Type="int" />
+          <Property Name="Exc_IsUsed" Type="bit" />
+          <Property Name="Exc_Notes" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="FundSubscription">
+          <Key>
+            <PropertyRef Name="FSu_ID" />
+          </Key>
+          <Property Name="FSu_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Emp_ID" Type="bigint" Nullable="false" />
+          <Property Name="FSu_Date" Type="date" Nullable="false" />
+          <Property Name="FSu_Status" Type="int" />
+        </EntityType>
+        <EntityType Name="HRSheet">
+          <Key>
+            <PropertyRef Name="HRS_ID" />
+          </Key>
+          <Property Name="HRS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HRS_Serial" Type="int" Nullable="false" />
+          <Property Name="HRS_Date" Type="date" Nullable="false" />
+          <Property Name="HRS_Notes" Type="nvarchar" MaxLength="3000" />
+          <Property Name="HRS_IsClosedNormalSheet" Type="bit" />
+          <Property Name="HRS_IsClosedNewSubsSheet" Type="bit" />
+          <Property Name="HRS_IsClosedCancelledSubsSheet" Type="bit" />
+          <Property Name="HRS_IsClosedModificationSheet" Type="bit" />
+          <Property Name="HRS_IsClosedNewLoansSheet" Type="bit" />
+          <Property Name="HRS_IsClosedCancelledLoansSheet" Type="bit" />
+          <Property Name="HRS_IsSubsequentSheet" Type="bit" Nullable="false" />
+          <Property Name="HRS_IsClosedInstallmentModificationSheet" Type="bit" />
+        </EntityType>
+        <EntityType Name="HRSheetData">
+          <Key>
+            <PropertyRef Name="HRSD_ID" />
+          </Key>
+          <Property Name="HRSD_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HRS_ID" Type="int" Nullable="false" />
+          <Property Name="Emp_ID" Type="bigint" Nullable="false" />
+          <Property Name="HRSD_FullName" Type="nvarchar" MaxLength="100" />
+          <Property Name="HRSD_Department" Type="nvarchar" MaxLength="300" />
+          <Property Name="HRSD_Position" Type="nvarchar" MaxLength="100" />
+          <Property Name="HRSD_JoiningDate" Type="date" />
+          <Property Name="HRSD_Salary" Type="int" />
+          <Property Name="HRSD_SubsAmount" Type="int" />
+          <Property Name="HRSD_FundAmount" Type="int" />
+          <Property Name="HRSD_LoanAmount" Type="int" />
+          <Property Name="HRSD_LoanInstallment" Type="int" />
+          <Property Name="HRSD_LoanPaidAmount" Type="int" />
+          <Property Name="HRSD_LoanRemainingAmount" Type="int" />
+          <Property Name="HRSD_IsNewSubscription" Type="bit" Nullable="false" />
+          <Property Name="HRSD_IsModifiedSubscription" Type="bit" Nullable="false" />
+          <Property Name="HRSD_IsCancelledSubscription" Type="bit" Nullable="false" />
+          <Property Name="HRSD_IsNewLoan" Type="bit" Nullable="false" />
+          <Property Name="HRSD_IsModifiedLoan" Type="bit" Nullable="false" />
+          <Property Name="HRSD_IsCancelledLoan" Type="bit" Nullable="false" />
+          <Property Name="HRSD_IsIncludedInNormalSheet" Type="bit" Nullable="false" />
+          <Property Name="HRSD_IsIncludedInNewSubsSheet" Type="bit" Nullable="false" />
+          <Property Name="HRSD_IsIncludedInCancelledSubsSheet" Type="bit" Nullable="false" />
+          <Property Name="HRSD_IsIncludedInModificationSheet" Type="bit" Nullable="false" />
+          <Property Name="HRSD_IsIncludedInNewLoansSheet" Type="bit" Nullable="false" />
+          <Property Name="HRSD_IsIncludedInCancelledLoansSheet" Type="bit" Nullable="false" />
+          <Property Name="HRSD_NewSheetID_NS" Type="int" />
+          <Property Name="HRSD_NewSheetID_MS" Type="int" />
+          <Property Name="HRSD_NewSheetID_CS" Type="int" />
+          <Property Name="HRSD_NewSheetID_NL" Type="int" />
+          <Property Name="HRSD_NewSheetID_ML" Type="int" />
+          <Property Name="HRSD_NewSheetID_CL" Type="int" />
+          <Property Name="HRSD_NewSheetID_Normal" Type="int" />
+        </EntityType>
+        <EntityType Name="HRSheetData_New">
+          <Key>
+            <PropertyRef Name="HRSD_ID" />
+          </Key>
+          <Property Name="HRSD_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HRS_ID" Type="int" Nullable="false" />
+          <Property Name="Emp_ID" Type="bigint" Nullable="false" />
+          <Property Name="SuT_Year" Type="int" Nullable="false" />
+          <Property Name="SuT_Serial" Type="int" Nullable="false" />
+          <Property Name="SuT_SubscriptionType" Type="int" Nullable="false" />
+          <Property Name="HRSD_IsIncluded" Type="bit" Nullable="false" />
+          <Property Name="HRSD_TransactionApprovalDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LoanAmount">
+          <Key>
+            <PropertyRef Name="LAm_ID" />
+          </Key>
+          <Property Name="LAm_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Emp_ID" Type="bigint" Nullable="false" />
+          <Property Name="LAm_Date" Type="date" Nullable="false" />
+          <Property Name="LAm_LoanAmount" Type="int" />
+          <Property Name="LAm_Status" Type="int" />
+          <Property Name="LAm_SuggestedLoanAmount" Type="int" />
+          <Property Name="LAm_OriginalLoanAmount" Type="int" />
+        </EntityType>
+        <EntityType Name="LoanException">
+          <Key>
+            <PropertyRef Name="Emp_ID" />
+            <PropertyRef Name="FSu_ID" />
+          </Key>
+          <Property Name="Emp_ID" Type="bigint" Nullable="false" />
+          <Property Name="FSu_ID" Type="int" Nullable="false" />
+          <Property Name="LEx_MaxAmount" Type="int" />
+          <Property Name="LEx_MaxAmount_IsUsed" Type="bit" />
+          <Property Name="LEx_LessSubscriptionPeriodForLoan" Type="bit" />
+          <Property Name="LEx_Notes" Type="nvarchar" MaxLength="1000" />
+          <Property Name="LEx_CanRequestLoanWithCurrentActiveLoan" Type="bit" />
+        </EntityType>
+        <EntityType Name="Meeting">
+          <Key>
+            <PropertyRef Name="Mee_ID" />
+          </Key>
+          <Property Name="Mee_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Mee_Serial" Type="int" Nullable="false" />
+          <Property Name="Mee_Year" Type="int" Nullable="false" />
+          <Property Name="Mee_Date" Type="date" />
+          <Property Name="Mee_Notes" Type="nvarchar" MaxLength="3000" />
+          <Property Name="Mee_IsActive" Type="bit" />
+          <Property Name="Mee_IsOpenForEvaluation" Type="bit" />
+          <Property Name="Mee_IsNotificationSent" Type="bit" />
+        </EntityType>
+        <EntityType Name="MeetingTransaction">
+          <Key>
+            <PropertyRef Name="Mee_ID" />
+            <PropertyRef Name="Emp_ID" />
+            <PropertyRef Name="SuT_Year" />
+            <PropertyRef Name="SuT_Serial" />
+            <PropertyRef Name="SuT_SubscriptionType" />
+          </Key>
+          <Property Name="Mee_ID" Type="int" Nullable="false" />
+          <Property Name="Emp_ID" Type="bigint" Nullable="false" />
+          <Property Name="SuT_Year" Type="int" Nullable="false" />
+          <Property Name="SuT_Serial" Type="int" Nullable="false" />
+          <Property Name="SuT_SubscriptionType" Type="int" Nullable="false" />
+          <Property Name="MeT_Date" Type="date" />
+          <Property Name="MeT_ApprovedAmount" Type="int" />
+          <Property Name="MeT_ApprovedAmountDate" Type="datetime" />
+          <Property Name="MeT_ApprovedAmountAdminID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="RoleControlPage">
+          <Key>
+            <PropertyRef Name="Emp_Role" />
+          </Key>
+          <Property Name="Emp_Role" Type="int" Nullable="false" />
+          <Property Name="RCP_PageURL" Type="nvarchar" MaxLength="100" />
+          <Property Name="RCP_LinkName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="SolidarityFundInformation">
+          <Key>
+            <PropertyRef Name="SFI_ID" />
+          </Key>
+          <Property Name="SFI_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SFI_GeneralEmail" Type="nvarchar" MaxLength="256" />
+          <Property Name="SFI_SFInfoFilePath1" Type="nvarchar" MaxLength="100" />
+          <Property Name="SFI_HomePageBannerPhrase_1" Type="nvarchar" MaxLength="100" />
+          <Property Name="SFI_HomePageBannerFilePath_1" Type="nvarchar" MaxLength="100" />
+          <Property Name="SFI_HomePageBannerPhrase_2" Type="nvarchar" MaxLength="100" />
+          <Property Name="SFI_HomePageBannerFilePath_2" Type="nvarchar" MaxLength="100" />
+          <Property Name="SFI_HomePageBannerPhrase_3" Type="nvarchar" MaxLength="100" />
+          <Property Name="SFI_HomePageBannerFilePath_3" Type="nvarchar" MaxLength="100" />
+          <Property Name="SFI_SFInfoFilePath2" Type="nvarchar" MaxLength="100" />
+          <Property Name="SFI_SFInfoFilePath3" Type="nvarchar" MaxLength="100" />
+          <Property Name="SFI_SFInfoFilePath4" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="SubscriptionInformation">
+          <Key>
+            <PropertyRef Name="SuI_ID" />
+          </Key>
+          <Property Name="SuI_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SuI_IsActive" Type="bit" />
+          <Property Name="SuI_MinimumSubscription" Type="int" />
+          <Property Name="SuI_MinimumAmount" Type="int" />
+          <Property Name="SuI_MaximumAmount" Type="int" />
+          <Property Name="SuI_NumberOfInstallments" Type="int" />
+          <Property Name="SuI_LessSubscriptionPeriodForLoan" Type="int" />
+          <Property Name="SuI_SubscriptionAmount" Type="int" />
+          <Property Name="SuI_LoanFirstAmount" Type="int" />
+          <Property Name="SuI_LoanMaximumAmount" Type="int" />
+          <Property Name="SuI_PeriodBetweenLoans" Type="int" />
+          <Property Name="SuI_MaxDeductionPercentage" Type="int" />
+          <Property Name="SuI_LessPeriodForReSbubscrition" Type="int" />
+          <Property Name="SuI_LessPeriodForLoan4ReSubscriber" Type="int" />
+          <Property Name="SuI_LessPeriodForLoanNewEmployee" Type="int" />
+        </EntityType>
+        <EntityType Name="SubscriptionRulesAcceptance">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Emp_ID" Type="int" Nullable="false" />
+          <Property Name="AcceptanceDate" Type="date" />
+          <Property Name="Acceptance" Type="bit" />
+          <Property Name="Source" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SubscriptionTransaction">
+          <Key>
+            <PropertyRef Name="Emp_ID" />
+            <PropertyRef Name="SuT_Year" />
+            <PropertyRef Name="SuT_Serial" />
+            <PropertyRef Name="SuT_SubscriptionType" />
+          </Key>
+          <Property Name="Emp_ID" Type="bigint" Nullable="false" />
+          <Property Name="SuT_Year" Type="int" Nullable="false" />
+          <Property Name="SuT_Serial" Type="int" Nullable="false" />
+          <Property Name="SuT_SubscriptionType" Type="int" Nullable="false" />
+          <Property Name="SuT_Date" Type="date" />
+          <Property Name="SuT_Amount" Type="int" />
+          <Property Name="SuT_Notes" Type="nvarchar" MaxLength="1000" />
+          <Property Name="SuT_ApprovalStatus" Type="int" />
+          <Property Name="SuT_ApprovalDate" Type="date" />
+          <Property Name="SuT_ApprovalNotes" Type="nvarchar" MaxLength="1000" />
+          <Property Name="SuI_ID" Type="int" />
+          <Property Name="SortIndex" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SuT_ServiceEmployeeID" Type="bigint" />
+          <Property Name="SuT_NotesForCommittee" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FSu_ID" Type="int" />
+          <Property Name="LAm_ID" Type="int" />
+          <Property Name="SuT_AdminID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="SystemExceptionLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExceptionData" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TransactionCommitteeDecision">
+          <Key>
+            <PropertyRef Name="Emp_ID" />
+            <PropertyRef Name="SuT_Year" />
+            <PropertyRef Name="SuT_Serial" />
+            <PropertyRef Name="SuT_SubscriptionType" />
+            <PropertyRef Name="TCD_CommitteeMemberID" />
+          </Key>
+          <Property Name="Emp_ID" Type="bigint" Nullable="false" />
+          <Property Name="SuT_Year" Type="int" Nullable="false" />
+          <Property Name="SuT_Serial" Type="int" Nullable="false" />
+          <Property Name="SuT_SubscriptionType" Type="int" Nullable="false" />
+          <Property Name="TCD_CommitteeMemberID" Type="bigint" Nullable="false" />
+          <Property Name="TCD_CommitteeApprovalStatus" Type="int" Nullable="false" />
+          <Property Name="TCD_Date" Type="date" />
+          <Property Name="TCD_AdminID" Type="bigint" />
+        </EntityType>
+        <Association Name="FK_CommitteeMember_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="CommitteeMember" Type="Self.CommitteeMember" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="CommitteeMember">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CostingBreakdownDetail_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="CostingBreakdownDetail" Type="Self.CostingBreakdownDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="CostingBreakdownDetail">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CostingBreakdownDetail_FundSubscription">
+          <End Role="FundSubscription" Type="Self.FundSubscription" Multiplicity="0..1" />
+          <End Role="CostingBreakdownDetail" Type="Self.CostingBreakdownDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FundSubscription">
+              <PropertyRef Name="FSu_ID" />
+            </Principal>
+            <Dependent Role="CostingBreakdownDetail">
+              <PropertyRef Name="FSu_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CostingBreakdownDetail_LoanAmount">
+          <End Role="LoanAmount" Type="Self.LoanAmount" Multiplicity="0..1" />
+          <End Role="CostingBreakdownDetail" Type="Self.CostingBreakdownDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanAmount">
+              <PropertyRef Name="LAm_ID" />
+            </Principal>
+            <Dependent Role="CostingBreakdownDetail">
+              <PropertyRef Name="LAm_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeService_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="EmployeeService" Type="Self.EmployeeService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="EmployeeService">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exception_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="ExceptionAmount" Type="Self.ExceptionAmount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="ExceptionAmount">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExceptionAmount_FundSubscription">
+          <End Role="FundSubscription" Type="Self.FundSubscription" Multiplicity="0..1" />
+          <End Role="ExceptionAmount" Type="Self.ExceptionAmount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FundSubscription">
+              <PropertyRef Name="FSu_ID" />
+            </Principal>
+            <Dependent Role="ExceptionAmount">
+              <PropertyRef Name="FSu_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FundSubscription_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="FundSubscription" Type="Self.FundSubscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="FundSubscription">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HRSheetData_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="HRSheetData" Type="Self.HRSheetData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="HRSheetData">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HRSheetData_HRSheet">
+          <End Role="HRSheet" Type="Self.HRSheet" Multiplicity="1" />
+          <End Role="HRSheetData" Type="Self.HRSheetData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HRSheet">
+              <PropertyRef Name="HRS_ID" />
+            </Principal>
+            <Dependent Role="HRSheetData">
+              <PropertyRef Name="HRS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HRSheetData_HRSheet1">
+          <End Role="HRSheet" Type="Self.HRSheet" Multiplicity="0..1" />
+          <End Role="HRSheetData" Type="Self.HRSheetData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HRSheet">
+              <PropertyRef Name="HRS_ID" />
+            </Principal>
+            <Dependent Role="HRSheetData">
+              <PropertyRef Name="HRSD_NewSheetID_NS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HRSheetData_HRSheet2">
+          <End Role="HRSheet" Type="Self.HRSheet" Multiplicity="0..1" />
+          <End Role="HRSheetData" Type="Self.HRSheetData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HRSheet">
+              <PropertyRef Name="HRS_ID" />
+            </Principal>
+            <Dependent Role="HRSheetData">
+              <PropertyRef Name="HRSD_NewSheetID_MS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HRSheetData_HRSheet3">
+          <End Role="HRSheet" Type="Self.HRSheet" Multiplicity="0..1" />
+          <End Role="HRSheetData" Type="Self.HRSheetData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HRSheet">
+              <PropertyRef Name="HRS_ID" />
+            </Principal>
+            <Dependent Role="HRSheetData">
+              <PropertyRef Name="HRSD_NewSheetID_CS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HRSheetData_HRSheet4">
+          <End Role="HRSheet" Type="Self.HRSheet" Multiplicity="0..1" />
+          <End Role="HRSheetData" Type="Self.HRSheetData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HRSheet">
+              <PropertyRef Name="HRS_ID" />
+            </Principal>
+            <Dependent Role="HRSheetData">
+              <PropertyRef Name="HRSD_NewSheetID_NL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HRSheetData_HRSheet5">
+          <End Role="HRSheet" Type="Self.HRSheet" Multiplicity="0..1" />
+          <End Role="HRSheetData" Type="Self.HRSheetData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HRSheet">
+              <PropertyRef Name="HRS_ID" />
+            </Principal>
+            <Dependent Role="HRSheetData">
+              <PropertyRef Name="HRSD_NewSheetID_ML" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HRSheetData_HRSheet6">
+          <End Role="HRSheet" Type="Self.HRSheet" Multiplicity="0..1" />
+          <End Role="HRSheetData" Type="Self.HRSheetData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HRSheet">
+              <PropertyRef Name="HRS_ID" />
+            </Principal>
+            <Dependent Role="HRSheetData">
+              <PropertyRef Name="HRSD_NewSheetID_CL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HRSheetData_HRSheet7">
+          <End Role="HRSheet" Type="Self.HRSheet" Multiplicity="0..1" />
+          <End Role="HRSheetData" Type="Self.HRSheetData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HRSheet">
+              <PropertyRef Name="HRS_ID" />
+            </Principal>
+            <Dependent Role="HRSheetData">
+              <PropertyRef Name="HRSD_NewSheetID_Normal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HRSheetData_New_HRSheet">
+          <End Role="HRSheet" Type="Self.HRSheet" Multiplicity="1" />
+          <End Role="HRSheetData_New" Type="Self.HRSheetData_New" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HRSheet">
+              <PropertyRef Name="HRS_ID" />
+            </Principal>
+            <Dependent Role="HRSheetData_New">
+              <PropertyRef Name="HRS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HRSheetData_New_SubscriptionTransaction">
+          <End Role="SubscriptionTransaction" Type="Self.SubscriptionTransaction" Multiplicity="1" />
+          <End Role="HRSheetData_New" Type="Self.HRSheetData_New" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubscriptionTransaction">
+              <PropertyRef Name="Emp_ID" />
+              <PropertyRef Name="SuT_Year" />
+              <PropertyRef Name="SuT_Serial" />
+              <PropertyRef Name="SuT_SubscriptionType" />
+            </Principal>
+            <Dependent Role="HRSheetData_New">
+              <PropertyRef Name="Emp_ID" />
+              <PropertyRef Name="SuT_Year" />
+              <PropertyRef Name="SuT_Serial" />
+              <PropertyRef Name="SuT_SubscriptionType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanAmount_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="LoanAmount" Type="Self.LoanAmount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="LoanAmount">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanException_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="LoanException" Type="Self.LoanException" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="LoanException">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanException_FundSubscription">
+          <End Role="FundSubscription" Type="Self.FundSubscription" Multiplicity="1" />
+          <End Role="LoanException" Type="Self.LoanException" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FundSubscription">
+              <PropertyRef Name="FSu_ID" />
+            </Principal>
+            <Dependent Role="LoanException">
+              <PropertyRef Name="FSu_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingTransaction_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="MeetingTransaction" Type="Self.MeetingTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="MeetingTransaction">
+              <PropertyRef Name="MeT_ApprovedAmountAdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingTransaction_Meeting">
+          <End Role="Meeting" Type="Self.Meeting" Multiplicity="1" />
+          <End Role="MeetingTransaction" Type="Self.MeetingTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meeting">
+              <PropertyRef Name="Mee_ID" />
+            </Principal>
+            <Dependent Role="MeetingTransaction">
+              <PropertyRef Name="Mee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingTransaction_SubscriptionTransaction1">
+          <End Role="SubscriptionTransaction" Type="Self.SubscriptionTransaction" Multiplicity="1" />
+          <End Role="MeetingTransaction" Type="Self.MeetingTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubscriptionTransaction">
+              <PropertyRef Name="Emp_ID" />
+              <PropertyRef Name="SuT_Year" />
+              <PropertyRef Name="SuT_Serial" />
+              <PropertyRef Name="SuT_SubscriptionType" />
+            </Principal>
+            <Dependent Role="MeetingTransaction">
+              <PropertyRef Name="Emp_ID" />
+              <PropertyRef Name="SuT_Year" />
+              <PropertyRef Name="SuT_Serial" />
+              <PropertyRef Name="SuT_SubscriptionType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscriptionTransaction_ApprovalStatus">
+          <End Role="ApprovalStatus" Type="Self.ApprovalStatus" Multiplicity="0..1" />
+          <End Role="SubscriptionTransaction" Type="Self.SubscriptionTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ApprovalStatus">
+              <PropertyRef Name="ApS_ID" />
+            </Principal>
+            <Dependent Role="SubscriptionTransaction">
+              <PropertyRef Name="SuT_ApprovalStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscriptionTransaction_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="SubscriptionTransaction" Type="Self.SubscriptionTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="SubscriptionTransaction">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscriptionTransaction_Employee1">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="SubscriptionTransaction" Type="Self.SubscriptionTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="SubscriptionTransaction">
+              <PropertyRef Name="SuT_ServiceEmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscriptionTransaction_Employee2">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="SubscriptionTransaction" Type="Self.SubscriptionTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="SubscriptionTransaction">
+              <PropertyRef Name="SuT_AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscriptionTransaction_FundSubscription">
+          <End Role="FundSubscription" Type="Self.FundSubscription" Multiplicity="0..1" />
+          <End Role="SubscriptionTransaction" Type="Self.SubscriptionTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FundSubscription">
+              <PropertyRef Name="FSu_ID" />
+            </Principal>
+            <Dependent Role="SubscriptionTransaction">
+              <PropertyRef Name="FSu_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscriptionTransaction_LoanAmount">
+          <End Role="LoanAmount" Type="Self.LoanAmount" Multiplicity="0..1" />
+          <End Role="SubscriptionTransaction" Type="Self.SubscriptionTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanAmount">
+              <PropertyRef Name="LAm_ID" />
+            </Principal>
+            <Dependent Role="SubscriptionTransaction">
+              <PropertyRef Name="LAm_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscriptionTransaction_SubscriptionInformation">
+          <End Role="SubscriptionInformation" Type="Self.SubscriptionInformation" Multiplicity="0..1" />
+          <End Role="SubscriptionTransaction" Type="Self.SubscriptionTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubscriptionInformation">
+              <PropertyRef Name="SuI_ID" />
+            </Principal>
+            <Dependent Role="SubscriptionTransaction">
+              <PropertyRef Name="SuI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransactionCommitteeDecision_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="TransactionCommitteeDecision" Type="Self.TransactionCommitteeDecision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="TransactionCommitteeDecision">
+              <PropertyRef Name="TCD_CommitteeMemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransactionCommitteeDecision_Employee1">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="TransactionCommitteeDecision" Type="Self.TransactionCommitteeDecision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="TransactionCommitteeDecision">
+              <PropertyRef Name="TCD_AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransactionCommitteeDecision_SubscriptionTransaction">
+          <End Role="SubscriptionTransaction" Type="Self.SubscriptionTransaction" Multiplicity="1" />
+          <End Role="TransactionCommitteeDecision" Type="Self.TransactionCommitteeDecision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubscriptionTransaction">
+              <PropertyRef Name="Emp_ID" />
+              <PropertyRef Name="SuT_Year" />
+              <PropertyRef Name="SuT_Serial" />
+              <PropertyRef Name="SuT_SubscriptionType" />
+            </Principal>
+            <Dependent Role="TransactionCommitteeDecision">
+              <PropertyRef Name="Emp_ID" />
+              <PropertyRef Name="SuT_Year" />
+              <PropertyRef Name="SuT_Serial" />
+              <PropertyRef Name="SuT_SubscriptionType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TakafulDBModelStoreContainer">
+          <EntitySet Name="ApprovalStatus" EntityType="Self.ApprovalStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CommitteeMember" EntityType="Self.CommitteeMember" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactUs" EntityType="Self.ContactUs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CostingBreakdownDetail" EntityType="Self.CostingBreakdownDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmailConfiguration" EntityType="Self.EmailConfiguration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeService" EntityType="Self.EmployeeService" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExceptionAmount" EntityType="Self.ExceptionAmount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FundSubscription" EntityType="Self.FundSubscription" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HRSheet" EntityType="Self.HRSheet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HRSheetData" EntityType="Self.HRSheetData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HRSheetData_New" EntityType="Self.HRSheetData_New" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoanAmount" EntityType="Self.LoanAmount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoanException" EntityType="Self.LoanException" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Meeting" EntityType="Self.Meeting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MeetingTransaction" EntityType="Self.MeetingTransaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleControlPage" EntityType="Self.RoleControlPage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SolidarityFundInformation" EntityType="Self.SolidarityFundInformation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubscriptionInformation" EntityType="Self.SubscriptionInformation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubscriptionRulesAcceptance" EntityType="Self.SubscriptionRulesAcceptance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubscriptionTransaction" EntityType="Self.SubscriptionTransaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SystemExceptionLog" EntityType="Self.SystemExceptionLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransactionCommitteeDecision" EntityType="Self.TransactionCommitteeDecision" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CommitteeMember_Employee" Association="Self.FK_CommitteeMember_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="CommitteeMember" EntitySet="CommitteeMember" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CostingBreakdownDetail_Employee" Association="Self.FK_CostingBreakdownDetail_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="CostingBreakdownDetail" EntitySet="CostingBreakdownDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CostingBreakdownDetail_FundSubscription" Association="Self.FK_CostingBreakdownDetail_FundSubscription">
+            <End Role="FundSubscription" EntitySet="FundSubscription" />
+            <End Role="CostingBreakdownDetail" EntitySet="CostingBreakdownDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CostingBreakdownDetail_LoanAmount" Association="Self.FK_CostingBreakdownDetail_LoanAmount">
+            <End Role="LoanAmount" EntitySet="LoanAmount" />
+            <End Role="CostingBreakdownDetail" EntitySet="CostingBreakdownDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeService_Employee" Association="Self.FK_EmployeeService_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmployeeService" EntitySet="EmployeeService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exception_Employee" Association="Self.FK_Exception_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="ExceptionAmount" EntitySet="ExceptionAmount" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExceptionAmount_FundSubscription" Association="Self.FK_ExceptionAmount_FundSubscription">
+            <End Role="FundSubscription" EntitySet="FundSubscription" />
+            <End Role="ExceptionAmount" EntitySet="ExceptionAmount" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FundSubscription_Employee" Association="Self.FK_FundSubscription_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="FundSubscription" EntitySet="FundSubscription" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HRSheetData_Employee" Association="Self.FK_HRSheetData_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="HRSheetData" EntitySet="HRSheetData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HRSheetData_HRSheet" Association="Self.FK_HRSheetData_HRSheet">
+            <End Role="HRSheet" EntitySet="HRSheet" />
+            <End Role="HRSheetData" EntitySet="HRSheetData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HRSheetData_HRSheet1" Association="Self.FK_HRSheetData_HRSheet1">
+            <End Role="HRSheet" EntitySet="HRSheet" />
+            <End Role="HRSheetData" EntitySet="HRSheetData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HRSheetData_HRSheet2" Association="Self.FK_HRSheetData_HRSheet2">
+            <End Role="HRSheet" EntitySet="HRSheet" />
+            <End Role="HRSheetData" EntitySet="HRSheetData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HRSheetData_HRSheet3" Association="Self.FK_HRSheetData_HRSheet3">
+            <End Role="HRSheet" EntitySet="HRSheet" />
+            <End Role="HRSheetData" EntitySet="HRSheetData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HRSheetData_HRSheet4" Association="Self.FK_HRSheetData_HRSheet4">
+            <End Role="HRSheet" EntitySet="HRSheet" />
+            <End Role="HRSheetData" EntitySet="HRSheetData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HRSheetData_HRSheet5" Association="Self.FK_HRSheetData_HRSheet5">
+            <End Role="HRSheet" EntitySet="HRSheet" />
+            <End Role="HRSheetData" EntitySet="HRSheetData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HRSheetData_HRSheet6" Association="Self.FK_HRSheetData_HRSheet6">
+            <End Role="HRSheet" EntitySet="HRSheet" />
+            <End Role="HRSheetData" EntitySet="HRSheetData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HRSheetData_HRSheet7" Association="Self.FK_HRSheetData_HRSheet7">
+            <End Role="HRSheet" EntitySet="HRSheet" />
+            <End Role="HRSheetData" EntitySet="HRSheetData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HRSheetData_New_HRSheet" Association="Self.FK_HRSheetData_New_HRSheet">
+            <End Role="HRSheet" EntitySet="HRSheet" />
+            <End Role="HRSheetData_New" EntitySet="HRSheetData_New" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HRSheetData_New_SubscriptionTransaction" Association="Self.FK_HRSheetData_New_SubscriptionTransaction">
+            <End Role="SubscriptionTransaction" EntitySet="SubscriptionTransaction" />
+            <End Role="HRSheetData_New" EntitySet="HRSheetData_New" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanAmount_Employee" Association="Self.FK_LoanAmount_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="LoanAmount" EntitySet="LoanAmount" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanException_Employee" Association="Self.FK_LoanException_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="LoanException" EntitySet="LoanException" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanException_FundSubscription" Association="Self.FK_LoanException_FundSubscription">
+            <End Role="FundSubscription" EntitySet="FundSubscription" />
+            <End Role="LoanException" EntitySet="LoanException" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingTransaction_Employee" Association="Self.FK_MeetingTransaction_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="MeetingTransaction" EntitySet="MeetingTransaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingTransaction_Meeting" Association="Self.FK_MeetingTransaction_Meeting">
+            <End Role="Meeting" EntitySet="Meeting" />
+            <End Role="MeetingTransaction" EntitySet="MeetingTransaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingTransaction_SubscriptionTransaction1" Association="Self.FK_MeetingTransaction_SubscriptionTransaction1">
+            <End Role="SubscriptionTransaction" EntitySet="SubscriptionTransaction" />
+            <End Role="MeetingTransaction" EntitySet="MeetingTransaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscriptionTransaction_ApprovalStatus" Association="Self.FK_SubscriptionTransaction_ApprovalStatus">
+            <End Role="ApprovalStatus" EntitySet="ApprovalStatus" />
+            <End Role="SubscriptionTransaction" EntitySet="SubscriptionTransaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscriptionTransaction_Employee" Association="Self.FK_SubscriptionTransaction_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="SubscriptionTransaction" EntitySet="SubscriptionTransaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscriptionTransaction_Employee1" Association="Self.FK_SubscriptionTransaction_Employee1">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="SubscriptionTransaction" EntitySet="SubscriptionTransaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscriptionTransaction_Employee2" Association="Self.FK_SubscriptionTransaction_Employee2">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="SubscriptionTransaction" EntitySet="SubscriptionTransaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscriptionTransaction_FundSubscription" Association="Self.FK_SubscriptionTransaction_FundSubscription">
+            <End Role="FundSubscription" EntitySet="FundSubscription" />
+            <End Role="SubscriptionTransaction" EntitySet="SubscriptionTransaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscriptionTransaction_LoanAmount" Association="Self.FK_SubscriptionTransaction_LoanAmount">
+            <End Role="LoanAmount" EntitySet="LoanAmount" />
+            <End Role="SubscriptionTransaction" EntitySet="SubscriptionTransaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscriptionTransaction_SubscriptionInformation" Association="Self.FK_SubscriptionTransaction_SubscriptionInformation">
+            <End Role="SubscriptionInformation" EntitySet="SubscriptionInformation" />
+            <End Role="SubscriptionTransaction" EntitySet="SubscriptionTransaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionCommitteeDecision_Employee" Association="Self.FK_TransactionCommitteeDecision_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="TransactionCommitteeDecision" EntitySet="TransactionCommitteeDecision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionCommitteeDecision_Employee1" Association="Self.FK_TransactionCommitteeDecision_Employee1">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="TransactionCommitteeDecision" EntitySet="TransactionCommitteeDecision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionCommitteeDecision_SubscriptionTransaction" Association="Self.FK_TransactionCommitteeDecision_SubscriptionTransaction">
+            <End Role="SubscriptionTransaction" EntitySet="SubscriptionTransaction" />
+            <End Role="TransactionCommitteeDecision" EntitySet="TransactionCommitteeDecision" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TakafulDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ApprovalStatu">
+          <Key>
+            <PropertyRef Name="ApS_ID" />
+          </Key>
+          <Property Name="ApS_ID" Type="Int32" Nullable="false" />
+          <Property Name="ApS_ApprovalStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SubscriptionTransactions" Relationship="Self.FK_SubscriptionTransaction_ApprovalStatus" FromRole="ApprovalStatus" ToRole="SubscriptionTransaction" />
+        </EntityType>
+        <EntityType Name="CommitteeMember">
+          <Key>
+            <PropertyRef Name="Emp_ID" />
+          </Key>
+          <Property Name="Emp_ID" Type="Int64" Nullable="false" />
+          <Property Name="CoM_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CoM_ImagePath" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CoM_OrganizationalStructure" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CoM_OSSortingOrder" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="TakafulDBModel.FK_CommitteeMember_Employee" FromRole="CommitteeMember" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="CostingBreakdownDetail">
+          <Key>
+            <PropertyRef Name="Emp_ID" />
+            <PropertyRef Name="CBD_Date" />
+            <PropertyRef Name="CBD_Details" />
+          </Key>
+          <Property Name="Emp_ID" Type="Int64" Nullable="false" />
+          <Property Name="CBD_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CBD_Details" Type="Int32" Nullable="false" />
+          <Property Name="CBD_PaidAmount" Type="Int32" />
+          <Property Name="LAm_ID" Type="Int32" />
+          <Property Name="FSu_ID" Type="Int32" />
+          <NavigationProperty Name="FundSubscription" Relationship="Self.FK_CostingBreakdownDetail_FundSubscription" FromRole="CostingBreakdownDetail" ToRole="FundSubscription" />
+          <NavigationProperty Name="LoanAmount" Relationship="Self.FK_CostingBreakdownDetail_LoanAmount" FromRole="CostingBreakdownDetail" ToRole="LoanAmount" />
+          <NavigationProperty Name="Employee" Relationship="TakafulDBModel.FK_CostingBreakdownDetail_Employee" FromRole="CostingBreakdownDetail" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="EmailConfiguration">
+          <Key>
+            <PropertyRef Name="SMTPServer_ID" />
+          </Key>
+          <Property Name="SMTPServer_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SMTPHost" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SMTPPort" Type="Int32" />
+          <Property Name="SignInName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MailFrom" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="SSLEnabled" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FundSubscription">
+          <Key>
+            <PropertyRef Name="FSu_ID" />
+          </Key>
+          <Property Name="FSu_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Emp_ID" Type="Int64" Nullable="false" />
+          <Property Name="FSu_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="CostingBreakdownDetails" Relationship="Self.FK_CostingBreakdownDetail_FundSubscription" FromRole="FundSubscription" ToRole="CostingBreakdownDetail" />
+          <Property Name="FSu_Status" Type="Int32" />
+          <NavigationProperty Name="SubscriptionTransaction" Relationship="TakafulDBModel.FK_SubscriptionTransaction_FundSubscription" FromRole="FundSubscription" ToRole="SubscriptionTransaction" />
+          <NavigationProperty Name="Employee" Relationship="TakafulDBModel.FK_FundSubscription_Employee" FromRole="FundSubscription" ToRole="Employee" />
+          <NavigationProperty Name="ExceptionAmounts" Relationship="TakafulDBModel.FK_ExceptionAmount_FundSubscription" FromRole="FundSubscription" ToRole="ExceptionAmount" />
+          <NavigationProperty Name="LoanExceptions" Relationship="TakafulDBModel.FK_LoanException_FundSubscription" FromRole="FundSubscription" ToRole="LoanException" />
+        </EntityType>
+        <EntityType Name="LoanAmount">
+          <Key>
+            <PropertyRef Name="LAm_ID" />
+          </Key>
+          <Property Name="LAm_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Emp_ID" Type="Int64" Nullable="false" />
+          <Property Name="LAm_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LAm_LoanAmount" Type="Int32" />
+          <Property Name="LAm_Status" Type="Int32" />
+          <Property Name="LAm_SuggestedLoanAmount" Type="Int32" />
+          <NavigationProperty Name="CostingBreakdownDetails" Relationship="Self.FK_CostingBreakdownDetail_LoanAmount" FromRole="LoanAmount" ToRole="CostingBreakdownDetail" />
+          <NavigationProperty Name="SubscriptionTransaction" Relationship="TakafulDBModel.FK_SubscriptionTransaction_LoanAmount" FromRole="LoanAmount" ToRole="SubscriptionTransaction" />
+          <Property Name="LAm_OriginalLoanAmount" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="TakafulDBModel.FK_LoanAmount_Employee" FromRole="LoanAmount" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Meeting">
+          <Key>
+            <PropertyRef Name="Mee_ID" />
+          </Key>
+          <Property Name="Mee_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Mee_Serial" Type="Int32" Nullable="false" />
+          <Property Name="Mee_Year" Type="Int32" Nullable="false" />
+          <Property Name="Mee_Date" Type="DateTime" Precision="0" />
+          <Property Name="Mee_Notes" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="Mee_IsActive" Type="Boolean" />
+          <Property Name="Mee_IsOpenForEvaluation" Type="Boolean" />
+          <Property Name="Mee_IsNotificationSent" Type="Boolean" />
+          <NavigationProperty Name="MeetingTransactions" Relationship="TakafulDBModel.FK_MeetingTransaction_Meeting" FromRole="Meeting" ToRole="MeetingTransaction" />
+        </EntityType>
+        <EntityType Name="RoleControlPage">
+          <Key>
+            <PropertyRef Name="Emp_Role" />
+          </Key>
+          <Property Name="Emp_Role" Type="Int32" Nullable="false" />
+          <Property Name="RCP_PageURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RCP_LinkName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SolidarityFundInformation">
+          <Key>
+            <PropertyRef Name="SFI_ID" />
+          </Key>
+          <Property Name="SFI_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SFI_GeneralEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="SFI_HomePageBannerPhrase_1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SFI_HomePageBannerFilePath_1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SFI_HomePageBannerPhrase_2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SFI_HomePageBannerFilePath_2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SFI_HomePageBannerPhrase_3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SFI_HomePageBannerFilePath_3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SFI_SFInfoFilePath1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SFI_SFInfoFilePath2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SFI_SFInfoFilePath3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SFI_SFInfoFilePath4" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SubscriptionInformation">
+          <Key>
+            <PropertyRef Name="SuI_ID" />
+          </Key>
+          <Property Name="SuI_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SuI_IsActive" Type="Boolean" />
+          <Property Name="SuI_MinimumSubscription" Type="Int32" />
+          <Property Name="SuI_MinimumAmount" Type="Int32" />
+          <Property Name="SuI_MaximumAmount" Type="Int32" />
+          <Property Name="SuI_NumberOfInstallments" Type="Int32" />
+          <Property Name="SuI_LessSubscriptionPeriodForLoan" Type="Int32" />
+          <Property Name="SuI_SubscriptionAmount" Type="Int32" />
+          <Property Name="SuI_LoanFirstAmount" Type="Int32" />
+          <Property Name="SuI_LoanMaximumAmount" Type="Int32" />
+          <Property Name="SuI_PeriodBetweenLoans" Type="Int32" />
+          <NavigationProperty Name="SubscriptionTransactions" Relationship="Self.FK_SubscriptionTransaction_SubscriptionInformation" FromRole="SubscriptionInformation" ToRole="SubscriptionTransaction" />
+          <Property Name="SuI_MaxDeductionPercentage" Type="Int32" />
+          <Property Name="SuI_LessPeriodForReSbubscrition" Type="Int32" />
+          <Property Name="SuI_LessPeriodForLoan4ReSubscriber" Type="Int32" />
+          <Property Name="SuI_LessPeriodForLoanNewEmployee" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SubscriptionTransaction">
+          <Key>
+            <PropertyRef Name="Emp_ID" />
+            <PropertyRef Name="SuT_Year" />
+            <PropertyRef Name="SuT_Serial" />
+            <PropertyRef Name="SuT_SubscriptionType" />
+          </Key>
+          <Property Name="Emp_ID" Type="Int64" Nullable="false" />
+          <Property Name="SuT_Year" Type="Int32" Nullable="false" />
+          <Property Name="SuT_Serial" Type="Int32" Nullable="false" />
+          <Property Name="SuT_SubscriptionType" Type="Int32" Nullable="false" />
+          <Property Name="SuT_Date" Type="DateTime" Precision="0" />
+          <Property Name="SuT_Amount" Type="Int32" />
+          <Property Name="SuT_Notes" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="SuT_ApprovalStatus" Type="Int32" />
+          <Property Name="SuT_ApprovalDate" Type="DateTime" Precision="0" />
+          <Property Name="SuT_ApprovalNotes" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="SuI_ID" Type="Int32" />
+          <Property Name="SortIndex" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SuT_ServiceEmployeeID" Type="Int64" />
+          <Property Name="SuT_NotesForCommittee" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ApprovalStatu" Relationship="Self.FK_SubscriptionTransaction_ApprovalStatus" FromRole="SubscriptionTransaction" ToRole="ApprovalStatus" />
+          <NavigationProperty Name="SubscriptionInformation" Relationship="Self.FK_SubscriptionTransaction_SubscriptionInformation" FromRole="SubscriptionTransaction" ToRole="SubscriptionInformation" />
+          <NavigationProperty Name="TransactionCommitteeDecisions" Relationship="Self.FK_TransactionCommitteeDecision_SubscriptionTransaction" FromRole="SubscriptionTransaction" ToRole="TransactionCommitteeDecision" />
+          <Property Name="FSu_ID" Type="Int32" />
+          <Property Name="LAm_ID" Type="Int32" />
+          <NavigationProperty Name="FundSubscription" Relationship="TakafulDBModel.FK_SubscriptionTransaction_FundSubscription" FromRole="SubscriptionTransaction" ToRole="FundSubscription" />
+          <NavigationProperty Name="LoanAmount" Relationship="TakafulDBModel.FK_SubscriptionTransaction_LoanAmount" FromRole="SubscriptionTransaction" ToRole="LoanAmount" />
+          <NavigationProperty Name="Employee" Relationship="TakafulDBModel.FK_SubscriptionTransaction_Employee" FromRole="SubscriptionTransaction" ToRole="Employee" />
+          <NavigationProperty Name="Employee1" Relationship="TakafulDBModel.FK_SubscriptionTransaction_Employee1" FromRole="SubscriptionTransaction" ToRole="Employee" />
+          <Property Name="SuT_AdminID" Type="Int64" />
+          <NavigationProperty Name="Employee2" Relationship="TakafulDBModel.FK_SubscriptionTransaction_Employee2" FromRole="SubscriptionTransaction" ToRole="Employee" />
+          <NavigationProperty Name="MeetingTransactions" Relationship="TakafulDBModel.FK_MeetingTransaction_SubscriptionTransaction1" FromRole="SubscriptionTransaction" ToRole="MeetingTransaction" />
+          <NavigationProperty Name="HRSheetData_New" Relationship="TakafulDBModel.FK_HRSheetData_New_SubscriptionTransaction" FromRole="SubscriptionTransaction" ToRole="HRSheetData_New" />
+        </EntityType>
+        <EntityType Name="TransactionCommitteeDecision">
+          <Key>
+            <PropertyRef Name="Emp_ID" />
+            <PropertyRef Name="SuT_Year" />
+            <PropertyRef Name="SuT_Serial" />
+            <PropertyRef Name="SuT_SubscriptionType" />
+            <PropertyRef Name="TCD_CommitteeMemberID" />
+          </Key>
+          <Property Name="Emp_ID" Type="Int64" Nullable="false" />
+          <Property Name="SuT_Year" Type="Int32" Nullable="false" />
+          <Property Name="SuT_Serial" Type="Int32" Nullable="false" />
+          <Property Name="SuT_SubscriptionType" Type="Int32" Nullable="false" />
+          <Property Name="TCD_CommitteeMemberID" Type="Int64" Nullable="false" />
+          <Property Name="TCD_CommitteeApprovalStatus" Type="Int32" Nullable="false" />
+          <Property Name="TCD_Date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="SubscriptionTransaction" Relationship="Self.FK_TransactionCommitteeDecision_SubscriptionTransaction" FromRole="TransactionCommitteeDecision" ToRole="SubscriptionTransaction" />
+          <NavigationProperty Name="Employee" Relationship="TakafulDBModel.FK_TransactionCommitteeDecision_Employee" FromRole="TransactionCommitteeDecision" ToRole="Employee" />
+          <Property Name="TCD_AdminID" Type="Int64" />
+          <NavigationProperty Name="Employee1" Relationship="TakafulDBModel.FK_TransactionCommitteeDecision_Employee1" FromRole="TransactionCommitteeDecision" ToRole="Employee" />
+        </EntityType>
+        <Association Name="FK_SubscriptionTransaction_ApprovalStatus">
+          <End Role="ApprovalStatus" Type="Self.ApprovalStatu" Multiplicity="0..1" />
+          <End Role="SubscriptionTransaction" Type="Self.SubscriptionTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ApprovalStatus">
+              <PropertyRef Name="ApS_ID" />
+            </Principal>
+            <Dependent Role="SubscriptionTransaction">
+              <PropertyRef Name="SuT_ApprovalStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CostingBreakdownDetail_FundSubscription">
+          <End Role="FundSubscription" Type="Self.FundSubscription" Multiplicity="0..1" />
+          <End Role="CostingBreakdownDetail" Type="Self.CostingBreakdownDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FundSubscription">
+              <PropertyRef Name="FSu_ID" />
+            </Principal>
+            <Dependent Role="CostingBreakdownDetail">
+              <PropertyRef Name="FSu_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CostingBreakdownDetail_LoanAmount">
+          <End Role="LoanAmount" Type="Self.LoanAmount" Multiplicity="0..1" />
+          <End Role="CostingBreakdownDetail" Type="Self.CostingBreakdownDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanAmount">
+              <PropertyRef Name="LAm_ID" />
+            </Principal>
+            <Dependent Role="CostingBreakdownDetail">
+              <PropertyRef Name="LAm_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscriptionTransaction_SubscriptionInformation">
+          <End Role="SubscriptionInformation" Type="Self.SubscriptionInformation" Multiplicity="0..1" />
+          <End Role="SubscriptionTransaction" Type="Self.SubscriptionTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubscriptionInformation">
+              <PropertyRef Name="SuI_ID" />
+            </Principal>
+            <Dependent Role="SubscriptionTransaction">
+              <PropertyRef Name="SuI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransactionCommitteeDecision_SubscriptionTransaction">
+          <End Role="SubscriptionTransaction" Type="Self.SubscriptionTransaction" Multiplicity="1" />
+          <End Role="TransactionCommitteeDecision" Type="Self.TransactionCommitteeDecision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubscriptionTransaction">
+              <PropertyRef Name="Emp_ID" />
+              <PropertyRef Name="SuT_Year" />
+              <PropertyRef Name="SuT_Serial" />
+              <PropertyRef Name="SuT_SubscriptionType" />
+            </Principal>
+            <Dependent Role="TransactionCommitteeDecision">
+              <PropertyRef Name="Emp_ID" />
+              <PropertyRef Name="SuT_Year" />
+              <PropertyRef Name="SuT_Serial" />
+              <PropertyRef Name="SuT_SubscriptionType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TakafulEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ApprovalStatus" EntityType="Self.ApprovalStatu" />
+          <EntitySet Name="CommitteeMembers" EntityType="Self.CommitteeMember" />
+          <EntitySet Name="CostingBreakdownDetails" EntityType="Self.CostingBreakdownDetail" />
+          <EntitySet Name="EmailConfigurations" EntityType="Self.EmailConfiguration" />
+          <EntitySet Name="FundSubscriptions" EntityType="Self.FundSubscription" />
+          <EntitySet Name="LoanAmounts" EntityType="Self.LoanAmount" />
+          <EntitySet Name="Meetings" EntityType="Self.Meeting" />
+          <EntitySet Name="RoleControlPages" EntityType="Self.RoleControlPage" />
+          <EntitySet Name="SolidarityFundInformations" EntityType="Self.SolidarityFundInformation" />
+          <EntitySet Name="SubscriptionInformations" EntityType="Self.SubscriptionInformation" />
+          <EntitySet Name="SubscriptionTransactions" EntityType="Self.SubscriptionTransaction" />
+          <EntitySet Name="TransactionCommitteeDecisions" EntityType="Self.TransactionCommitteeDecision" />
+          <AssociationSet Name="FK_SubscriptionTransaction_ApprovalStatus" Association="Self.FK_SubscriptionTransaction_ApprovalStatus">
+            <End Role="ApprovalStatus" EntitySet="ApprovalStatus" />
+            <End Role="SubscriptionTransaction" EntitySet="SubscriptionTransactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CostingBreakdownDetail_FundSubscription" Association="Self.FK_CostingBreakdownDetail_FundSubscription">
+            <End Role="FundSubscription" EntitySet="FundSubscriptions" />
+            <End Role="CostingBreakdownDetail" EntitySet="CostingBreakdownDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CostingBreakdownDetail_LoanAmount" Association="Self.FK_CostingBreakdownDetail_LoanAmount">
+            <End Role="LoanAmount" EntitySet="LoanAmounts" />
+            <End Role="CostingBreakdownDetail" EntitySet="CostingBreakdownDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscriptionTransaction_SubscriptionInformation" Association="Self.FK_SubscriptionTransaction_SubscriptionInformation">
+            <End Role="SubscriptionInformation" EntitySet="SubscriptionInformations" />
+            <End Role="SubscriptionTransaction" EntitySet="SubscriptionTransactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionCommitteeDecision_SubscriptionTransaction" Association="Self.FK_TransactionCommitteeDecision_SubscriptionTransaction">
+            <End Role="SubscriptionTransaction" EntitySet="SubscriptionTransactions" />
+            <End Role="TransactionCommitteeDecision" EntitySet="TransactionCommitteeDecisions" />
+          </AssociationSet>
+          <EntitySet Name="ContactUs" EntityType="TakafulDBModel.ContactUs" />
+          <EntitySet Name="SystemExceptionLog" EntityType="TakafulDBModel.SystemExceptionLog" />
+          <AssociationSet Name="FK_SubscriptionTransaction_FundSubscription" Association="TakafulDBModel.FK_SubscriptionTransaction_FundSubscription">
+            <End Role="FundSubscription" EntitySet="FundSubscriptions" />
+            <End Role="SubscriptionTransaction" EntitySet="SubscriptionTransactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscriptionTransaction_LoanAmount" Association="TakafulDBModel.FK_SubscriptionTransaction_LoanAmount">
+            <End Role="LoanAmount" EntitySet="LoanAmounts" />
+            <End Role="SubscriptionTransaction" EntitySet="SubscriptionTransactions" />
+          </AssociationSet>
+          <EntitySet Name="Employees" EntityType="TakafulDBModel.Employee" />
+          <AssociationSet Name="FK_CommitteeMember_Employee" Association="TakafulDBModel.FK_CommitteeMember_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="CommitteeMember" EntitySet="CommitteeMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CostingBreakdownDetail_Employee" Association="TakafulDBModel.FK_CostingBreakdownDetail_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="CostingBreakdownDetail" EntitySet="CostingBreakdownDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanAmount_Employee" Association="TakafulDBModel.FK_LoanAmount_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="LoanAmount" EntitySet="LoanAmounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscriptionTransaction_Employee" Association="TakafulDBModel.FK_SubscriptionTransaction_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="SubscriptionTransaction" EntitySet="SubscriptionTransactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionCommitteeDecision_Employee" Association="TakafulDBModel.FK_TransactionCommitteeDecision_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="TransactionCommitteeDecision" EntitySet="TransactionCommitteeDecisions" />
+          </AssociationSet>
+          <EntitySet Name="EmployeeServices" EntityType="TakafulDBModel.EmployeeService" />
+          <AssociationSet Name="FK_EmployeeService_Employee" Association="TakafulDBModel.FK_EmployeeService_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="EmployeeService" EntitySet="EmployeeServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FundSubscription_Employee" Association="TakafulDBModel.FK_FundSubscription_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="FundSubscription" EntitySet="FundSubscriptions" />
+          </AssociationSet>
+          <EntitySet Name="ExceptionAmounts" EntityType="TakafulDBModel.ExceptionAmount" />
+          <EntitySet Name="LoanExceptions" EntityType="TakafulDBModel.LoanException" />
+          <AssociationSet Name="FK_Exception_Employee" Association="TakafulDBModel.FK_Exception_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="ExceptionAmount" EntitySet="ExceptionAmounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanException_Employee" Association="TakafulDBModel.FK_LoanException_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="LoanException" EntitySet="LoanExceptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExceptionAmount_FundSubscription" Association="TakafulDBModel.FK_ExceptionAmount_FundSubscription">
+            <End Role="FundSubscription" EntitySet="FundSubscriptions" />
+            <End Role="ExceptionAmount" EntitySet="ExceptionAmounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoanException_FundSubscription" Association="TakafulDBModel.FK_LoanException_FundSubscription">
+            <End Role="FundSubscription" EntitySet="FundSubscriptions" />
+            <End Role="LoanException" EntitySet="LoanExceptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionCommitteeDecision_Employee1" Association="TakafulDBModel.FK_TransactionCommitteeDecision_Employee1">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="TransactionCommitteeDecision" EntitySet="TransactionCommitteeDecisions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscriptionTransaction_Employee1" Association="TakafulDBModel.FK_SubscriptionTransaction_Employee1">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="SubscriptionTransaction" EntitySet="SubscriptionTransactions" />
+          </AssociationSet>
+          <EntitySet Name="HRSheets" EntityType="TakafulDBModel.HRSheet" />
+          <AssociationSet Name="FK_SubscriptionTransaction_Employee2" Association="TakafulDBModel.FK_SubscriptionTransaction_Employee2">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="SubscriptionTransaction" EntitySet="SubscriptionTransactions" />
+          </AssociationSet>
+          <EntitySet Name="MeetingTransactions" EntityType="TakafulDBModel.MeetingTransaction" />
+          <AssociationSet Name="FK_MeetingTransaction_Employee" Association="TakafulDBModel.FK_MeetingTransaction_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="MeetingTransaction" EntitySet="MeetingTransactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingTransaction_Meeting" Association="TakafulDBModel.FK_MeetingTransaction_Meeting">
+            <End Role="Meeting" EntitySet="Meetings" />
+            <End Role="MeetingTransaction" EntitySet="MeetingTransactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingTransaction_SubscriptionTransaction1" Association="TakafulDBModel.FK_MeetingTransaction_SubscriptionTransaction1">
+            <End Role="SubscriptionTransaction" EntitySet="SubscriptionTransactions" />
+            <End Role="MeetingTransaction" EntitySet="MeetingTransactions" />
+          </AssociationSet>
+          <EntitySet Name="HRSheetDatas" EntityType="TakafulDBModel.HRSheetData" />
+          <AssociationSet Name="FK_HRSheetData_Employee" Association="TakafulDBModel.FK_HRSheetData_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="HRSheetData" EntitySet="HRSheetDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HRSheetData_HRSheet" Association="TakafulDBModel.FK_HRSheetData_HRSheet">
+            <End Role="HRSheet" EntitySet="HRSheets" />
+            <End Role="HRSheetData" EntitySet="HRSheetDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HRSheetData_HRSheet1" Association="TakafulDBModel.FK_HRSheetData_HRSheet1">
+            <End Role="HRSheet" EntitySet="HRSheets" />
+            <End Role="HRSheetData" EntitySet="HRSheetDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HRSheetData_HRSheet2" Association="TakafulDBModel.FK_HRSheetData_HRSheet2">
+            <End Role="HRSheet" EntitySet="HRSheets" />
+            <End Role="HRSheetData" EntitySet="HRSheetDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HRSheetData_HRSheet3" Association="TakafulDBModel.FK_HRSheetData_HRSheet3">
+            <End Role="HRSheet" EntitySet="HRSheets" />
+            <End Role="HRSheetData" EntitySet="HRSheetDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HRSheetData_HRSheet4" Association="TakafulDBModel.FK_HRSheetData_HRSheet4">
+            <End Role="HRSheet" EntitySet="HRSheets" />
+            <End Role="HRSheetData" EntitySet="HRSheetDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HRSheetData_HRSheet5" Association="TakafulDBModel.FK_HRSheetData_HRSheet5">
+            <End Role="HRSheet" EntitySet="HRSheets" />
+            <End Role="HRSheetData" EntitySet="HRSheetDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HRSheetData_HRSheet6" Association="TakafulDBModel.FK_HRSheetData_HRSheet6">
+            <End Role="HRSheet" EntitySet="HRSheets" />
+            <End Role="HRSheetData" EntitySet="HRSheetDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HRSheetData_HRSheet7" Association="TakafulDBModel.FK_HRSheetData_HRSheet7">
+            <End Role="HRSheet" EntitySet="HRSheets" />
+            <End Role="HRSheetData" EntitySet="HRSheetDatas" />
+          </AssociationSet>
+          <EntitySet Name="HRSheetData_New" EntityType="TakafulDBModel.HRSheetData_New" />
+          <AssociationSet Name="FK_HRSheetData_New_HRSheet" Association="TakafulDBModel.FK_HRSheetData_New_HRSheet">
+            <End Role="HRSheet" EntitySet="HRSheets" />
+            <End Role="HRSheetData_New" EntitySet="HRSheetData_New" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HRSheetData_New_SubscriptionTransaction" Association="TakafulDBModel.FK_HRSheetData_New_SubscriptionTransaction">
+            <End Role="SubscriptionTransaction" EntitySet="SubscriptionTransactions" />
+            <End Role="HRSheetData_New" EntitySet="HRSheetData_New" />
+          </AssociationSet>
+          <EntitySet Name="SubscriptionRulesAcceptances" EntityType="TakafulDBModel.SubscriptionRulesAcceptance" />
+          </EntityContainer>
+        <EntityType Name="ContactUs">
+          <Key>
+            <PropertyRef Name="CU_ID" />
+          </Key>
+          <Property Name="CU_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CU_Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CU_Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CU_Email" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="CU_Message" Type="String" Nullable="false" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="SystemExceptionLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExceptionData" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <Association Name="FK_SubscriptionTransaction_FundSubscription">
+          <End Type="TakafulDBModel.FundSubscription" Role="FundSubscription" Multiplicity="0..1" />
+          <End Type="TakafulDBModel.SubscriptionTransaction" Role="SubscriptionTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FundSubscription">
+              <PropertyRef Name="FSu_ID" />
+            </Principal>
+            <Dependent Role="SubscriptionTransaction">
+              <PropertyRef Name="FSu_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscriptionTransaction_LoanAmount">
+          <End Type="TakafulDBModel.LoanAmount" Role="LoanAmount" Multiplicity="0..1" />
+          <End Type="TakafulDBModel.SubscriptionTransaction" Role="SubscriptionTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoanAmount">
+              <PropertyRef Name="LAm_ID" />
+            </Principal>
+            <Dependent Role="SubscriptionTransaction">
+              <PropertyRef Name="LAm_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Emp_ID" />
+          </Key>
+          <Property Name="Emp_ID" Type="Int64" Nullable="false" />
+          <Property Name="Emp_Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Emp_Role" Type="Int32" />
+          <Property Name="Emp_IsAdmin" Type="Boolean" />
+          <Property Name="Emp_IsHelpDesk" Type="Boolean" />
+          <Property Name="Emp_AccountStatus" Type="Boolean" />
+          <Property Name="Emp_FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Emp_Position" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Emp_Department" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Emp_Nationality" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Emp_JoiningDate" Type="DateTime" Precision="0" />
+          <Property Name="Emp_Gender" Type="Int32" />
+          <Property Name="Emp_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Emp_MobileNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Emp_DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="Emp_JobDegree" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Emp_IsLocalCitizen" Type="Boolean" />
+          <NavigationProperty Name="CommitteeMember" Relationship="TakafulDBModel.FK_CommitteeMember_Employee" FromRole="Employee" ToRole="CommitteeMember" />
+          <NavigationProperty Name="CostingBreakdownDetails" Relationship="TakafulDBModel.FK_CostingBreakdownDetail_Employee" FromRole="Employee" ToRole="CostingBreakdownDetail" />
+          <NavigationProperty Name="LoanAmounts" Relationship="TakafulDBModel.FK_LoanAmount_Employee" FromRole="Employee" ToRole="LoanAmount" />
+          <NavigationProperty Name="SubscriptionTransactions" Relationship="TakafulDBModel.FK_SubscriptionTransaction_Employee" FromRole="Employee" ToRole="SubscriptionTransaction" />
+          <NavigationProperty Name="TransactionCommitteeDecisions" Relationship="TakafulDBModel.FK_TransactionCommitteeDecision_Employee" FromRole="Employee" ToRole="TransactionCommitteeDecision" />
+          <NavigationProperty Name="EmployeeServices" Relationship="TakafulDBModel.FK_EmployeeService_Employee" FromRole="Employee" ToRole="EmployeeService" />
+          <NavigationProperty Name="FundSubscriptions" Relationship="TakafulDBModel.FK_FundSubscription_Employee" FromRole="Employee" ToRole="FundSubscription" />
+          <NavigationProperty Name="ExceptionAmounts" Relationship="TakafulDBModel.FK_Exception_Employee" FromRole="Employee" ToRole="ExceptionAmount" />
+          <NavigationProperty Name="LoanExceptions" Relationship="TakafulDBModel.FK_LoanException_Employee" FromRole="Employee" ToRole="LoanException" />
+          <NavigationProperty Name="TransactionCommitteeDecisions1" Relationship="TakafulDBModel.FK_TransactionCommitteeDecision_Employee1" FromRole="Employee" ToRole="TransactionCommitteeDecision" />
+          <NavigationProperty Name="SubscriptionTransactions1" Relationship="TakafulDBModel.FK_SubscriptionTransaction_Employee1" FromRole="Employee" ToRole="SubscriptionTransaction" />
+          <NavigationProperty Name="SubscriptionTransactions2" Relationship="TakafulDBModel.FK_SubscriptionTransaction_Employee2" FromRole="Employee" ToRole="SubscriptionTransaction" />
+          <NavigationProperty Name="MeetingTransactions" Relationship="TakafulDBModel.FK_MeetingTransaction_Employee" FromRole="Employee" ToRole="MeetingTransaction" />
+          <NavigationProperty Name="HRSheetDatas" Relationship="TakafulDBModel.FK_HRSheetData_Employee" FromRole="Employee" ToRole="HRSheetData" />
+          <Property Name="Emp_Password_Enc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_CommitteeMember_Employee">
+          <End Type="TakafulDBModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="TakafulDBModel.CommitteeMember" Role="CommitteeMember" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="CommitteeMember">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CostingBreakdownDetail_Employee">
+          <End Type="TakafulDBModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="TakafulDBModel.CostingBreakdownDetail" Role="CostingBreakdownDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="CostingBreakdownDetail">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanAmount_Employee">
+          <End Type="TakafulDBModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="TakafulDBModel.LoanAmount" Role="LoanAmount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="LoanAmount">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscriptionTransaction_Employee">
+          <End Type="TakafulDBModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="TakafulDBModel.SubscriptionTransaction" Role="SubscriptionTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="SubscriptionTransaction">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransactionCommitteeDecision_Employee">
+          <End Type="TakafulDBModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="TakafulDBModel.TransactionCommitteeDecision" Role="TransactionCommitteeDecision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="TransactionCommitteeDecision">
+              <PropertyRef Name="TCD_CommitteeMemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EmployeeService">
+          <Key>
+            <PropertyRef Name="Emp_ID" />
+            <PropertyRef Name="EmS_OnDate" />
+          </Key>
+          <Property Name="Emp_ID" Type="Int64" Nullable="false" />
+          <Property Name="EmS_OnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EmS_TotalSalary" Type="Int32" />
+          <Property Name="EmS_EndOfServiceBenefit" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="TakafulDBModel.FK_EmployeeService_Employee" FromRole="EmployeeService" ToRole="Employee" />
+        </EntityType>
+        <Association Name="FK_EmployeeService_Employee">
+          <End Type="TakafulDBModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="TakafulDBModel.EmployeeService" Role="EmployeeService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="EmployeeService">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FundSubscription_Employee">
+          <End Type="TakafulDBModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="TakafulDBModel.FundSubscription" Role="FundSubscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="FundSubscription">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ExceptionAmount">
+          <Key>
+            <PropertyRef Name="Emp_ID" />
+            <PropertyRef Name="Exc_PrimaryBalancer" />
+          </Key>
+          <Property Name="Emp_ID" Type="Int64" Nullable="false" />
+          <Property Name="Exc_PrimaryBalancer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FSu_ID" Type="Int32" />
+          <Property Name="Exc_Amount" Type="Int32" />
+          <Property Name="Exc_IsUsed" Type="Boolean" />
+          <Property Name="Exc_Notes" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employee" Relationship="TakafulDBModel.FK_Exception_Employee" FromRole="ExceptionAmount" ToRole="Employee" />
+          <NavigationProperty Name="FundSubscription" Relationship="TakafulDBModel.FK_ExceptionAmount_FundSubscription" FromRole="ExceptionAmount" ToRole="FundSubscription" />
+        </EntityType>
+        <EntityType Name="LoanException">
+          <Key>
+            <PropertyRef Name="Emp_ID" />
+            <PropertyRef Name="FSu_ID" />
+          </Key>
+          <Property Name="Emp_ID" Type="Int64" Nullable="false" />
+          <Property Name="FSu_ID" Type="Int32" Nullable="false" />
+          <Property Name="LEx_MaxAmount" Type="Int32" />
+          <Property Name="LEx_MaxAmount_IsUsed" Type="Boolean" />
+          <Property Name="LEx_LessSubscriptionPeriodForLoan" Type="Boolean" />
+          <Property Name="LEx_Notes" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="LEx_CanRequestLoanWithCurrentActiveLoan" Type="Boolean" />
+          <NavigationProperty Name="Employee" Relationship="TakafulDBModel.FK_LoanException_Employee" FromRole="LoanException" ToRole="Employee" />
+          <NavigationProperty Name="FundSubscription" Relationship="TakafulDBModel.FK_LoanException_FundSubscription" FromRole="LoanException" ToRole="FundSubscription" />
+        </EntityType>
+        <Association Name="FK_Exception_Employee">
+          <End Type="TakafulDBModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="TakafulDBModel.ExceptionAmount" Role="ExceptionAmount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="ExceptionAmount">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanException_Employee">
+          <End Type="TakafulDBModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="TakafulDBModel.LoanException" Role="LoanException" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="LoanException">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExceptionAmount_FundSubscription">
+          <End Type="TakafulDBModel.FundSubscription" Role="FundSubscription" Multiplicity="0..1" />
+          <End Type="TakafulDBModel.ExceptionAmount" Role="ExceptionAmount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FundSubscription">
+              <PropertyRef Name="FSu_ID" />
+            </Principal>
+            <Dependent Role="ExceptionAmount">
+              <PropertyRef Name="FSu_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoanException_FundSubscription">
+          <End Type="TakafulDBModel.FundSubscription" Role="FundSubscription" Multiplicity="1" />
+          <End Type="TakafulDBModel.LoanException" Role="LoanException" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FundSubscription">
+              <PropertyRef Name="FSu_ID" />
+            </Principal>
+            <Dependent Role="LoanException">
+              <PropertyRef Name="FSu_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransactionCommitteeDecision_Employee1">
+          <End Type="TakafulDBModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="TakafulDBModel.TransactionCommitteeDecision" Role="TransactionCommitteeDecision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="TransactionCommitteeDecision">
+              <PropertyRef Name="TCD_AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscriptionTransaction_Employee1">
+          <End Type="TakafulDBModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="TakafulDBModel.SubscriptionTransaction" Role="SubscriptionTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="SubscriptionTransaction">
+              <PropertyRef Name="SuT_ServiceEmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="HRSheet">
+          <Key>
+            <PropertyRef Name="HRS_ID" />
+          </Key>
+          <Property Name="HRS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HRS_Serial" Type="Int32" Nullable="false" />
+          <Property Name="HRS_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="HRS_Notes" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="HRS_IsClosedNormalSheet" Type="Boolean" />
+          <Property Name="HRS_IsClosedNewSubsSheet" Type="Boolean" />
+          <Property Name="HRS_IsClosedCancelledSubsSheet" Type="Boolean" />
+          <Property Name="HRS_IsClosedModificationSheet" Type="Boolean" />
+          <Property Name="HRS_IsClosedNewLoansSheet" Type="Boolean" />
+          <Property Name="HRS_IsClosedCancelledLoansSheet" Type="Boolean" />
+          <Property Name="HRS_IsSubsequentSheet" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="HRSheetDatas" Relationship="TakafulDBModel.FK_HRSheetData_HRSheet" FromRole="HRSheet" ToRole="HRSheetData" />
+          <NavigationProperty Name="HRSheetDatas1" Relationship="TakafulDBModel.FK_HRSheetData_HRSheet1" FromRole="HRSheet" ToRole="HRSheetData" />
+          <NavigationProperty Name="HRSheetDatas2" Relationship="TakafulDBModel.FK_HRSheetData_HRSheet2" FromRole="HRSheet" ToRole="HRSheetData" />
+          <NavigationProperty Name="HRSheetDatas3" Relationship="TakafulDBModel.FK_HRSheetData_HRSheet3" FromRole="HRSheet" ToRole="HRSheetData" />
+          <NavigationProperty Name="HRSheetDatas4" Relationship="TakafulDBModel.FK_HRSheetData_HRSheet4" FromRole="HRSheet" ToRole="HRSheetData" />
+          <NavigationProperty Name="HRSheetDatas5" Relationship="TakafulDBModel.FK_HRSheetData_HRSheet5" FromRole="HRSheet" ToRole="HRSheetData" />
+          <NavigationProperty Name="HRSheetDatas6" Relationship="TakafulDBModel.FK_HRSheetData_HRSheet6" FromRole="HRSheet" ToRole="HRSheetData" />
+          <NavigationProperty Name="HRSheetDatas7" Relationship="TakafulDBModel.FK_HRSheetData_HRSheet7" FromRole="HRSheet" ToRole="HRSheetData" />
+          <Property Name="HRS_IsClosedInstallmentModificationSheet" Type="Boolean" />
+          <NavigationProperty Name="HRSheetData_New" Relationship="TakafulDBModel.FK_HRSheetData_New_HRSheet" FromRole="HRSheet" ToRole="HRSheetData_New" />
+        </EntityType>
+        <Association Name="FK_SubscriptionTransaction_Employee2">
+          <End Type="TakafulDBModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="TakafulDBModel.SubscriptionTransaction" Role="SubscriptionTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="SubscriptionTransaction">
+              <PropertyRef Name="SuT_AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MeetingTransaction">
+          <Key>
+            <PropertyRef Name="Mee_ID" />
+            <PropertyRef Name="Emp_ID" />
+            <PropertyRef Name="SuT_Year" />
+            <PropertyRef Name="SuT_Serial" />
+            <PropertyRef Name="SuT_SubscriptionType" />
+          </Key>
+          <Property Name="Mee_ID" Type="Int32" Nullable="false" />
+          <Property Name="Emp_ID" Type="Int64" Nullable="false" />
+          <Property Name="SuT_Year" Type="Int32" Nullable="false" />
+          <Property Name="SuT_Serial" Type="Int32" Nullable="false" />
+          <Property Name="SuT_SubscriptionType" Type="Int32" Nullable="false" />
+          <Property Name="MeT_Date" Type="DateTime" Precision="0" />
+          <Property Name="MeT_ApprovedAmount" Type="Int32" />
+          <Property Name="MeT_ApprovedAmountDate" Type="DateTime" Precision="3" />
+          <Property Name="MeT_ApprovedAmountAdminID" Type="Int64" />
+          <NavigationProperty Name="Employee" Relationship="TakafulDBModel.FK_MeetingTransaction_Employee" FromRole="MeetingTransaction" ToRole="Employee" />
+          <NavigationProperty Name="Meeting" Relationship="TakafulDBModel.FK_MeetingTransaction_Meeting" FromRole="MeetingTransaction" ToRole="Meeting" />
+          <NavigationProperty Name="SubscriptionTransaction" Relationship="TakafulDBModel.FK_MeetingTransaction_SubscriptionTransaction1" FromRole="MeetingTransaction" ToRole="SubscriptionTransaction" />
+        </EntityType>
+        <Association Name="FK_MeetingTransaction_Employee">
+          <End Type="TakafulDBModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="TakafulDBModel.MeetingTransaction" Role="MeetingTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="MeetingTransaction">
+              <PropertyRef Name="MeT_ApprovedAmountAdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingTransaction_Meeting">
+          <End Type="TakafulDBModel.Meeting" Role="Meeting" Multiplicity="1" />
+          <End Type="TakafulDBModel.MeetingTransaction" Role="MeetingTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meeting">
+              <PropertyRef Name="Mee_ID" />
+            </Principal>
+            <Dependent Role="MeetingTransaction">
+              <PropertyRef Name="Mee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingTransaction_SubscriptionTransaction1">
+          <End Type="TakafulDBModel.SubscriptionTransaction" Role="SubscriptionTransaction" Multiplicity="1" />
+          <End Type="TakafulDBModel.MeetingTransaction" Role="MeetingTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubscriptionTransaction">
+              <PropertyRef Name="Emp_ID" />
+              <PropertyRef Name="SuT_Year" />
+              <PropertyRef Name="SuT_Serial" />
+              <PropertyRef Name="SuT_SubscriptionType" />
+            </Principal>
+            <Dependent Role="MeetingTransaction">
+              <PropertyRef Name="Emp_ID" />
+              <PropertyRef Name="SuT_Year" />
+              <PropertyRef Name="SuT_Serial" />
+              <PropertyRef Name="SuT_SubscriptionType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="HRSheetData">
+          <Key>
+            <PropertyRef Name="HRSD_ID" />
+          </Key>
+          <Property Name="HRSD_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HRS_ID" Type="Int32" Nullable="false" />
+          <Property Name="Emp_ID" Type="Int64" Nullable="false" />
+          <Property Name="HRSD_FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HRSD_Department" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="HRSD_Position" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HRSD_JoiningDate" Type="DateTime" Precision="0" />
+          <Property Name="HRSD_Salary" Type="Int32" />
+          <Property Name="HRSD_SubsAmount" Type="Int32" />
+          <Property Name="HRSD_FundAmount" Type="Int32" />
+          <Property Name="HRSD_LoanAmount" Type="Int32" />
+          <Property Name="HRSD_LoanInstallment" Type="Int32" />
+          <Property Name="HRSD_LoanPaidAmount" Type="Int32" />
+          <Property Name="HRSD_LoanRemainingAmount" Type="Int32" />
+          <Property Name="HRSD_IsNewSubscription" Type="Boolean" Nullable="false" />
+          <Property Name="HRSD_IsModifiedSubscription" Type="Boolean" Nullable="false" />
+          <Property Name="HRSD_IsCancelledSubscription" Type="Boolean" Nullable="false" />
+          <Property Name="HRSD_IsNewLoan" Type="Boolean" Nullable="false" />
+          <Property Name="HRSD_IsModifiedLoan" Type="Boolean" Nullable="false" />
+          <Property Name="HRSD_IsCancelledLoan" Type="Boolean" Nullable="false" />
+          <Property Name="HRSD_IsIncludedInNormalSheet" Type="Boolean" Nullable="false" />
+          <Property Name="HRSD_IsIncludedInNewSubsSheet" Type="Boolean" Nullable="false" />
+          <Property Name="HRSD_IsIncludedInCancelledSubsSheet" Type="Boolean" Nullable="false" />
+          <Property Name="HRSD_IsIncludedInModificationSheet" Type="Boolean" Nullable="false" />
+          <Property Name="HRSD_IsIncludedInNewLoansSheet" Type="Boolean" Nullable="false" />
+          <Property Name="HRSD_IsIncludedInCancelledLoansSheet" Type="Boolean" Nullable="false" />
+          <Property Name="HRSD_NewSheetID_NS" Type="Int32" />
+          <Property Name="HRSD_NewSheetID_MS" Type="Int32" />
+          <Property Name="HRSD_NewSheetID_CS" Type="Int32" />
+          <Property Name="HRSD_NewSheetID_NL" Type="Int32" />
+          <Property Name="HRSD_NewSheetID_ML" Type="Int32" />
+          <Property Name="HRSD_NewSheetID_CL" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="TakafulDBModel.FK_HRSheetData_Employee" FromRole="HRSheetData" ToRole="Employee" />
+          <NavigationProperty Name="HRSheet" Relationship="TakafulDBModel.FK_HRSheetData_HRSheet" FromRole="HRSheetData" ToRole="HRSheet" />
+          <NavigationProperty Name="HRSheet1" Relationship="TakafulDBModel.FK_HRSheetData_HRSheet1" FromRole="HRSheetData" ToRole="HRSheet" />
+          <NavigationProperty Name="HRSheet2" Relationship="TakafulDBModel.FK_HRSheetData_HRSheet2" FromRole="HRSheetData" ToRole="HRSheet" />
+          <NavigationProperty Name="HRSheet3" Relationship="TakafulDBModel.FK_HRSheetData_HRSheet3" FromRole="HRSheetData" ToRole="HRSheet" />
+          <NavigationProperty Name="HRSheet4" Relationship="TakafulDBModel.FK_HRSheetData_HRSheet4" FromRole="HRSheetData" ToRole="HRSheet" />
+          <NavigationProperty Name="HRSheet5" Relationship="TakafulDBModel.FK_HRSheetData_HRSheet5" FromRole="HRSheetData" ToRole="HRSheet" />
+          <NavigationProperty Name="HRSheet6" Relationship="TakafulDBModel.FK_HRSheetData_HRSheet6" FromRole="HRSheetData" ToRole="HRSheet" />
+          <Property Name="HRSD_NewSheetID_Normal" Type="Int32" />
+          <NavigationProperty Name="HRSheet7" Relationship="TakafulDBModel.FK_HRSheetData_HRSheet7" FromRole="HRSheetData" ToRole="HRSheet" />
+        </EntityType>
+        <Association Name="FK_HRSheetData_Employee">
+          <End Type="TakafulDBModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="TakafulDBModel.HRSheetData" Role="HRSheetData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_ID" />
+            </Principal>
+            <Dependent Role="HRSheetData">
+              <PropertyRef Name="Emp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HRSheetData_HRSheet">
+          <End Type="TakafulDBModel.HRSheet" Role="HRSheet" Multiplicity="1" />
+          <End Type="TakafulDBModel.HRSheetData" Role="HRSheetData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HRSheet">
+              <PropertyRef Name="HRS_ID" />
+            </Principal>
+            <Dependent Role="HRSheetData">
+              <PropertyRef Name="HRS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HRSheetData_HRSheet1">
+          <End Type="TakafulDBModel.HRSheet" Role="HRSheet" Multiplicity="0..1" />
+          <End Type="TakafulDBModel.HRSheetData" Role="HRSheetData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HRSheet">
+              <PropertyRef Name="HRS_ID" />
+            </Principal>
+            <Dependent Role="HRSheetData">
+              <PropertyRef Name="HRSD_NewSheetID_NS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HRSheetData_HRSheet2">
+          <End Type="TakafulDBModel.HRSheet" Role="HRSheet" Multiplicity="0..1" />
+          <End Type="TakafulDBModel.HRSheetData" Role="HRSheetData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HRSheet">
+              <PropertyRef Name="HRS_ID" />
+            </Principal>
+            <Dependent Role="HRSheetData">
+              <PropertyRef Name="HRSD_NewSheetID_MS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HRSheetData_HRSheet3">
+          <End Type="TakafulDBModel.HRSheet" Role="HRSheet" Multiplicity="0..1" />
+          <End Type="TakafulDBModel.HRSheetData" Role="HRSheetData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HRSheet">
+              <PropertyRef Name="HRS_ID" />
+            </Principal>
+            <Dependent Role="HRSheetData">
+              <PropertyRef Name="HRSD_NewSheetID_CS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HRSheetData_HRSheet4">
+          <End Type="TakafulDBModel.HRSheet" Role="HRSheet" Multiplicity="0..1" />
+          <End Type="TakafulDBModel.HRSheetData" Role="HRSheetData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HRSheet">
+              <PropertyRef Name="HRS_ID" />
+            </Principal>
+            <Dependent Role="HRSheetData">
+              <PropertyRef Name="HRSD_NewSheetID_NL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HRSheetData_HRSheet5">
+          <End Type="TakafulDBModel.HRSheet" Role="HRSheet" Multiplicity="0..1" />
+          <End Type="TakafulDBModel.HRSheetData" Role="HRSheetData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HRSheet">
+              <PropertyRef Name="HRS_ID" />
+            </Principal>
+            <Dependent Role="HRSheetData">
+              <PropertyRef Name="HRSD_NewSheetID_ML" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HRSheetData_HRSheet6">
+          <End Type="TakafulDBModel.HRSheet" Role="HRSheet" Multiplicity="0..1" />
+          <End Type="TakafulDBModel.HRSheetData" Role="HRSheetData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HRSheet">
+              <PropertyRef Name="HRS_ID" />
+            </Principal>
+            <Dependent Role="HRSheetData">
+              <PropertyRef Name="HRSD_NewSheetID_CL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HRSheetData_HRSheet7">
+          <End Type="TakafulDBModel.HRSheet" Role="HRSheet" Multiplicity="0..1" />
+          <End Type="TakafulDBModel.HRSheetData" Role="HRSheetData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HRSheet">
+              <PropertyRef Name="HRS_ID" />
+            </Principal>
+            <Dependent Role="HRSheetData">
+              <PropertyRef Name="HRSD_NewSheetID_Normal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="HRSheetData_New">
+          <Key>
+            <PropertyRef Name="HRSD_ID" />
+          </Key>
+          <Property Name="HRSD_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HRS_ID" Type="Int32" Nullable="false" />
+          <Property Name="Emp_ID" Type="Int64" Nullable="false" />
+          <Property Name="SuT_Year" Type="Int32" Nullable="false" />
+          <Property Name="SuT_Serial" Type="Int32" Nullable="false" />
+          <Property Name="SuT_SubscriptionType" Type="Int32" Nullable="false" />
+          <Property Name="HRSD_IsIncluded" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="HRSheet" Relationship="TakafulDBModel.FK_HRSheetData_New_HRSheet" FromRole="HRSheetData_New" ToRole="HRSheet" />
+          <NavigationProperty Name="SubscriptionTransaction" Relationship="TakafulDBModel.FK_HRSheetData_New_SubscriptionTransaction" FromRole="HRSheetData_New" ToRole="SubscriptionTransaction" />
+          <Property Name="HRSD_TransactionApprovalDate" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <Association Name="FK_HRSheetData_New_HRSheet">
+          <End Type="TakafulDBModel.HRSheet" Role="HRSheet" Multiplicity="1" />
+          <End Type="TakafulDBModel.HRSheetData_New" Role="HRSheetData_New" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HRSheet">
+              <PropertyRef Name="HRS_ID" />
+            </Principal>
+            <Dependent Role="HRSheetData_New">
+              <PropertyRef Name="HRS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HRSheetData_New_SubscriptionTransaction">
+          <End Type="TakafulDBModel.SubscriptionTransaction" Role="SubscriptionTransaction" Multiplicity="1" />
+          <End Type="TakafulDBModel.HRSheetData_New" Role="HRSheetData_New" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubscriptionTransaction">
+              <PropertyRef Name="Emp_ID" />
+              <PropertyRef Name="SuT_Year" />
+              <PropertyRef Name="SuT_Serial" />
+              <PropertyRef Name="SuT_SubscriptionType" />
+            </Principal>
+            <Dependent Role="HRSheetData_New">
+              <PropertyRef Name="Emp_ID" />
+              <PropertyRef Name="SuT_Year" />
+              <PropertyRef Name="SuT_Serial" />
+              <PropertyRef Name="SuT_SubscriptionType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SubscriptionRulesAcceptance">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Emp_ID" Type="Int32" Nullable="false" />
+          <Property Name="AcceptanceDate" Type="DateTime" Precision="0" />
+          <Property Name="Acceptance" Type="Boolean" />
+          <Property Name="Source" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TakafulDBModelStoreContainer" CdmEntityContainer="TakafulEntities">
+          <EntitySetMapping Name="ApprovalStatus">
+            <EntityTypeMapping TypeName="TakafulDBModel.ApprovalStatu">
+              <MappingFragment StoreEntitySet="ApprovalStatus">
+                <ScalarProperty Name="ApS_ID" ColumnName="ApS_ID" />
+                <ScalarProperty Name="ApS_ApprovalStatus" ColumnName="ApS_ApprovalStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommitteeMembers">
+            <EntityTypeMapping TypeName="TakafulDBModel.CommitteeMember">
+              <MappingFragment StoreEntitySet="CommitteeMember">
+                <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+                <ScalarProperty Name="CoM_Title" ColumnName="CoM_Title" />
+                <ScalarProperty Name="CoM_ImagePath" ColumnName="CoM_ImagePath" />
+                <ScalarProperty Name="CoM_OrganizationalStructure" ColumnName="CoM_OrganizationalStructure" />
+                <ScalarProperty Name="CoM_OSSortingOrder" ColumnName="CoM_OSSortingOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CostingBreakdownDetails">
+            <EntityTypeMapping TypeName="TakafulDBModel.CostingBreakdownDetail">
+              <MappingFragment StoreEntitySet="CostingBreakdownDetail">
+                <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+                <ScalarProperty Name="CBD_Date" ColumnName="CBD_Date" />
+                <ScalarProperty Name="CBD_Details" ColumnName="CBD_Details" />
+                <ScalarProperty Name="CBD_PaidAmount" ColumnName="CBD_PaidAmount" />
+                <ScalarProperty Name="LAm_ID" ColumnName="LAm_ID" />
+                <ScalarProperty Name="FSu_ID" ColumnName="FSu_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailConfigurations">
+            <EntityTypeMapping TypeName="TakafulDBModel.EmailConfiguration">
+              <MappingFragment StoreEntitySet="EmailConfiguration">
+                <ScalarProperty Name="SSLEnabled" ColumnName="SSLEnabled" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="MailFrom" ColumnName="MailFrom" />
+                <ScalarProperty Name="SMTPServer_ID" ColumnName="SMTPServer_ID" />
+                <ScalarProperty Name="SMTPHost" ColumnName="SMTPHost" />
+                <ScalarProperty Name="SMTPPort" ColumnName="SMTPPort" />
+                <ScalarProperty Name="SignInName" ColumnName="SignInName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FundSubscriptions">
+            <EntityTypeMapping TypeName="TakafulDBModel.FundSubscription">
+              <MappingFragment StoreEntitySet="FundSubscription">
+                <ScalarProperty Name="FSu_Status" ColumnName="FSu_Status" />
+                <ScalarProperty Name="FSu_ID" ColumnName="FSu_ID" />
+                <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+                <ScalarProperty Name="FSu_Date" ColumnName="FSu_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoanAmounts">
+            <EntityTypeMapping TypeName="TakafulDBModel.LoanAmount">
+              <MappingFragment StoreEntitySet="LoanAmount">
+                <ScalarProperty Name="LAm_OriginalLoanAmount" ColumnName="LAm_OriginalLoanAmount" />
+                <ScalarProperty Name="LAm_ID" ColumnName="LAm_ID" />
+                <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+                <ScalarProperty Name="LAm_Date" ColumnName="LAm_Date" />
+                <ScalarProperty Name="LAm_LoanAmount" ColumnName="LAm_LoanAmount" />
+                <ScalarProperty Name="LAm_Status" ColumnName="LAm_Status" />
+                <ScalarProperty Name="LAm_SuggestedLoanAmount" ColumnName="LAm_SuggestedLoanAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Meetings">
+            <EntityTypeMapping TypeName="TakafulDBModel.Meeting">
+              <MappingFragment StoreEntitySet="Meeting">
+                <ScalarProperty Name="Mee_IsNotificationSent" ColumnName="Mee_IsNotificationSent" />
+                <ScalarProperty Name="Mee_IsOpenForEvaluation" ColumnName="Mee_IsOpenForEvaluation" />
+                <ScalarProperty Name="Mee_ID" ColumnName="Mee_ID" />
+                <ScalarProperty Name="Mee_Serial" ColumnName="Mee_Serial" />
+                <ScalarProperty Name="Mee_Year" ColumnName="Mee_Year" />
+                <ScalarProperty Name="Mee_Date" ColumnName="Mee_Date" />
+                <ScalarProperty Name="Mee_Notes" ColumnName="Mee_Notes" />
+                <ScalarProperty Name="Mee_IsActive" ColumnName="Mee_IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleControlPages">
+            <EntityTypeMapping TypeName="TakafulDBModel.RoleControlPage">
+              <MappingFragment StoreEntitySet="RoleControlPage">
+                <ScalarProperty Name="Emp_Role" ColumnName="Emp_Role" />
+                <ScalarProperty Name="RCP_PageURL" ColumnName="RCP_PageURL" />
+                <ScalarProperty Name="RCP_LinkName" ColumnName="RCP_LinkName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SolidarityFundInformations">
+            <EntityTypeMapping TypeName="TakafulDBModel.SolidarityFundInformation">
+              <MappingFragment StoreEntitySet="SolidarityFundInformation">
+                <ScalarProperty Name="SFI_SFInfoFilePath4" ColumnName="SFI_SFInfoFilePath4" />
+                <ScalarProperty Name="SFI_SFInfoFilePath3" ColumnName="SFI_SFInfoFilePath3" />
+                <ScalarProperty Name="SFI_SFInfoFilePath2" ColumnName="SFI_SFInfoFilePath2" />
+                <ScalarProperty Name="SFI_SFInfoFilePath1" ColumnName="SFI_SFInfoFilePath1" />
+                <ScalarProperty Name="SFI_ID" ColumnName="SFI_ID" />
+                <ScalarProperty Name="SFI_GeneralEmail" ColumnName="SFI_GeneralEmail" />
+                <ScalarProperty Name="SFI_HomePageBannerPhrase_1" ColumnName="SFI_HomePageBannerPhrase_1" />
+                <ScalarProperty Name="SFI_HomePageBannerFilePath_1" ColumnName="SFI_HomePageBannerFilePath_1" />
+                <ScalarProperty Name="SFI_HomePageBannerPhrase_2" ColumnName="SFI_HomePageBannerPhrase_2" />
+                <ScalarProperty Name="SFI_HomePageBannerFilePath_2" ColumnName="SFI_HomePageBannerFilePath_2" />
+                <ScalarProperty Name="SFI_HomePageBannerPhrase_3" ColumnName="SFI_HomePageBannerPhrase_3" />
+                <ScalarProperty Name="SFI_HomePageBannerFilePath_3" ColumnName="SFI_HomePageBannerFilePath_3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubscriptionInformations">
+            <EntityTypeMapping TypeName="TakafulDBModel.SubscriptionInformation">
+              <MappingFragment StoreEntitySet="SubscriptionInformation">
+                <ScalarProperty Name="SuI_LessPeriodForLoanNewEmployee" ColumnName="SuI_LessPeriodForLoanNewEmployee" />
+                <ScalarProperty Name="SuI_LessPeriodForLoan4ReSubscriber" ColumnName="SuI_LessPeriodForLoan4ReSubscriber" />
+                <ScalarProperty Name="SuI_LessPeriodForReSbubscrition" ColumnName="SuI_LessPeriodForReSbubscrition" />
+                <ScalarProperty Name="SuI_MaxDeductionPercentage" ColumnName="SuI_MaxDeductionPercentage" />
+                <ScalarProperty Name="SuI_ID" ColumnName="SuI_ID" />
+                <ScalarProperty Name="SuI_IsActive" ColumnName="SuI_IsActive" />
+                <ScalarProperty Name="SuI_MinimumSubscription" ColumnName="SuI_MinimumSubscription" />
+                <ScalarProperty Name="SuI_MinimumAmount" ColumnName="SuI_MinimumAmount" />
+                <ScalarProperty Name="SuI_MaximumAmount" ColumnName="SuI_MaximumAmount" />
+                <ScalarProperty Name="SuI_NumberOfInstallments" ColumnName="SuI_NumberOfInstallments" />
+                <ScalarProperty Name="SuI_LessSubscriptionPeriodForLoan" ColumnName="SuI_LessSubscriptionPeriodForLoan" />
+                <ScalarProperty Name="SuI_SubscriptionAmount" ColumnName="SuI_SubscriptionAmount" />
+                <ScalarProperty Name="SuI_LoanFirstAmount" ColumnName="SuI_LoanFirstAmount" />
+                <ScalarProperty Name="SuI_LoanMaximumAmount" ColumnName="SuI_LoanMaximumAmount" />
+                <ScalarProperty Name="SuI_PeriodBetweenLoans" ColumnName="SuI_PeriodBetweenLoans" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubscriptionTransactions">
+            <EntityTypeMapping TypeName="TakafulDBModel.SubscriptionTransaction">
+              <MappingFragment StoreEntitySet="SubscriptionTransaction">
+                <ScalarProperty Name="SuT_AdminID" ColumnName="SuT_AdminID" />
+                <ScalarProperty Name="LAm_ID" ColumnName="LAm_ID" />
+                <ScalarProperty Name="FSu_ID" ColumnName="FSu_ID" />
+                <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+                <ScalarProperty Name="SuT_Year" ColumnName="SuT_Year" />
+                <ScalarProperty Name="SuT_Serial" ColumnName="SuT_Serial" />
+                <ScalarProperty Name="SuT_SubscriptionType" ColumnName="SuT_SubscriptionType" />
+                <ScalarProperty Name="SuT_Date" ColumnName="SuT_Date" />
+                <ScalarProperty Name="SuT_Amount" ColumnName="SuT_Amount" />
+                <ScalarProperty Name="SuT_Notes" ColumnName="SuT_Notes" />
+                <ScalarProperty Name="SuT_ApprovalStatus" ColumnName="SuT_ApprovalStatus" />
+                <ScalarProperty Name="SuT_ApprovalDate" ColumnName="SuT_ApprovalDate" />
+                <ScalarProperty Name="SuT_ApprovalNotes" ColumnName="SuT_ApprovalNotes" />
+                <ScalarProperty Name="SuI_ID" ColumnName="SuI_ID" />
+                <ScalarProperty Name="SortIndex" ColumnName="SortIndex" />
+                <ScalarProperty Name="SuT_ServiceEmployeeID" ColumnName="SuT_ServiceEmployeeID" />
+                <ScalarProperty Name="SuT_NotesForCommittee" ColumnName="SuT_NotesForCommittee" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionCommitteeDecisions">
+            <EntityTypeMapping TypeName="TakafulDBModel.TransactionCommitteeDecision">
+              <MappingFragment StoreEntitySet="TransactionCommitteeDecision">
+                <ScalarProperty Name="TCD_AdminID" ColumnName="TCD_AdminID" />
+                <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+                <ScalarProperty Name="SuT_Year" ColumnName="SuT_Year" />
+                <ScalarProperty Name="SuT_Serial" ColumnName="SuT_Serial" />
+                <ScalarProperty Name="SuT_SubscriptionType" ColumnName="SuT_SubscriptionType" />
+                <ScalarProperty Name="TCD_CommitteeMemberID" ColumnName="TCD_CommitteeMemberID" />
+                <ScalarProperty Name="TCD_CommitteeApprovalStatus" ColumnName="TCD_CommitteeApprovalStatus" />
+                <ScalarProperty Name="TCD_Date" ColumnName="TCD_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactUs">
+            <EntityTypeMapping TypeName="TakafulDBModel.ContactUs">
+              <MappingFragment StoreEntitySet="ContactUs">
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="CU_Message" ColumnName="CU_Message" />
+                <ScalarProperty Name="CU_Email" ColumnName="CU_Email" />
+                <ScalarProperty Name="CU_Mobile" ColumnName="CU_Mobile" />
+                <ScalarProperty Name="CU_Name" ColumnName="CU_Name" />
+                <ScalarProperty Name="CU_ID" ColumnName="CU_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemExceptionLog">
+            <EntityTypeMapping TypeName="TakafulDBModel.SystemExceptionLog">
+              <MappingFragment StoreEntitySet="SystemExceptionLog">
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="ExceptionData" ColumnName="ExceptionData" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="TakafulDBModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="Emp_Password_Enc" ColumnName="Emp_Password_Enc" />
+                <ScalarProperty Name="Emp_IsLocalCitizen" ColumnName="Emp_IsLocalCitizen" />
+                <ScalarProperty Name="Emp_JobDegree" ColumnName="Emp_JobDegree" />
+                <ScalarProperty Name="Emp_DateOfBirth" ColumnName="Emp_DateOfBirth" />
+                <ScalarProperty Name="Emp_MobileNumber" ColumnName="Emp_MobileNumber" />
+                <ScalarProperty Name="Emp_Email" ColumnName="Emp_Email" />
+                <ScalarProperty Name="Emp_Gender" ColumnName="Emp_Gender" />
+                <ScalarProperty Name="Emp_JoiningDate" ColumnName="Emp_JoiningDate" />
+                <ScalarProperty Name="Emp_Nationality" ColumnName="Emp_Nationality" />
+                <ScalarProperty Name="Emp_Department" ColumnName="Emp_Department" />
+                <ScalarProperty Name="Emp_Position" ColumnName="Emp_Position" />
+                <ScalarProperty Name="Emp_FullName" ColumnName="Emp_FullName" />
+                <ScalarProperty Name="Emp_AccountStatus" ColumnName="Emp_AccountStatus" />
+                <ScalarProperty Name="Emp_IsHelpDesk" ColumnName="Emp_IsHelpDesk" />
+                <ScalarProperty Name="Emp_IsAdmin" ColumnName="Emp_IsAdmin" />
+                <ScalarProperty Name="Emp_Role" ColumnName="Emp_Role" />
+                <ScalarProperty Name="Emp_Password" ColumnName="Emp_Password" />
+                <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeServices">
+            <EntityTypeMapping TypeName="TakafulDBModel.EmployeeService">
+              <MappingFragment StoreEntitySet="EmployeeService">
+                <ScalarProperty Name="EmS_EndOfServiceBenefit" ColumnName="EmS_EndOfServiceBenefit" />
+                <ScalarProperty Name="EmS_TotalSalary" ColumnName="EmS_TotalSalary" />
+                <ScalarProperty Name="EmS_OnDate" ColumnName="EmS_OnDate" />
+                <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExceptionAmounts">
+            <EntityTypeMapping TypeName="TakafulDBModel.ExceptionAmount">
+              <MappingFragment StoreEntitySet="ExceptionAmount">
+                <ScalarProperty Name="Exc_Notes" ColumnName="Exc_Notes" />
+                <ScalarProperty Name="Exc_IsUsed" ColumnName="Exc_IsUsed" />
+                <ScalarProperty Name="Exc_Amount" ColumnName="Exc_Amount" />
+                <ScalarProperty Name="FSu_ID" ColumnName="FSu_ID" />
+                <ScalarProperty Name="Exc_PrimaryBalancer" ColumnName="Exc_PrimaryBalancer" />
+                <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoanExceptions">
+            <EntityTypeMapping TypeName="TakafulDBModel.LoanException">
+              <MappingFragment StoreEntitySet="LoanException">
+                <ScalarProperty Name="LEx_CanRequestLoanWithCurrentActiveLoan" ColumnName="LEx_CanRequestLoanWithCurrentActiveLoan" />
+                <ScalarProperty Name="LEx_Notes" ColumnName="LEx_Notes" />
+                <ScalarProperty Name="LEx_LessSubscriptionPeriodForLoan" ColumnName="LEx_LessSubscriptionPeriodForLoan" />
+                <ScalarProperty Name="LEx_MaxAmount_IsUsed" ColumnName="LEx_MaxAmount_IsUsed" />
+                <ScalarProperty Name="LEx_MaxAmount" ColumnName="LEx_MaxAmount" />
+                <ScalarProperty Name="FSu_ID" ColumnName="FSu_ID" />
+                <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HRSheets">
+            <EntityTypeMapping TypeName="TakafulDBModel.HRSheet">
+              <MappingFragment StoreEntitySet="HRSheet">
+                <ScalarProperty Name="HRS_IsClosedInstallmentModificationSheet" ColumnName="HRS_IsClosedInstallmentModificationSheet" />
+                <ScalarProperty Name="HRS_IsSubsequentSheet" ColumnName="HRS_IsSubsequentSheet" />
+                <ScalarProperty Name="HRS_IsClosedCancelledLoansSheet" ColumnName="HRS_IsClosedCancelledLoansSheet" />
+                <ScalarProperty Name="HRS_IsClosedNewLoansSheet" ColumnName="HRS_IsClosedNewLoansSheet" />
+                <ScalarProperty Name="HRS_IsClosedModificationSheet" ColumnName="HRS_IsClosedModificationSheet" />
+                <ScalarProperty Name="HRS_IsClosedCancelledSubsSheet" ColumnName="HRS_IsClosedCancelledSubsSheet" />
+                <ScalarProperty Name="HRS_IsClosedNewSubsSheet" ColumnName="HRS_IsClosedNewSubsSheet" />
+                <ScalarProperty Name="HRS_IsClosedNormalSheet" ColumnName="HRS_IsClosedNormalSheet" />
+                <ScalarProperty Name="HRS_Notes" ColumnName="HRS_Notes" />
+                <ScalarProperty Name="HRS_Date" ColumnName="HRS_Date" />
+                <ScalarProperty Name="HRS_Serial" ColumnName="HRS_Serial" />
+                <ScalarProperty Name="HRS_ID" ColumnName="HRS_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MeetingTransactions">
+            <EntityTypeMapping TypeName="TakafulDBModel.MeetingTransaction">
+              <MappingFragment StoreEntitySet="MeetingTransaction">
+                <ScalarProperty Name="MeT_ApprovedAmountAdminID" ColumnName="MeT_ApprovedAmountAdminID" />
+                <ScalarProperty Name="MeT_ApprovedAmountDate" ColumnName="MeT_ApprovedAmountDate" />
+                <ScalarProperty Name="MeT_ApprovedAmount" ColumnName="MeT_ApprovedAmount" />
+                <ScalarProperty Name="MeT_Date" ColumnName="MeT_Date" />
+                <ScalarProperty Name="SuT_SubscriptionType" ColumnName="SuT_SubscriptionType" />
+                <ScalarProperty Name="SuT_Serial" ColumnName="SuT_Serial" />
+                <ScalarProperty Name="SuT_Year" ColumnName="SuT_Year" />
+                <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+                <ScalarProperty Name="Mee_ID" ColumnName="Mee_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HRSheetDatas">
+            <EntityTypeMapping TypeName="TakafulDBModel.HRSheetData">
+              <MappingFragment StoreEntitySet="HRSheetData">
+                <ScalarProperty Name="HRSD_NewSheetID_Normal" ColumnName="HRSD_NewSheetID_Normal" />
+                <ScalarProperty Name="HRSD_NewSheetID_CL" ColumnName="HRSD_NewSheetID_CL" />
+                <ScalarProperty Name="HRSD_NewSheetID_ML" ColumnName="HRSD_NewSheetID_ML" />
+                <ScalarProperty Name="HRSD_NewSheetID_NL" ColumnName="HRSD_NewSheetID_NL" />
+                <ScalarProperty Name="HRSD_NewSheetID_CS" ColumnName="HRSD_NewSheetID_CS" />
+                <ScalarProperty Name="HRSD_NewSheetID_MS" ColumnName="HRSD_NewSheetID_MS" />
+                <ScalarProperty Name="HRSD_NewSheetID_NS" ColumnName="HRSD_NewSheetID_NS" />
+                <ScalarProperty Name="HRSD_IsIncludedInCancelledLoansSheet" ColumnName="HRSD_IsIncludedInCancelledLoansSheet" />
+                <ScalarProperty Name="HRSD_IsIncludedInNewLoansSheet" ColumnName="HRSD_IsIncludedInNewLoansSheet" />
+                <ScalarProperty Name="HRSD_IsIncludedInModificationSheet" ColumnName="HRSD_IsIncludedInModificationSheet" />
+                <ScalarProperty Name="HRSD_IsIncludedInCancelledSubsSheet" ColumnName="HRSD_IsIncludedInCancelledSubsSheet" />
+                <ScalarProperty Name="HRSD_IsIncludedInNewSubsSheet" ColumnName="HRSD_IsIncludedInNewSubsSheet" />
+                <ScalarProperty Name="HRSD_IsIncludedInNormalSheet" ColumnName="HRSD_IsIncludedInNormalSheet" />
+                <ScalarProperty Name="HRSD_IsCancelledLoan" ColumnName="HRSD_IsCancelledLoan" />
+                <ScalarProperty Name="HRSD_IsModifiedLoan" ColumnName="HRSD_IsModifiedLoan" />
+                <ScalarProperty Name="HRSD_IsNewLoan" ColumnName="HRSD_IsNewLoan" />
+                <ScalarProperty Name="HRSD_IsCancelledSubscription" ColumnName="HRSD_IsCancelledSubscription" />
+                <ScalarProperty Name="HRSD_IsModifiedSubscription" ColumnName="HRSD_IsModifiedSubscription" />
+                <ScalarProperty Name="HRSD_IsNewSubscription" ColumnName="HRSD_IsNewSubscription" />
+                <ScalarProperty Name="HRSD_LoanRemainingAmount" ColumnName="HRSD_LoanRemainingAmount" />
+                <ScalarProperty Name="HRSD_LoanPaidAmount" ColumnName="HRSD_LoanPaidAmount" />
+                <ScalarProperty Name="HRSD_LoanInstallment" ColumnName="HRSD_LoanInstallment" />
+                <ScalarProperty Name="HRSD_LoanAmount" ColumnName="HRSD_LoanAmount" />
+                <ScalarProperty Name="HRSD_FundAmount" ColumnName="HRSD_FundAmount" />
+                <ScalarProperty Name="HRSD_SubsAmount" ColumnName="HRSD_SubsAmount" />
+                <ScalarProperty Name="HRSD_Salary" ColumnName="HRSD_Salary" />
+                <ScalarProperty Name="HRSD_JoiningDate" ColumnName="HRSD_JoiningDate" />
+                <ScalarProperty Name="HRSD_Position" ColumnName="HRSD_Position" />
+                <ScalarProperty Name="HRSD_Department" ColumnName="HRSD_Department" />
+                <ScalarProperty Name="HRSD_FullName" ColumnName="HRSD_FullName" />
+                <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+                <ScalarProperty Name="HRS_ID" ColumnName="HRS_ID" />
+                <ScalarProperty Name="HRSD_ID" ColumnName="HRSD_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HRSheetData_New">
+            <EntityTypeMapping TypeName="TakafulDBModel.HRSheetData_New">
+              <MappingFragment StoreEntitySet="HRSheetData_New">
+                <ScalarProperty Name="HRSD_TransactionApprovalDate" ColumnName="HRSD_TransactionApprovalDate" />
+                <ScalarProperty Name="HRSD_IsIncluded" ColumnName="HRSD_IsIncluded" />
+                <ScalarProperty Name="SuT_SubscriptionType" ColumnName="SuT_SubscriptionType" />
+                <ScalarProperty Name="SuT_Serial" ColumnName="SuT_Serial" />
+                <ScalarProperty Name="SuT_Year" ColumnName="SuT_Year" />
+                <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+                <ScalarProperty Name="HRS_ID" ColumnName="HRS_ID" />
+                <ScalarProperty Name="HRSD_ID" ColumnName="HRSD_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubscriptionRulesAcceptances">
+            <EntityTypeMapping TypeName="TakafulDBModel.SubscriptionRulesAcceptance">
+              <MappingFragment StoreEntitySet="SubscriptionRulesAcceptance">
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="Acceptance" ColumnName="Acceptance" />
+                <ScalarProperty Name="AcceptanceDate" ColumnName="AcceptanceDate" />
+                <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

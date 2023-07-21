@@ -1,0 +1,1733 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FC8E146D-7291-4B30-AF3E-143266B7E7DF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TakafulResponsiveApplication</RootNamespace>
+    <AssemblyName>TakafulResponsiveApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>44386</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <Use64BitIISExpress />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DEVELOPMENT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;RELEASE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.0.5022.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXmlSDK.2.0\lib\Net35\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Fonts\foundation-icons.svg" />
+    <Content Include="Content\Images\001.png" />
+    <Content Include="Content\Images\002.png" />
+    <Content Include="Content\Images\003.png" />
+    <Content Include="Content\Images\177.png" />
+    <Content Include="Content\Images\Background.png" />
+    <Content Include="Content\Images\background2.png" />
+    <Content Include="Content\Images\background3.jpg" />
+    <Content Include="Content\Images\background4.jpg" />
+    <Content Include="Content\Images\background5.png" />
+    <Content Include="Content\Images\bgfooter.jpg" />
+    <Content Include="Content\Images\bgrectangel.jpg" />
+    <Content Include="Content\Images\board.svg" />
+    <Content Include="Content\Images\box.svg" />
+    <Content Include="Content\Images\bx_loader.gif" />
+    <Content Include="Content\Images\contact-icon.png" />
+    <Content Include="Content\Images\controls.png" />
+    <Content Include="Content\Images\edit_subscription-icon.png" />
+    <Content Include="Content\Images\emp-icon-1.png" />
+    <Content Include="Content\Images\emp-icon-2.png" />
+    <Content Include="Content\Images\emp-icon-3.png" />
+    <Content Include="Content\Images\emp-icon-4.png" />
+    <Content Include="Content\Images\emp-icon-5.png" />
+    <Content Include="Content\Images\emp-icon-6.png" />
+    <Content Include="Content\Images\emp-icon-7.png" />
+    <Content Include="Content\Images\emp-icon-8.png" />
+    <Content Include="Content\Images\emp_loan_request_icon.png" />
+    <Content Include="Content\Images\financial.svg" />
+    <Content Include="Content\Images\icon-02.png" />
+    <Content Include="Content\Images\icon-03.png" />
+    <Content Include="Content\Images\icon-04.png" />
+    <Content Include="Content\Images\icon-05.png" />
+    <Content Include="Content\Images\icon-08.png" />
+    <Content Include="Content\Images\icon-11.png" />
+    <Content Include="Content\Images\icon-17.png" />
+    <Content Include="Content\Images\icon-18.png" />
+    <Content Include="Content\Images\icon-19.png" />
+    <Content Include="Content\Images\icon-20.png" />
+    <Content Include="Content\Images\icon-21.png" />
+    <Content Include="Content\Images\icon-22.png" />
+    <Content Include="Content\Images\icon-23.png" />
+    <Content Include="Content\Images\icon-25.png" />
+    <Content Include="Content\Images\icon-27.png" />
+    <Content Include="Content\Images\icon-28.png" />
+    <Content Include="Content\Images\icon-29.png" />
+    <Content Include="Content\Images\icon-30.png" />
+    <Content Include="Content\Images\icon-31.png" />
+    <Content Include="Content\Images\icon-33.png" />
+    <Content Include="Content\Images\loan.svg" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\members.svg" />
+    <Content Include="Content\Images\menu.svg" />
+    <Content Include="Content\Images\MObileBG.png" />
+    <Content Include="Content\Images\MobileIcon_1.png" />
+    <Content Include="Content\Images\MobileIcon_1_.png" />
+    <Content Include="Content\Images\MobileIcon_2.png" />
+    <Content Include="Content\Images\MobileIcon_2_.png" />
+    <Content Include="Content\Images\MobileIcon_3.png" />
+    <Content Include="Content\Images\MobileIcon_3_.png" />
+    <Content Include="Content\Images\MobileIcon_4.png" />
+    <Content Include="Content\Images\MobileIcon_4_.png" />
+    <Content Include="Content\Images\MobileIcon_5.png" />
+    <Content Include="Content\Images\moLogo.png" />
+    <Content Include="Content\Images\notifications.svg" />
+    <Content Include="Content\Images\subscribers.svg" />
+    <Content Include="Content\Images\terms.svg" />
+    <Content Include="Content\Images\treatment.svg" />
+    <Content Include="Content\Images\user_icon.svg" />
+    <Content Include="Content\Style\app.css" />
+    <Content Include="Content\Style\component.css" />
+    <Content Include="Content\Style\font-awesome.min.css" />
+    <Content Include="Content\Style\foundation-datepicker.css" />
+    <Content Include="Content\Style\foundation.css" />
+    <Content Include="Content\Style\foundation.min.css" />
+    <Content Include="Content\Style\loadingScreen.css" />
+    <Content Include="Content\Style\normalize.css" />
+    <Content Include="Content\Style\ScreensViewPort.css" />
+    <Content Include="Content\svgs\fi-address-book.svg" />
+    <Content Include="Content\svgs\fi-alert.svg" />
+    <Content Include="Content\svgs\fi-align-center.svg" />
+    <Content Include="Content\svgs\fi-align-justify.svg" />
+    <Content Include="Content\svgs\fi-align-left.svg" />
+    <Content Include="Content\svgs\fi-align-right.svg" />
+    <Content Include="Content\svgs\fi-anchor.svg" />
+    <Content Include="Content\svgs\fi-annotate.svg" />
+    <Content Include="Content\svgs\fi-archive.svg" />
+    <Content Include="Content\svgs\fi-arrow-down.svg" />
+    <Content Include="Content\svgs\fi-arrow-left.svg" />
+    <Content Include="Content\svgs\fi-arrow-right.svg" />
+    <Content Include="Content\svgs\fi-arrow-up.svg" />
+    <Content Include="Content\svgs\fi-arrows-compress.svg" />
+    <Content Include="Content\svgs\fi-arrows-expand.svg" />
+    <Content Include="Content\svgs\fi-arrows-in.svg" />
+    <Content Include="Content\svgs\fi-arrows-out.svg" />
+    <Content Include="Content\svgs\fi-asl.svg" />
+    <Content Include="Content\svgs\fi-asterisk.svg" />
+    <Content Include="Content\svgs\fi-at-sign.svg" />
+    <Content Include="Content\svgs\fi-background-color.svg" />
+    <Content Include="Content\svgs\fi-battery-empty.svg" />
+    <Content Include="Content\svgs\fi-battery-full.svg" />
+    <Content Include="Content\svgs\fi-battery-half.svg" />
+    <Content Include="Content\svgs\fi-bitcoin-circle.svg" />
+    <Content Include="Content\svgs\fi-bitcoin.svg" />
+    <Content Include="Content\svgs\fi-blind.svg" />
+    <Content Include="Content\svgs\fi-bluetooth.svg" />
+    <Content Include="Content\svgs\fi-bold.svg" />
+    <Content Include="Content\svgs\fi-book-bookmark.svg" />
+    <Content Include="Content\svgs\fi-book.svg" />
+    <Content Include="Content\svgs\fi-bookmark.svg" />
+    <Content Include="Content\svgs\fi-braille.svg" />
+    <Content Include="Content\svgs\fi-burst-new.svg" />
+    <Content Include="Content\svgs\fi-burst-sale.svg" />
+    <Content Include="Content\svgs\fi-burst.svg" />
+    <Content Include="Content\svgs\fi-calendar.svg" />
+    <Content Include="Content\svgs\fi-camera.svg" />
+    <Content Include="Content\svgs\fi-check.svg" />
+    <Content Include="Content\svgs\fi-checkbox.svg" />
+    <Content Include="Content\svgs\fi-clipboard-notes.svg" />
+    <Content Include="Content\svgs\fi-clipboard-pencil.svg" />
+    <Content Include="Content\svgs\fi-clipboard.svg" />
+    <Content Include="Content\svgs\fi-clock.svg" />
+    <Content Include="Content\svgs\fi-closed-caption.svg" />
+    <Content Include="Content\svgs\fi-cloud.svg" />
+    <Content Include="Content\svgs\fi-comment-minus.svg" />
+    <Content Include="Content\svgs\fi-comment-quotes.svg" />
+    <Content Include="Content\svgs\fi-comment-video.svg" />
+    <Content Include="Content\svgs\fi-comment.svg" />
+    <Content Include="Content\svgs\fi-comments.svg" />
+    <Content Include="Content\svgs\fi-compass.svg" />
+    <Content Include="Content\svgs\fi-contrast.svg" />
+    <Content Include="Content\svgs\fi-credit-card.svg" />
+    <Content Include="Content\svgs\fi-crop.svg" />
+    <Content Include="Content\svgs\fi-crown.svg" />
+    <Content Include="Content\svgs\fi-css3.svg" />
+    <Content Include="Content\svgs\fi-database.svg" />
+    <Content Include="Content\svgs\fi-die-five.svg" />
+    <Content Include="Content\svgs\fi-die-four.svg" />
+    <Content Include="Content\svgs\fi-die-one.svg" />
+    <Content Include="Content\svgs\fi-die-six.svg" />
+    <Content Include="Content\svgs\fi-die-three.svg" />
+    <Content Include="Content\svgs\fi-die-two.svg" />
+    <Content Include="Content\svgs\fi-dislike.svg" />
+    <Content Include="Content\svgs\fi-dollar-bill.svg" />
+    <Content Include="Content\svgs\fi-dollar.svg" />
+    <Content Include="Content\svgs\fi-download.svg" />
+    <Content Include="Content\svgs\fi-eject.svg" />
+    <Content Include="Content\svgs\fi-elevator.svg" />
+    <Content Include="Content\svgs\fi-euro.svg" />
+    <Content Include="Content\svgs\fi-eye.svg" />
+    <Content Include="Content\svgs\fi-fast-forward.svg" />
+    <Content Include="Content\svgs\fi-female-symbol.svg" />
+    <Content Include="Content\svgs\fi-female.svg" />
+    <Content Include="Content\svgs\fi-filter.svg" />
+    <Content Include="Content\svgs\fi-first-aid.svg" />
+    <Content Include="Content\svgs\fi-flag.svg" />
+    <Content Include="Content\svgs\fi-folder-add.svg" />
+    <Content Include="Content\svgs\fi-folder-lock.svg" />
+    <Content Include="Content\svgs\fi-folder.svg" />
+    <Content Include="Content\svgs\fi-foot.svg" />
+    <Content Include="Content\svgs\fi-foundation.svg" />
+    <Content Include="Content\svgs\fi-graph-bar.svg" />
+    <Content Include="Content\svgs\fi-graph-horizontal.svg" />
+    <Content Include="Content\svgs\fi-graph-pie.svg" />
+    <Content Include="Content\svgs\fi-graph-trend.svg" />
+    <Content Include="Content\svgs\fi-guide-dog.svg" />
+    <Content Include="Content\svgs\fi-hearing-aid.svg" />
+    <Content Include="Content\svgs\fi-heart.svg" />
+    <Content Include="Content\svgs\fi-home.svg" />
+    <Content Include="Content\svgs\fi-html5.svg" />
+    <Content Include="Content\svgs\fi-indent-less.svg" />
+    <Content Include="Content\svgs\fi-indent-more.svg" />
+    <Content Include="Content\svgs\fi-info.svg" />
+    <Content Include="Content\svgs\fi-italic.svg" />
+    <Content Include="Content\svgs\fi-key.svg" />
+    <Content Include="Content\svgs\fi-laptop.svg" />
+    <Content Include="Content\svgs\fi-layout.svg" />
+    <Content Include="Content\svgs\fi-lightbulb.svg" />
+    <Content Include="Content\svgs\fi-like.svg" />
+    <Content Include="Content\svgs\fi-link.svg" />
+    <Content Include="Content\svgs\fi-list-bullet.svg" />
+    <Content Include="Content\svgs\fi-list-number.svg" />
+    <Content Include="Content\svgs\fi-list-thumbnails.svg" />
+    <Content Include="Content\svgs\fi-list.svg" />
+    <Content Include="Content\svgs\fi-lock.svg" />
+    <Content Include="Content\svgs\fi-loop.svg" />
+    <Content Include="Content\svgs\fi-magnifying-glass.svg" />
+    <Content Include="Content\svgs\fi-mail.svg" />
+    <Content Include="Content\svgs\fi-male-female.svg" />
+    <Content Include="Content\svgs\fi-male-symbol.svg" />
+    <Content Include="Content\svgs\fi-male.svg" />
+    <Content Include="Content\svgs\fi-map.svg" />
+    <Content Include="Content\svgs\fi-marker.svg" />
+    <Content Include="Content\svgs\fi-megaphone.svg" />
+    <Content Include="Content\svgs\fi-microphone.svg" />
+    <Content Include="Content\svgs\fi-minus-circle.svg" />
+    <Content Include="Content\svgs\fi-minus.svg" />
+    <Content Include="Content\svgs\fi-mobile-signal.svg" />
+    <Content Include="Content\svgs\fi-mobile.svg" />
+    <Content Include="Content\svgs\fi-monitor.svg" />
+    <Content Include="Content\svgs\fi-mountains.svg" />
+    <Content Include="Content\svgs\fi-music.svg" />
+    <Content Include="Content\svgs\fi-next.svg" />
+    <Content Include="Content\svgs\fi-no-dogs.svg" />
+    <Content Include="Content\svgs\fi-no-smoking.svg" />
+    <Content Include="Content\svgs\fi-page-add.svg" />
+    <Content Include="Content\svgs\fi-page-copy.svg" />
+    <Content Include="Content\svgs\fi-page-csv.svg" />
+    <Content Include="Content\svgs\fi-page-delete.svg" />
+    <Content Include="Content\svgs\fi-page-doc.svg" />
+    <Content Include="Content\svgs\fi-page-edit.svg" />
+    <Content Include="Content\svgs\fi-page-export-csv.svg" />
+    <Content Include="Content\svgs\fi-page-export-doc.svg" />
+    <Content Include="Content\svgs\fi-page-export-pdf.svg" />
+    <Content Include="Content\svgs\fi-page-export.svg" />
+    <Content Include="Content\svgs\fi-page-filled.svg" />
+    <Content Include="Content\svgs\fi-page-multiple.svg" />
+    <Content Include="Content\svgs\fi-page-pdf.svg" />
+    <Content Include="Content\svgs\fi-page-remove.svg" />
+    <Content Include="Content\svgs\fi-page-search.svg" />
+    <Content Include="Content\svgs\fi-page.svg" />
+    <Content Include="Content\svgs\fi-paint-bucket.svg" />
+    <Content Include="Content\svgs\fi-paperclip.svg" />
+    <Content Include="Content\svgs\fi-pause.svg" />
+    <Content Include="Content\svgs\fi-paw.svg" />
+    <Content Include="Content\svgs\fi-paypal.svg" />
+    <Content Include="Content\svgs\fi-pencil.svg" />
+    <Content Include="Content\svgs\fi-photo.svg" />
+    <Content Include="Content\svgs\fi-play-circle.svg" />
+    <Content Include="Content\svgs\fi-play-video.svg" />
+    <Content Include="Content\svgs\fi-play.svg" />
+    <Content Include="Content\svgs\fi-plus.svg" />
+    <Content Include="Content\svgs\fi-pound.svg" />
+    <Content Include="Content\svgs\fi-power.svg" />
+    <Content Include="Content\svgs\fi-previous.svg" />
+    <Content Include="Content\svgs\fi-price-tag.svg" />
+    <Content Include="Content\svgs\fi-pricetag-multiple.svg" />
+    <Content Include="Content\svgs\fi-print.svg" />
+    <Content Include="Content\svgs\fi-prohibited.svg" />
+    <Content Include="Content\svgs\fi-projection-screen.svg" />
+    <Content Include="Content\svgs\fi-puzzle.svg" />
+    <Content Include="Content\svgs\fi-quote.svg" />
+    <Content Include="Content\svgs\fi-record.svg" />
+    <Content Include="Content\svgs\fi-refresh.svg" />
+    <Content Include="Content\svgs\fi-results-demographics.svg" />
+    <Content Include="Content\svgs\fi-results.svg" />
+    <Content Include="Content\svgs\fi-rewind-ten.svg" />
+    <Content Include="Content\svgs\fi-rewind.svg" />
+    <Content Include="Content\svgs\fi-rss.svg" />
+    <Content Include="Content\svgs\fi-safety-cone.svg" />
+    <Content Include="Content\svgs\fi-save.svg" />
+    <Content Include="Content\svgs\fi-share.svg" />
+    <Content Include="Content\svgs\fi-sheriff-badge.svg" />
+    <Content Include="Content\svgs\fi-shield.svg" />
+    <Content Include="Content\svgs\fi-shopping-bag.svg" />
+    <Content Include="Content\svgs\fi-shopping-cart.svg" />
+    <Content Include="Content\svgs\fi-shuffle.svg" />
+    <Content Include="Content\svgs\fi-skull.svg" />
+    <Content Include="Content\svgs\fi-social-500px.svg" />
+    <Content Include="Content\svgs\fi-social-adobe.svg" />
+    <Content Include="Content\svgs\fi-social-amazon.svg" />
+    <Content Include="Content\svgs\fi-social-android.svg" />
+    <Content Include="Content\svgs\fi-social-apple.svg" />
+    <Content Include="Content\svgs\fi-social-behance.svg" />
+    <Content Include="Content\svgs\fi-social-bing.svg" />
+    <Content Include="Content\svgs\fi-social-blogger.svg" />
+    <Content Include="Content\svgs\fi-social-delicious.svg" />
+    <Content Include="Content\svgs\fi-social-designer-news.svg" />
+    <Content Include="Content\svgs\fi-social-deviant-art.svg" />
+    <Content Include="Content\svgs\fi-social-digg.svg" />
+    <Content Include="Content\svgs\fi-social-dribbble.svg" />
+    <Content Include="Content\svgs\fi-social-drive.svg" />
+    <Content Include="Content\svgs\fi-social-dropbox.svg" />
+    <Content Include="Content\svgs\fi-social-evernote.svg" />
+    <Content Include="Content\svgs\fi-social-facebook.svg" />
+    <Content Include="Content\svgs\fi-social-flickr.svg" />
+    <Content Include="Content\svgs\fi-social-forrst.svg" />
+    <Content Include="Content\svgs\fi-social-foursquare.svg" />
+    <Content Include="Content\svgs\fi-social-game-center.svg" />
+    <Content Include="Content\svgs\fi-social-github.svg" />
+    <Content Include="Content\svgs\fi-social-google-plus.svg" />
+    <Content Include="Content\svgs\fi-social-hacker-news.svg" />
+    <Content Include="Content\svgs\fi-social-hi5.svg" />
+    <Content Include="Content\svgs\fi-social-instagram.svg" />
+    <Content Include="Content\svgs\fi-social-joomla.svg" />
+    <Content Include="Content\svgs\fi-social-lastfm.svg" />
+    <Content Include="Content\svgs\fi-social-linkedin.svg" />
+    <Content Include="Content\svgs\fi-social-medium.svg" />
+    <Content Include="Content\svgs\fi-social-myspace.svg" />
+    <Content Include="Content\svgs\fi-social-orkut.svg" />
+    <Content Include="Content\svgs\fi-social-path.svg" />
+    <Content Include="Content\svgs\fi-social-picasa.svg" />
+    <Content Include="Content\svgs\fi-social-pinterest.svg" />
+    <Content Include="Content\svgs\fi-social-rdio.svg" />
+    <Content Include="Content\svgs\fi-social-reddit.svg" />
+    <Content Include="Content\svgs\fi-social-skillshare.svg" />
+    <Content Include="Content\svgs\fi-social-skype.svg" />
+    <Content Include="Content\svgs\fi-social-smashing-mag.svg" />
+    <Content Include="Content\svgs\fi-social-snapchat.svg" />
+    <Content Include="Content\svgs\fi-social-spotify.svg" />
+    <Content Include="Content\svgs\fi-social-squidoo.svg" />
+    <Content Include="Content\svgs\fi-social-stack-overflow.svg" />
+    <Content Include="Content\svgs\fi-social-steam.svg" />
+    <Content Include="Content\svgs\fi-social-stumbleupon.svg" />
+    <Content Include="Content\svgs\fi-social-treehouse.svg" />
+    <Content Include="Content\svgs\fi-social-tumblr.svg" />
+    <Content Include="Content\svgs\fi-social-twitter.svg" />
+    <Content Include="Content\svgs\fi-social-vimeo.svg" />
+    <Content Include="Content\svgs\fi-social-windows.svg" />
+    <Content Include="Content\svgs\fi-social-xbox.svg" />
+    <Content Include="Content\svgs\fi-social-yahoo.svg" />
+    <Content Include="Content\svgs\fi-social-yelp.svg" />
+    <Content Include="Content\svgs\fi-social-youtube.svg" />
+    <Content Include="Content\svgs\fi-social-zerply.svg" />
+    <Content Include="Content\svgs\fi-social-zurb.svg" />
+    <Content Include="Content\svgs\fi-sound.svg" />
+    <Content Include="Content\svgs\fi-star.svg" />
+    <Content Include="Content\svgs\fi-stop.svg" />
+    <Content Include="Content\svgs\fi-strikethrough.svg" />
+    <Content Include="Content\svgs\fi-subscript.svg" />
+    <Content Include="Content\svgs\fi-superscript.svg" />
+    <Content Include="Content\svgs\fi-tablet-landscape.svg" />
+    <Content Include="Content\svgs\fi-tablet-portrait.svg" />
+    <Content Include="Content\svgs\fi-target-two.svg" />
+    <Content Include="Content\svgs\fi-target.svg" />
+    <Content Include="Content\svgs\fi-telephone-accessible.svg" />
+    <Content Include="Content\svgs\fi-telephone.svg" />
+    <Content Include="Content\svgs\fi-text-color.svg" />
+    <Content Include="Content\svgs\fi-thumbnails.svg" />
+    <Content Include="Content\svgs\fi-ticket.svg" />
+    <Content Include="Content\svgs\fi-torso-business.svg" />
+    <Content Include="Content\svgs\fi-torso-female.svg" />
+    <Content Include="Content\svgs\fi-torso.svg" />
+    <Content Include="Content\svgs\fi-torsos-all-female.svg" />
+    <Content Include="Content\svgs\fi-torsos-all.svg" />
+    <Content Include="Content\svgs\fi-torsos-female-male.svg" />
+    <Content Include="Content\svgs\fi-torsos-male-female.svg" />
+    <Content Include="Content\svgs\fi-torsos.svg" />
+    <Content Include="Content\svgs\fi-trash.svg" />
+    <Content Include="Content\svgs\fi-trees.svg" />
+    <Content Include="Content\svgs\fi-trophy.svg" />
+    <Content Include="Content\svgs\fi-underline.svg" />
+    <Content Include="Content\svgs\fi-universal-access.svg" />
+    <Content Include="Content\svgs\fi-unlink.svg" />
+    <Content Include="Content\svgs\fi-unlock.svg" />
+    <Content Include="Content\svgs\fi-upload-cloud.svg" />
+    <Content Include="Content\svgs\fi-upload.svg" />
+    <Content Include="Content\svgs\fi-usb.svg" />
+    <Content Include="Content\svgs\fi-video.svg" />
+    <Content Include="Content\svgs\fi-volume-none.svg" />
+    <Content Include="Content\svgs\fi-volume-strike.svg" />
+    <Content Include="Content\svgs\fi-volume.svg" />
+    <Content Include="Content\svgs\fi-web.svg" />
+    <Content Include="Content\svgs\fi-wheelchair.svg" />
+    <Content Include="Content\svgs\fi-widget.svg" />
+    <Content Include="Content\svgs\fi-wrench.svg" />
+    <Content Include="Content\svgs\fi-x-circle.svg" />
+    <Content Include="Content\svgs\fi-x.svg" />
+    <Content Include="Content\svgs\fi-yen.svg" />
+    <Content Include="Content\svgs\fi-zoom-in.svg" />
+    <Content Include="Content\svgs\fi-zoom-out.svg" />
+    <Content Include="Scripts\App\Shared\Config.Release.js" />
+    <Content Include="Scripts\App\Shared\Config.Staging.js" />
+    <Content Include="Scripts\App\Shared\Config.Debug.js" />
+    <Content Include="Scripts\App\UI\Employee\CommitteeManagement\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Employee\CommitteeManagement\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Employee\CommitteeManagement\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Employee\CommitteeManagement\Main.js" />
+    <Content Include="Scripts\App\UI\Employee\DataManagement\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Employee\DataManagement\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Employee\DataManagement\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Employee\DataManagement\Main.js" />
+    <Content Include="Scripts\App\UI\Employee\FinancialTransactionsManagement\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Employee\FinancialTransactionsManagement\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Employee\FinancialTransactionsManagement\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Employee\FinancialTransactionsManagement\Main.js" />
+    <Content Include="Scripts\App\UI\Employee\FinancialStatus\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Employee\FinancialStatus\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Employee\FinancialStatus\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Employee\FinancialStatus\Main.js" />
+    <Content Include="Scripts\App\UI\Employee\LoanClosing\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Employee\LoanClosing\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Employee\LoanClosing\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Employee\LoanClosing\Main.js" />
+    <Content Include="Scripts\App\UI\Employee\UploadPaidInstallments\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Employee\UploadPaidInstallments\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Employee\UploadPaidInstallments\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Employee\UploadPaidInstallments\Main.js" />
+    <Content Include="Scripts\App\UI\Employee\UploadPaidSubscriptions\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Employee\UploadPaidSubscriptions\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Employee\UploadPaidSubscriptions\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Employee\UploadPaidSubscriptions\Main.js" />
+    <Content Include="Scripts\App\UI\Employee\UpdatePaidSubscriptions\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Employee\UpdatePaidSubscriptions\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Employee\UpdatePaidSubscriptions\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Employee\UpdatePaidSubscriptions\Main.js" />
+    <Content Include="Scripts\App\UI\Employee\UpdatePaidInstallments\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Employee\UpdatePaidInstallments\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Employee\UpdatePaidInstallments\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Employee\UpdatePaidInstallments\Main.js" />
+    <Content Include="Scripts\App\UI\Employee\UpdateSubscription\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Employee\UpdateSubscription\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Employee\UpdateSubscription\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Employee\UpdateSubscription\Main.js" />
+    <Content Include="Scripts\App\UI\Exception\Loan\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Exception\Loan\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Exception\Loan\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Exception\Loan\Main.js" />
+    <Content Include="Scripts\App\UI\Exception\Subscription\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Exception\Subscription\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Exception\Subscription\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Exception\Subscription\Main.js" />
+    <Content Include="Scripts\App\UI\Home\CommitteeMember\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Home\CommitteeMember\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Home\CommitteeMember\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Home\CommitteeMember\Main.js" />
+    <Content Include="Scripts\App\UI\Home\HelpDesk\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Home\HelpDesk\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Home\HelpDesk\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Home\HelpDesk\Main.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_ModifiedInstallments\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_ModifiedInstallments\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_ModifiedInstallments\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_ModifiedInstallments\Main.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetSub\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetSub\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetSub\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetSub\Main.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModificationSub\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModificationSub\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModificationSub\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModificationSub\Main.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_CancelledLoansSub\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_CancelledLoansSub\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_CancelledLoansSub\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_CancelledLoansSub\Main.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_CancelledLoans\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_CancelledLoans\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_CancelledLoans\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_CancelledLoans\Main.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_CancelledSubscriptionsSub\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_CancelledSubscriptionsSub\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_CancelledSubscriptionsSub\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_CancelledSubscriptionsSub\Main.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_ModifiedSubscriptionsSub\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_ModifiedSubscriptionsSub\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_ModifiedSubscriptionsSub\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_ModifiedSubscriptionsSub\Main.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_ModifiedSubscriptions\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_ModifiedSubscriptions\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_ModifiedSubscriptions\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_ModifiedSubscriptions\Main.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_NewLoansSub\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_NewLoansSub\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_NewLoansSub\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_NewLoansSub\Main.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_NewSubscriptionsSub\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_NewSubscriptionsSub\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_NewSubscriptionsSub\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_NewSubscriptionsSub\Main.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_NewSubscriptions\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_NewSubscriptions\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_NewSubscriptions\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_NewSubscriptions\Main.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_NewLoans\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_NewLoans\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_NewLoans\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_NewLoans\Main.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_CancelledSubscriptions\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_CancelledSubscriptions\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_CancelledSubscriptions\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification_CancelledSubscriptions\Main.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheetModification\Main.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheet\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheet\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheet\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\HR\HRSheet\Main.js" />
+    <Content Include="Scripts\App\UI\Meeting\MeetingRequestsDecisions\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Meeting\MeetingRequestsDecisions\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Meeting\MeetingRequestsDecisions\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Meeting\MeetingRequestsDecisions\Main.js" />
+    <Content Include="Scripts\App\UI\Meeting\ApprovedLoanAmount\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Meeting\ApprovedLoanAmount\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Meeting\ApprovedLoanAmount\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Meeting\ApprovedLoanAmount\Main.js" />
+    <Content Include="Scripts\App\UI\Meeting\SendRequestToCommitee\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Meeting\SendRequestToCommitee\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Meeting\SendRequestToCommitee\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Meeting\SendRequestToCommitee\Main.js" />
+    <Content Include="Scripts\App\UI\Meeting\AddRequestToMeeting\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Meeting\AddRequestToMeeting\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Meeting\AddRequestToMeeting\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Meeting\AddRequestToMeeting\Main.js" />
+    <Content Include="Scripts\App\UI\Meeting\MeetingList\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Meeting\MeetingList\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Meeting\MeetingList\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Meeting\MeetingList\Main.js" />
+    <Content Include="Scripts\App\UI\Meeting\ActiveMeeting\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Meeting\ActiveMeeting\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Meeting\ActiveMeeting\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Meeting\ActiveMeeting\Main.js" />
+    <Content Include="Scripts\App\UI\Misc\SystemConfiguration\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Misc\SystemConfiguration\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Misc\SystemConfiguration\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Misc\SystemConfiguration\Main.js" />
+    <Content Include="Scripts\App\UI\Misc\HomePageSettings\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Misc\HomePageSettings\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Misc\HomePageSettings\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Misc\HomePageSettings\Main.js" />
+    <Content Include="Scripts\App\UI\Report\AdminDecisions\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Report\AdminDecisions\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Report\AdminDecisions\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Report\AdminDecisions\Main.js" />
+    <Content Include="Scripts\App\UI\Report\CommitteeMeetingDecisions\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Report\CommitteeMeetingDecisions\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Report\CommitteeMeetingDecisions\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Report\CommitteeMeetingDecisions\Main.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeCancelLoan_Approve\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeCancelLoan_Approve\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeCancelLoan_Approve\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeCancelLoan_Approve\Main.js" />
+    <Content Include="Scripts\App\UI\Request\HelpDeskCancelLoan_Submit\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\HelpDeskCancelLoan_Submit\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\HelpDeskCancelLoan_Submit\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\HelpDeskCancelLoan_Submit\Main.js" />
+    <Content Include="Scripts\App\UI\Request\HelpDeskCancelSubscription_Submit\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\HelpDeskCancelSubscription_Submit\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\HelpDeskCancelSubscription_Submit\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\HelpDeskCancelSubscription_Submit\Main.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeCancelLoan_Reset\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeCancelLoan_Reset\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeCancelLoan_Reset\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeCancelLoan_Reset\Main.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeCancelLoan_Approve\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeCancelLoan_Approve\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeCancelLoan_Approve\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeCancelLoan_Approve\Main.js" />
+    <Content Include="Scripts\App\UI\Request\CancelLoan_Submit\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\CancelLoan_Submit\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\CancelLoan_Submit\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\CancelLoan_Submit\Main.js" />
+    <Content Include="Scripts\App\UI\Request\CancelLoan_Approve\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\CancelLoan_Approve\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\CancelLoan_Approve\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\CancelLoan_Approve\Main.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeCancelSubscription_Approve\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeCancelSubscription_Approve\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeCancelSubscription_Approve\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeCancelSubscription_Approve\Main.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeCancelSubscription_Reset\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeCancelSubscription_Reset\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeCancelSubscription_Reset\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeCancelSubscription_Reset\Main.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeCancelSubscription_Approve\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeCancelSubscription_Approve\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeCancelSubscription_Approve\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeCancelSubscription_Approve\Main.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeSubmittedRequests\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeSubmittedRequests\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeSubmittedRequests\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeSubmittedRequests\Main.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeEditLoan_Approve\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeEditLoan_Approve\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeEditLoan_Approve\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeEditLoan_Approve\Main.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeEditSubscription_Approve\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeEditSubscription_Approve\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeEditSubscription_Approve\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeEditSubscription_Approve\Main.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeNewLoan_Approve\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeNewLoan_Approve\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeNewLoan_Approve\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeNewLoan_Approve\Main.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeNewSubscription_Approve\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeNewSubscription_Approve\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeNewSubscription_Approve\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\AdminCommitteeNewSubscription_Approve\Main.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeDecisionApproval\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeDecisionApproval\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeDecisionApproval\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeDecisionApproval\Main.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeEditLoan_Reset\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeEditLoan_Reset\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeEditLoan_Reset\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeEditLoan_Reset\Main.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeEditSubscription_Reset\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeEditSubscription_Reset\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeEditSubscription_Reset\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeEditSubscription_Reset\Main.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeDecisionDetails\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeDecisionDetails\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeDecisionDetails\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeDecisionDetails\Main.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeNewLoan_Reset\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeNewLoan_Reset\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeNewLoan_Reset\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeNewLoan_Reset\Main.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeNewSubscription_Reset\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeNewSubscription_Reset\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeNewSubscription_Reset\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeNewSubscription_Reset\Main.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeSubmittedRequests\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeSubmittedRequests\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeSubmittedRequests\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeSubmittedRequests\Main.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeEditLoan_Approve\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeEditLoan_Approve\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeEditLoan_Approve\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeEditLoan_Approve\Main.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeEditSubscription_Approve\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeEditSubscription_Approve\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeEditSubscription_Approve\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeEditSubscription_Approve\Main.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeNewLoan_Approve\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeNewLoan_Approve\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeNewLoan_Approve\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeNewLoan_Approve\Main.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeNewSubscription_Approve\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeNewSubscription_Approve\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeNewSubscription_Approve\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\CommitteeNewSubscription_Approve\Main.js" />
+    <Content Include="Scripts\App\UI\Request\HelpDeskEditLoan_Submit\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\HelpDeskEditLoan_Submit\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\HelpDeskEditLoan_Submit\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\HelpDeskEditLoan_Submit\Main.js" />
+    <Content Include="Scripts\App\UI\Request\HelpDeskEditSubscription_Submit\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\HelpDeskEditSubscription_Submit\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\HelpDeskEditSubscription_Submit\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\HelpDeskEditSubscription_Submit\Main.js" />
+    <Content Include="Scripts\App\UI\Request\HelpDeskNewLoan_Submit\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\HelpDeskNewLoan_Submit\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\HelpDeskNewLoan_Submit\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\HelpDeskNewLoan_Submit\Main.js" />
+    <Content Include="Scripts\App\UI\Request\HelpDeskUserRequests\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\HelpDeskUserRequests\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\HelpDeskUserRequests\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\HelpDeskUserRequests\Main.js" />
+    <Content Include="Scripts\App\UI\Request\UserRequests\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\UserRequests\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\UserRequests\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\UserRequests\Main.js" />
+    <Content Include="Scripts\App\UI\Request\EditLoan_Approve\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\EditLoan_Approve\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\EditLoan_Approve\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\EditLoan_Approve\Main.js" />
+    <Content Include="Scripts\App\UI\Request\EditLoan_Submit\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\EditLoan_Submit\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\EditLoan_Submit\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\EditLoan_Submit\Main.js" />
+    <Content Include="Scripts\App\UI\User\AuditManagement\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\User\AuditManagement\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\User\AuditManagement\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\User\AuditManagement\Main.js" />
+    <Content Include="Scripts\App\UI\User\ChangePassword\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\User\ChangePassword\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\User\ChangePassword\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\User\ChangePassword\Main.js" />
+    <Content Include="Scripts\App\UI\User\RoleManagementNonEmployees\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\User\RoleManagementNonEmployees\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\User\RoleManagementNonEmployees\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\User\RoleManagementNonEmployees\Main.js" />
+    <Content Include="Scripts\App\UI\User\RoleManagement\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\User\RoleManagement\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\User\RoleManagement\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\User\RoleManagement\Main.js" />
+    <Content Include="Scripts\App\UI\User\RestorePassword\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\User\RestorePassword\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\User\RestorePassword\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\User\RestorePassword\Main.js" />
+    <Content Include="Scripts\Tools\Foundation\foundation\dataTables.foundation.min.js" />
+    <Content Include="Scripts\Tools\JQuery\jquery.dataTables.min.js" />
+    <Content Include="Scripts\Tools\inputfile\custom-file-input.js" />
+    <Content Include="Scripts\Tools\inputfile\jquery.custom-file-input.js" />
+    <Content Include="UI\Employee\CommitteeManagement.html" />
+    <Content Include="UI\Employee\FinancialStatus.html" />
+    <Content Include="UI\Employee\FinancialTransactionsManagement.html" />
+    <Content Include="UI\Employee\LoanClosing.html" />
+    <Content Include="UI\Employee\UploadPaidInstallments.html" />
+    <Content Include="UI\Employee\UploadPaidSubscriptions.html" />
+    <Content Include="UI\Employee\UpdatePaidSubscriptions.html" />
+    <Content Include="UI\Employee\UpdatePaidInstallments.html" />
+    <Content Include="UI\Employee\UpdateSubscription.html" />
+    <Content Include="UI\Exception\Loan.html" />
+    <Content Include="UI\Exception\Subscription.html" />
+    <Content Include="UI\Home\Admin.html" />
+    <Content Include="UI\Home\CommitteeMember.html" />
+    <Content Include="UI\Home\Employee.html" />
+    <Content Include="UI\Home\HelpDesk.html" />
+    <Content Include="UI\Home\Main.html" />
+    <Content Include="UI\Home\Start.html" />
+    <Content Include="UI\HR\HRSheetModification_ModifiedInstallments.html" />
+    <Content Include="UI\HR\HRSheetSub.html" />
+    <Content Include="UI\HR\HRSheetModificationSub.html" />
+    <Content Include="UI\HR\HRSheetModification_CancelledLoansSub.html" />
+    <Content Include="UI\HR\HRSheetModification_CancelledLoans.html" />
+    <Content Include="UI\HR\HRSheetModification_CancelledSubscriptionsSub.html" />
+    <Content Include="UI\HR\HRSheetModification_CancelledSubscriptions.html" />
+    <Content Include="UI\HR\HRSheetModification_ModifiedSubscriptionsSub.html" />
+    <Content Include="UI\HR\HRSheetModification_ModifiedSubscriptions.html" />
+    <Content Include="UI\HR\HRSheetModification_NewLoansSub.html" />
+    <Content Include="UI\HR\HRSheetModification_NewLoans.html" />
+    <Content Include="UI\HR\HRSheetModification_NewSubscriptionsSub.html" />
+    <Content Include="UI\HR\HRSheetModification_NewSubscriptions.html" />
+    <Content Include="UI\HR\HRSheetModification.html" />
+    <Content Include="UI\HR\HRSheet.html" />
+    <Content Include="UI\Meeting\MeetingRequestsDecisions.html" />
+    <Content Include="UI\Meeting\AddRequestToMeeting.html" />
+    <Content Include="UI\Meeting\ApprovedLoanAmount.html" />
+    <Content Include="UI\Meeting\SendRequestToCommitee.html" />
+    <Content Include="UI\Meeting\ActiveMeeting.html" />
+    <Content Include="UI\Meeting\MeetingList.html" />
+    <Content Include="Content\Images\loading.gif" />
+    <Content Include="Content\themes\JQueryMobile\default\images\ajax-loader.gif" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\action-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\action-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\alert-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\alert-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\arrow-d-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\arrow-d-l-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\arrow-d-l-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\arrow-d-r-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\arrow-d-r-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\arrow-d-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\arrow-l-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\arrow-l-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\arrow-r-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\arrow-r-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\arrow-u-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\arrow-u-l-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\arrow-u-l-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\arrow-u-r-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\arrow-u-r-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\arrow-u-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\audio-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\audio-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\back-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\back-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\bars-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\bars-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\bullets-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\bullets-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\calendar-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\calendar-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\camera-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\camera-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\carat-d-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\carat-d-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\carat-l-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\carat-l-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\carat-r-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\carat-r-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\carat-u-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\carat-u-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\check-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\check-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\clock-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\clock-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\cloud-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\cloud-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\comment-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\comment-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\delete-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\delete-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\edit-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\edit-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\eye-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\eye-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\forbidden-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\forbidden-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\forward-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\forward-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\gear-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\gear-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\grid-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\grid-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\heart-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\heart-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\home-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\home-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\info-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\info-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\location-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\location-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\lock-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\lock-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\mail-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\mail-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\minus-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\minus-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\navigation-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\navigation-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\phone-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\phone-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\plus-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\plus-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\power-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\power-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\recycle-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\recycle-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\refresh-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\refresh-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\search-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\search-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\shop-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\shop-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\star-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\star-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\tag-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\tag-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\user-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\user-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\video-black.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-png\video-white.png" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\action-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\action-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\alert-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\alert-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\arrow-d-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\arrow-d-l-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\arrow-d-l-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\arrow-d-r-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\arrow-d-r-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\arrow-d-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\arrow-l-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\arrow-l-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\arrow-r-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\arrow-r-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\arrow-u-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\arrow-u-l-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\arrow-u-l-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\arrow-u-r-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\arrow-u-r-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\arrow-u-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\audio-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\audio-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\back-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\back-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\bars-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\bars-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\bullets-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\bullets-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\calendar-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\calendar-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\camera-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\camera-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\carat-d-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\carat-d-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\carat-l-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\carat-l-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\carat-r-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\carat-r-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\carat-u-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\carat-u-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\check-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\check-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\clock-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\clock-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\cloud-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\cloud-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\comment-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\comment-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\delete-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\delete-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\edit-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\edit-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\eye-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\eye-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\forbidden-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\forbidden-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\forward-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\forward-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\gear-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\gear-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\grid-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\grid-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\heart-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\heart-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\home-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\home-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\info-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\info-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\location-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\location-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\lock-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\lock-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\mail-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\mail-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\minus-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\minus-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\navigation-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\navigation-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\phone-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\phone-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\plus-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\plus-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\power-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\power-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\recycle-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\recycle-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\refresh-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\refresh-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\search-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\search-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\shop-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\shop-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\star-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\star-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\tag-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\tag-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\user-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\user-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\video-black.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\images\icons-svg\video-white.svg" />
+    <Content Include="Content\themes\JQueryMobile\default\jquery.mobile-1.4.5.min.css" />
+    <Content Include="Content\themes\JQueryMobile\default\jquery.mobile.external-png-1.4.5.min.css" />
+    <Content Include="Content\themes\JQueryMobile\default\jquery.mobile.icons-1.4.5.min.css" />
+    <Content Include="Content\themes\JQueryMobile\default\jquery.mobile.inline-png-1.4.5.min.css" />
+    <Content Include="Content\themes\JQueryMobile\default\jquery.mobile.inline-svg-1.4.5.min.css" />
+    <Content Include="Content\themes\JQueryMobile\default\jquery.mobile.structure-1.4.5.min.css" />
+    <Content Include="Content\themes\JQueryMobile\default\jquery.mobile.theme-1.4.5.min.css" />
+    <Content Include="Content\themes\JQueryUI\base\accordion.css" />
+    <Content Include="Content\themes\JQueryUI\base\all.css" />
+    <Content Include="Content\themes\JQueryUI\base\autocomplete.css" />
+    <Content Include="Content\themes\JQueryUI\base\base.css" />
+    <Content Include="Content\themes\JQueryUI\base\button.css" />
+    <Content Include="Content\themes\JQueryUI\base\core.css" />
+    <Content Include="Content\themes\JQueryUI\base\datepicker.css" />
+    <Content Include="Content\themes\JQueryUI\base\dialog.css" />
+    <Content Include="Content\themes\JQueryUI\base\draggable.css" />
+    <Content Include="Content\themes\JQueryUI\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\JQueryUI\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\JQueryUI\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\JQueryUI\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\JQueryUI\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\JQueryUI\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\JQueryUI\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\JQueryUI\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\JQueryUI\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\JQueryUI\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\JQueryUI\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\JQueryUI\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\JQueryUI\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\JQueryUI\base\menu.css" />
+    <Content Include="Content\themes\JQueryUI\base\progressbar.css" />
+    <Content Include="Content\themes\JQueryUI\base\resizable.css" />
+    <Content Include="Content\themes\JQueryUI\base\selectable.css" />
+    <Content Include="Content\themes\JQueryUI\base\selectmenu.css" />
+    <Content Include="Content\themes\JQueryUI\base\slider.css" />
+    <Content Include="Content\themes\JQueryUI\base\sortable.css" />
+    <Content Include="Content\themes\JQueryUI\base\spinner.css" />
+    <Content Include="Content\themes\JQueryUI\base\tabs.css" />
+    <Content Include="Content\themes\JQueryUI\base\theme.css" />
+    <Content Include="Content\themes\JQueryUI\base\tooltip.css" />
+    <Content Include="Content\themes\JQueryUI\Custom\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\JQueryUI\Custom\images\ui-bg_flat_55_9a060f_40x100.png" />
+    <Content Include="Content\themes\JQueryUI\Custom\images\ui-bg_flat_65_d2d2d2_40x100.png" />
+    <Content Include="Content\themes\JQueryUI\Custom\images\ui-bg_flat_70_000000_40x100.png" />
+    <Content Include="Content\themes\JQueryUI\Custom\images\ui-bg_flat_75_9a060f_40x100.png" />
+    <Content Include="Content\themes\JQueryUI\Custom\images\ui-bg_flat_75_a00b14_40x100.png" />
+    <Content Include="Content\themes\JQueryUI\Custom\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\JQueryUI\Custom\images\ui-bg_flat_95_dfdfdf_40x100.png" />
+    <Content Include="Content\themes\JQueryUI\Custom\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\JQueryUI\Custom\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\JQueryUI\Custom\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\JQueryUI\Custom\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\JQueryUI\Custom\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\JQueryUI\Custom\images\ui-bg_highlight-soft_75_9a060f_1x100.png" />
+    <Content Include="Content\themes\JQueryUI\Custom\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\JQueryUI\Custom\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\JQueryUI\Custom\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\JQueryUI\Custom\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\JQueryUI\Custom\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\JQueryUI\Custom\images\ui-icons_9a060f_256x240.png" />
+    <Content Include="Content\themes\JQueryUI\Custom\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\JQueryUI\Custom\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\JQueryUI\Custom\jquery-ui.css" />
+    <Content Include="Content\themes\JQueryUI\Custom\jquery-ui.min.css" />
+    <Content Include="Content\themes\JQueryUI\Custom\jquery-ui.structure.css" />
+    <Content Include="Content\themes\JQueryUI\Custom\jquery-ui.structure.min.css" />
+    <Content Include="Content\themes\JQueryUI\Custom\jquery-ui.theme.css" />
+    <Content Include="Content\themes\JQueryUI\Custom\jquery-ui.theme.min.css" />
+    <Content Include="Global.asax" />
+    <EntityDeploy Include="Models\DB\Main.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Main.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="index.html" />
+    <Content Include="Scripts\App\UI\Home\Employee\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Home\Employee\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Home\Employee\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Home\Employee\Main.js" />
+    <Content Include="Scripts\App\UI\Home\Start\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Home\Start\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Home\Start\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Home\Start\Main.js" />
+    <Content Include="Scripts\App\UI\Home\Admin\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Home\Admin\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Home\Admin\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Home\Admin\Main.js" />
+    <Content Include="Scripts\App\UI\Request\NewLoan_Approve\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\NewLoan_Approve\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\NewLoan_Approve\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\NewLoan_Approve\Main.js" />
+    <Content Include="Scripts\App\UI\Request\NewLoan_Submit\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\NewLoan_Submit\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\NewLoan_Submit\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\NewLoan_Submit\Main.js" />
+    <Content Include="Scripts\App\UI\Request\CancelSubscription_Submit\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\CancelSubscription_Submit\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\CancelSubscription_Submit\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\CancelSubscription_Submit\Main.js" />
+    <Content Include="Scripts\App\UI\Request\CancelSubscription_Approve\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\CancelSubscription_Approve\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\CancelSubscription_Approve\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\CancelSubscription_Approve\Main.js" />
+    <Content Include="Scripts\App\UI\Request\EditSubscription_Submit\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\EditSubscription_Submit\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\EditSubscription_Submit\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\EditSubscription_Submit\Main.js" />
+    <Content Include="Scripts\App\UI\Request\EditSubscription_Approve\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\EditSubscription_Approve\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\EditSubscription_Approve\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\EditSubscription_Approve\Main.js" />
+    <Content Include="Scripts\App\UI\Request\NewSubscription_Approve\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\NewSubscription_Approve\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\NewSubscription_Approve\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\NewSubscription_Approve\Main.js" />
+    <Content Include="Scripts\App\UI\Request\NewSubscription_Submit\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\NewSubscription_Submit\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\NewSubscription_Submit\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\NewSubscription_Submit\Main.js" />
+    <Content Include="Scripts\App\UI\Request\SubmittedRequests\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Request\SubmittedRequests\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Request\SubmittedRequests\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Request\SubmittedRequests\Main.js" />
+    <Content Include="Scripts\Tools\Foundation\foundation-datepicker\example.css" />
+    <Content Include="Scripts\Tools\Foundation\foundation-datepicker\foundation-datepicker.css" />
+    <Content Include="Scripts\Tools\Foundation\foundation-datepicker\foundation-datepicker.js" />
+    <Content Include="Scripts\App\UI\Misc\CommitteeMembers\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Misc\CommitteeMembers\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Misc\CommitteeMembers\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Misc\CommitteeMembers\Main.js" />
+    <Content Include="Scripts\App\UI\Master\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Master\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Master\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Misc\ContactUs\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Misc\ContactUs\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Misc\ContactUs\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Misc\ContactUs\Main.js" />
+    <Content Include="Templates\Temp\PopupMessages.html" />
+    <Content Include="UI\MasterPageTemplate\MasterPageTemplate.html" />
+    <Content Include="Models\DB\Main.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Main.edmx</DependentUpon>
+      <LastGenOutput>Main.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DB\Main.edmx.diagram">
+      <DependentUpon>Main.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\DB\Main.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Main.edmx</DependentUpon>
+      <LastGenOutput>Main.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\App\Shared\CommonMethods.js" />
+    <Content Include="Scripts\App\Shared\Config.js" />
+    <Content Include="Scripts\App\Shared\Utility.js" />
+    <Content Include="Scripts\App\UI\Home\Main\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\Home\Main\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\Home\Main\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\Home\Main\Main.js" />
+    <Content Include="Scripts\App\UI\Master\Main.js" />
+    <Content Include="Scripts\App\UI\User\Login\01-UiMapping.js" />
+    <Content Include="Scripts\App\UI\User\Login\02-EventHandlers.js" />
+    <Content Include="Scripts\App\UI\User\Login\03-CustomMethods.js" />
+    <Content Include="Scripts\App\UI\User\Login\Main.js" />
+    <Content Include="Scripts\Tools\Common\responsiveslides.js" />
+    <Content Include="Scripts\Tools\Foundation\foundation.min.js" />
+    <Content Include="Scripts\Tools\Foundation\foundation\foundation.abide.js" />
+    <Content Include="Scripts\Tools\Foundation\foundation\foundation.accordion.js" />
+    <Content Include="Scripts\Tools\Foundation\foundation\foundation.alert.js" />
+    <Content Include="Scripts\Tools\Foundation\foundation\foundation.clearing.js" />
+    <Content Include="Scripts\Tools\Foundation\foundation\foundation.dropdown.js" />
+    <Content Include="Scripts\Tools\Foundation\foundation\foundation.equalizer.js" />
+    <Content Include="Scripts\Tools\Foundation\foundation\foundation.interchange.js" />
+    <Content Include="Scripts\Tools\Foundation\foundation\foundation.joyride.js" />
+    <Content Include="Scripts\Tools\Foundation\foundation\foundation.js" />
+    <Content Include="Scripts\Tools\Foundation\foundation\foundation.magellan.js" />
+    <Content Include="Scripts\Tools\Foundation\foundation\foundation.offcanvas.js" />
+    <Content Include="Scripts\Tools\Foundation\foundation\foundation.orbit.js" />
+    <Content Include="Scripts\Tools\Foundation\foundation\foundation.reveal.js" />
+    <Content Include="Scripts\Tools\Foundation\foundation\foundation.slider.js" />
+    <Content Include="Scripts\Tools\Foundation\foundation\foundation.tab.js" />
+    <Content Include="Scripts\Tools\Foundation\foundation\foundation.tooltip.js" />
+    <Content Include="Scripts\Tools\Foundation\foundation\foundation.topbar.js" />
+    <Content Include="Scripts\Tools\Foundation\vendor\fastclick.js" />
+    <Content Include="Scripts\Tools\Foundation\vendor\jquery.cookie.js" />
+    <Content Include="Scripts\Tools\Foundation\vendor\modernizr.js" />
+    <Content Include="Scripts\Tools\Foundation\vendor\placeholder.js" />
+    <Content Include="Scripts\Tools\JQuery\jquery-2.1.3.min.map" />
+    <Content Include="Content\Fonts\GE_SS_Two_Light.otf" />
+    <Content Include="Content\Fonts\GE_SS_Two_Medium.otf" />
+    <Content Include="Scripts\Tools\JQuery\jquery.mobile-1.4.5.min.map" />
+    <Content Include="Content\Fonts\foundation-icons.eot" />
+    <Content Include="Content\Fonts\foundation-icons.ttf" />
+    <Content Include="Content\Fonts\foundation-icons.woff" />
+    <None Include="Properties\PublishProfiles\DebugProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\LocalWebDeploy.pubxml" />
+    <Content Include="Scripts\Tools\Foundation\foundation-datepicker\build.less" />
+    <Content Include="Scripts\Tools\Foundation\foundation-datepicker\example.less" />
+    <Content Include="Scripts\Tools\Foundation\foundation-datepicker\foundation-datepicker.less" />
+    <Content Include="Scripts\Tools\JQuery\jquery.dataTables.row%28%29.show%28%29.js" />
+    <None Include="Properties\PublishProfiles\ReleaseProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\StagingProfile.pubxml" />
+    <None Include="Scripts\_references.js" />
+    <Content Include="Scripts\Tools\JQuery\datepicker-ar.js" />
+    <None Include="Scripts\Tools\JQuery\jquery-2.1.3.intellisense.js" />
+    <Content Include="Scripts\Tools\JQuery\jquery-2.1.3.js" />
+    <Content Include="Scripts\Tools\JQuery\jquery-2.1.3.min.js" />
+    <Content Include="Scripts\Tools\JQuery\jquery-ui-1.11.2.js" />
+    <Content Include="Scripts\Tools\JQuery\jquery-ui-1.11.2.min.js" />
+    <Content Include="Scripts\Tools\JQuery\jquery.mobile-1.4.5.js" />
+    <Content Include="Scripts\Tools\JQuery\jquery.mobile-1.4.5.min.js" />
+    <Content Include="UI\Misc\HomePageSettings.html" />
+    <Content Include="UI\Misc\CommitteeMembers.html" />
+    <Content Include="UI\Misc\ContactUs.html" />
+    <Content Include="UI\Misc\SystemConfiguration.html" />
+    <Content Include="UI\Report\AdminDecisions.html" />
+    <Content Include="UI\Report\CommitteeMeetingDecisions.html" />
+    <Content Include="UI\Request\AdminCommiteeSubmittedRequests.html" />
+    <Content Include="UI\Request\AdminCommitteeCancelLoan_Approve.html" />
+    <Content Include="UI\Request\HelpDeskCancelLoan_Submit.html" />
+    <Content Include="UI\Request\HelpDeskCancelSubscription_Submit.html" />
+    <Content Include="UI\Request\CommitteeCancelLoan_Reset.html" />
+    <Content Include="UI\Request\CommitteeCancelSubscription_Reset.html" />
+    <Content Include="UI\Request\CommitteeDecisionApproval.html" />
+    <Content Include="UI\Request\CommitteeCancelLoan_Approve.html" />
+    <Content Include="UI\Request\CancelLoan_Submit.html" />
+    <Content Include="UI\Request\CancelLoan_Approve.html" />
+    <Content Include="UI\Request\AdminCommitteeCancelSubscription_Approve.html" />
+    <Content Include="UI\Request\CommitteeCancelSubscription_Approve.html" />
+    <Content Include="UI\Request\CommiteeSubmittedRequests.html" />
+    <Content Include="UI\Request\AdminCommitteeEditLoan_Approve.html" />
+    <Content Include="UI\Request\AdminCommitteeEditSubscription_Approve.html" />
+    <Content Include="UI\Request\AdminCommitteeNewLoan_Approve.html" />
+    <Content Include="UI\Request\AdminCommitteeNewSubscription_Approve.html" />
+    <Content Include="UI\Request\CommitteeEditLoan_Reset.html" />
+    <Content Include="UI\Request\CommitteeEditSubscription_Reset.html" />
+    <Content Include="UI\Request\CommitteeDecisionDetails.html" />
+    <Content Include="UI\Request\CommitteeNewLoan_Reset.html" />
+    <Content Include="UI\Request\CommitteeNewSubscription_Reset.html" />
+    <Content Include="UI\Request\CommitteeNewSubscription_Approve.html" />
+    <Content Include="UI\Request\CommitteeEditSubscription_Approve.html" />
+    <Content Include="UI\Request\CommitteeNewLoan_Approve.html" />
+    <Content Include="UI\Request\CommitteeEditLoan_Approve.html" />
+    <Content Include="UI\Request\HelpDeskEditLoan_Submit.html" />
+    <Content Include="UI\Request\HelpDeskEditSubscription_Submit.html" />
+    <Content Include="UI\Request\HelpDeskNewLoan_Submit.html" />
+    <Content Include="UI\Request\HelpDeskUserRequests.html" />
+    <Content Include="UI\Request\UserRequests.html" />
+    <Content Include="UI\Request\EditLoan_Approve.html" />
+    <Content Include="UI\Request\CancelSubscription_Submit.html" />
+    <Content Include="UI\Request\EditLoan_Submit.html" />
+    <Content Include="UI\Request\NewLoan_Approve.html" />
+    <Content Include="UI\Request\NewLoan_Submit.html" />
+    <Content Include="UI\Request\NewSubscription_Approve.html" />
+    <Content Include="UI\Request\EditSubscription_Approve.html" />
+    <Content Include="UI\Request\CancelSubscription_Approve.html" />
+    <Content Include="UI\Request\EditSubscription_Submit.html" />
+    <Content Include="UI\Request\NewSubscription_Submit.html" />
+    <Content Include="UI\Request\SubmittedRequests.html" />
+    <Content Include="UI\User\AuditManagement.html" />
+    <Content Include="UI\User\RoleManagementNonEmployees.html" />
+    <Content Include="UI\User\RoleManagement.html" />
+    <Content Include="UI\User\Login.html" />
+    <Content Include="UI\Employee\DataManagement.html" />
+    <Content Include="UI\User\ChangePassword.html" />
+    <Content Include="UI\User\RestorePassword.html" />
+    <Content Include="Uploads\CommitteeMembers\11399.JPG" />
+    <Content Include="Uploads\CommitteeMembers\11447.jpg" />
+    <Content Include="Uploads\CommitteeMembers\contact-icon.png" />
+    <Content Include="Uploads\IndexBanner\001.png" />
+    <Content Include="Uploads\IndexBanner\002.png" />
+    <Content Include="Uploads\IndexBanner\003.png" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Web.Staging.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\EncyptDecrypt.cs" />
+    <Compile Include="HelperExt\Logging.cs" />
+    <Compile Include="Models\Business\Common\Common.cs" />
+    <Compile Include="Models\Business\UI\Employee_CommitteeManagement.cs" />
+    <Compile Include="Models\Business\UI\Employee_FinancialTransactionsManagement.cs" />
+    <Compile Include="Models\Business\UI\Employee_LoanClosing.cs" />
+    <Compile Include="Models\Business\UI\Employee_UploadPaidInstallments.cs" />
+    <Compile Include="Models\Business\UI\Employee_UploadPaidSubscriptions.cs" />
+    <Compile Include="Models\Business\UI\Employee_UpdatePaidSubscriptions.cs" />
+    <Compile Include="Models\Business\UI\Employee_UpdatePaidInstallments.cs" />
+    <Compile Include="Models\Business\UI\Employee_UpdateSubscription.cs" />
+    <Compile Include="Models\Business\UI\HR_HRSheetModification_ModifiedInstallments.cs" />
+    <Compile Include="Models\Business\UI\HR_HRSheetSub.cs" />
+    <Compile Include="Models\Business\UI\HR_HRSheetModificationSub.cs" />
+    <Compile Include="Models\Business\UI\HR_HRSheetModification_CancelledLoansSub.cs" />
+    <Compile Include="Models\Business\UI\HR_HRSheetModification_CancelledLoans.cs" />
+    <Compile Include="Models\Business\UI\HR_HRSheetModification_CancelledSubscriptionsSub.cs" />
+    <Compile Include="Models\Business\UI\HR_HRSheetModification_ModifiedSubscriptionsSub.cs" />
+    <Compile Include="Models\Business\UI\HR_HRSheetModification_NewLoansSub.cs" />
+    <Compile Include="Models\Business\UI\HR_HRSheetModification_NewLoans.cs" />
+    <Compile Include="Models\Business\UI\HR_HRSheetModification_NewSubscriptionsSub.cs" />
+    <Compile Include="Models\Business\UI\Meeting_ApprovedLoanAmount.cs" />
+    <Compile Include="Models\Business\UI\Misc_HomePageSettings.cs" />
+    <Compile Include="Models\Business\UI\Report_AdminDecisions.cs" />
+    <Compile Include="Models\Business\UI\Report_CommitteeMeetingDecisions.cs" />
+    <Compile Include="Models\Business\UI\Misc_SystemConfiguration.cs" />
+    <Compile Include="Models\Business\UI\User_AuditManagement.cs" />
+    <Compile Include="Models\Business\UI\User_SubscriptionRulesAcceptance.cs" />
+    <Compile Include="Models\Business\UI\User_RoleManagementNonEmployees.cs" />
+    <Compile Include="Models\Business\UI\User_RoleManagement.cs" />
+    <Compile Include="Models\Business\UI\Exception_Loan_Submit.cs" />
+    <Compile Include="Models\Business\UI\Exception_Subscription_Submit.cs" />
+    <Compile Include="Models\Business\UI\Home_CommitteeMember.cs" />
+    <Compile Include="Models\Business\UI\Employee_DataManagement.cs" />
+    <Compile Include="Models\Business\UI\Employee_FinancialStatus.cs" />
+    <Compile Include="Models\Business\UI\Home_HelpDesk.cs" />
+    <Compile Include="Models\Business\UI\HR_HRSheet.cs" />
+    <Compile Include="Models\Business\UI\HR_HRSheetModification_CancelledSubscriptions.cs" />
+    <Compile Include="Models\Business\UI\HR_HRSheetModification_ModifiedSubscriptions.cs" />
+    <Compile Include="Models\Business\UI\HR_HRSheetModification_NewSubscriptions.cs" />
+    <Compile Include="Models\Business\UI\HR_HRSheetModification.cs" />
+    <Compile Include="Models\Business\UI\Meeting_MeetingRequestsDecisions.cs" />
+    <Compile Include="Models\Business\UI\Request_HelpDeskCancelLoan_Submit.cs" />
+    <Compile Include="Models\Business\UI\Request_HelpDeskCancelSubscription_Submit.cs" />
+    <Compile Include="Models\Business\UI\Request_CommitteeDecisionDetails.cs" />
+    <Compile Include="Models\Business\UI\Request_AdminCommitteeCancelLoan_Approve.cs" />
+    <Compile Include="Models\Business\UI\Request_CommitteeCancelLoan_Reset.cs" />
+    <Compile Include="Models\Business\UI\Request_CommitteeCancelLoan_Approve.cs" />
+    <Compile Include="Models\Business\UI\Request_AdminCommitteeCancelSubscription_Approve.cs" />
+    <Compile Include="Models\Business\UI\Request_CommitteeCancelSubscription_Reset.cs" />
+    <Compile Include="Models\Business\UI\Request_CommitteeCancelSubscription_Approve.cs" />
+    <Compile Include="Models\Business\UI\Request_AdminCommitteeSubmittedRequests.cs" />
+    <Compile Include="Models\Business\UI\Request_AdminCommitteeEditLoan_Approve.cs" />
+    <Compile Include="Models\Business\UI\Request_AdminCommitteeEditSubscription_Approve.cs" />
+    <Compile Include="Models\Business\UI\Request_AdminCommitteeNewLoan_Approve.cs" />
+    <Compile Include="Models\Business\UI\Request_AdminCommitteeNewSubscription_Approve.cs" />
+    <Compile Include="Models\Business\UI\Request_CommitteeDecisionApproval.cs" />
+    <Compile Include="Models\Business\UI\Request_CommitteeEditLoan_Reset.cs" />
+    <Compile Include="Models\Business\UI\Request_CommitteeEditSubscription_Reset.cs" />
+    <Compile Include="Models\Business\UI\Request_CommitteeNewLoan_Reset.cs" />
+    <Compile Include="Models\Business\UI\Request_CommitteeNewSubscription_Reset.cs" />
+    <Compile Include="Models\Business\UI\Request_CommitteeSubmittedRequests.cs" />
+    <Compile Include="Models\Business\UI\Meeting_SendRequestToCommitee.cs" />
+    <Compile Include="Models\Business\UI\Meeting_AddRequestToMeeting.cs" />
+    <Compile Include="Models\Business\UI\Meeting_ActiveMeeting.cs" />
+    <Compile Include="Models\Business\UI\Meeting_MeetingList.cs" />
+    <Compile Include="Models\Business\UI\Request_CommitteeEditLoan_Approve.cs" />
+    <Compile Include="Models\Business\UI\Request_CommitteeEditSubscription_Approve.cs" />
+    <Compile Include="Models\Business\UI\Request_CommitteeNewLoan_Approve.cs" />
+    <Compile Include="Models\Business\UI\Request_CommitteeNewSubscription_Approve.cs" />
+    <Compile Include="Models\Business\UI\Request_HelpDeskEditLoan_Submit.cs" />
+    <Compile Include="Models\Business\UI\Request_HelpDeskEditSubscription_Submit.cs" />
+    <Compile Include="Models\Business\UI\Request_HelpDeskNewLoan_Submit.cs" />
+    <Compile Include="Models\Business\UI\Request_HelpDeskUserRequests.cs" />
+    <Compile Include="Models\Business\UI\Request_UserRequests.cs" />
+    <Compile Include="Models\Business\UI\Request_CancelLoan_Submit.cs" />
+    <Compile Include="Models\Business\UI\Request_CancelLoan_Approve.cs" />
+    <Compile Include="Models\Business\UI\Request_EditLoan_Approve.cs" />
+    <Compile Include="Models\Business\UI\Request_EditLoan_Submit.cs" />
+    <Compile Include="Models\Business\UI\Request_NewLoan_Approve.cs" />
+    <Compile Include="Models\Business\UI\Request_NewLoan_Submit.cs" />
+    <Compile Include="Models\Business\UI\Request_CancelSubscription_Submit.cs" />
+    <Compile Include="Models\Business\UI\Request_CancelSubscription_Approve.cs" />
+    <Compile Include="Models\Business\UI\Request_EditSubscription_Approve.cs" />
+    <Compile Include="Models\Business\UI\Request_NewSubscription_Approve.cs" />
+    <Compile Include="Models\Business\UI\Request_EditSubscription_Submit.cs" />
+    <Compile Include="Models\Business\UI\Request_NewSubscription_Submit.cs" />
+    <Compile Include="Models\Business\UI\Request_SubmittedRequests.cs" />
+    <Compile Include="Models\Business\UI\Home_Employee.cs" />
+    <Compile Include="Models\Business\UI\Home_Start.cs" />
+    <Compile Include="Models\Business\UI\Home_Admin.cs" />
+    <Compile Include="Models\Business\UI\Misc_ContactUs.cs" />
+    <Compile Include="Models\Business\UI\MasterP.cs" />
+    <Compile Include="Models\Business\UI\User_ChangePassword.cs" />
+    <Compile Include="Models\Business\UI\User_RestorePassword.cs" />
+    <Compile Include="Models\Business\UI\User_Login.cs" />
+    <Compile Include="Models\Business\UI\Home_Main.cs" />
+    <Compile Include="Models\Business\UI\Misc_CommitteeMembers.cs" />
+    <Compile Include="Models\DataObjects\External\Employee_UploadPaidInstallments.cs" />
+    <Compile Include="Models\DataObjects\External\Employee_UploadPaidSubscriptions.cs" />
+    <Compile Include="Models\DataObjects\External\Employee_UpdatePaidSubscriptions.cs" />
+    <Compile Include="Models\DataObjects\External\Employee_UpdatePaidInstallments.cs" />
+    <Compile Include="Models\DataObjects\External\Employee_UpdateSubscription.cs" />
+    <Compile Include="Models\DataObjects\Internal\Common.cs" />
+    <Compile Include="Models\DataObjects\Internal\Employee_CommitteeManagement.cs" />
+    <Compile Include="Models\DataObjects\Internal\Employee_FinancialTransactionsManagement.cs" />
+    <Compile Include="Models\DataObjects\Internal\Employee_LoanClosing.cs" />
+    <Compile Include="Models\DataObjects\Internal\Employee_UploadPaidInstallments.cs" />
+    <Compile Include="Models\DataObjects\Internal\Employee_UploadPaidSubscriptions.cs" />
+    <Compile Include="Models\DataObjects\Internal\Employee_UpdatePaidSubscriptions.cs" />
+    <Compile Include="Models\DataObjects\Internal\Employee_UpdatePaidInstallments.cs" />
+    <Compile Include="Models\DataObjects\Internal\Employee_UpdateSubscription.cs" />
+    <Compile Include="Models\DataObjects\Internal\HR_HRSheetModification_ModifiedInstallments.cs" />
+    <Compile Include="Models\DataObjects\Internal\HR_HRSheetSub.cs" />
+    <Compile Include="Models\DataObjects\Internal\HR_HRSheetModificationSub.cs" />
+    <Compile Include="Models\DataObjects\Internal\HR_HRSheetModification_CancelledLoansSub.cs" />
+    <Compile Include="Models\DataObjects\Internal\HR_HRSheetModification_CancelledSubscriptionsSub.cs" />
+    <Compile Include="Models\DataObjects\Internal\HR_HRSheetModification_ModifiedSubscriptionsSub.cs" />
+    <Compile Include="Models\DataObjects\Internal\HR_HRSheetModification_NewLoansSub.cs" />
+    <Compile Include="Models\DataObjects\Internal\HR_HRSheetModification_NewSubscriptionsSub.cs" />
+    <Compile Include="Models\DataObjects\Internal\User_SubscriptionRulesAcceptance.cs" />
+    <Compile Include="Models\DataObjects\Internal\Meeting_ApprovedLoanAmount.cs" />
+    <Compile Include="Models\DataObjects\Internal\User_AuditManagement.cs" />
+    <Compile Include="Models\DataObjects\Internal\HR_HRSheetModification_CancelledLoans.cs" />
+    <Compile Include="Models\DataObjects\Internal\HR_HRSheetModification_NewLoans.cs" />
+    <Compile Include="Models\DataObjects\Internal\Misc_HomePageSettings.cs" />
+    <Compile Include="Models\DataObjects\Internal\Report_CommitteeMeetingDecisions.cs" />
+    <Compile Include="Models\DataObjects\Internal\Misc_SystemConfiguration.cs" />
+    <Compile Include="Models\DataObjects\Internal\User_RoleManagementNonEmployees.cs" />
+    <Compile Include="Models\DataObjects\Internal\User_RoleManagement.cs" />
+    <Compile Include="Models\DataObjects\Internal\Exception_Loan_Submit.cs" />
+    <Compile Include="Models\DataObjects\Internal\Exception_Subscription_Submit.cs" />
+    <Compile Include="Models\DataObjects\Internal\Home_CommitteeMember.cs" />
+    <Compile Include="Models\DataObjects\Internal\Employee_DataManagement.cs" />
+    <Compile Include="Models\DataObjects\Internal\Employee_FinancialStatus.cs" />
+    <Compile Include="Models\DataObjects\Internal\Home_HelpDesk.cs" />
+    <Compile Include="Models\DataObjects\Internal\HR_HRSheet.cs" />
+    <Compile Include="Models\DataObjects\Internal\HR_HRSheetModification_CancelledSubscriptions.cs" />
+    <Compile Include="Models\DataObjects\Internal\HR_HRSheetModification_ModifiedSubscriptions.cs" />
+    <Compile Include="Models\DataObjects\Internal\HR_HRSheetModification_NewSubscriptions.cs" />
+    <Compile Include="Models\DataObjects\Internal\HR_HRSheetModification.cs" />
+    <Compile Include="Models\DataObjects\Internal\Meeting_MeetingRequestsDecisions.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_CommitteeDecisionDetails.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_AdminCommitteeCancelLoan_Approve.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_CommitteeCancelLoan_Reset.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_CommitteeCancelLoan_Approve.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_AdminCommitteeCancelSubscription_Approve.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_CommitteeCancelSubscription_Reset.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_CommitteeCancelSubscription_Approve.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_AdminCommitteeSubmittedRequests.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_AdminCommitteeEditLoan_Approve.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_AdminCommitteeEditSubscription_Approve.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_AdminCommitteeNewLoan_Approve.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_AdminCommitteeNewSubscription_Approve.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_CommitteeDecisionApproval.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_CommitteeEditLoan_Reset.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_CommitteeEditSubscription_Reset.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_CommitteeNewLoan_Reset.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_CommitteeNewSubscription_Reset.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_CommitteeSubmittedRequests.cs" />
+    <Compile Include="Models\DataObjects\Internal\Meeting_SendRequestToCommitee.cs" />
+    <Compile Include="Models\DataObjects\Internal\Meeting_AddRequestToMeeting.cs" />
+    <Compile Include="Models\DataObjects\Internal\Meeting_ActiveMeeting.cs" />
+    <Compile Include="Models\DataObjects\Internal\Meeting_MeetingList.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_CommitteeEditLoan_Approve.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_CommitteeEditSubscription_Approve.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_CommitteeNewLoan_Approve.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_CommitteeNewSubscription_Approve.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_UserRequests.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_CancelLoan_Submit.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_CancelLoan_Approve.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_EditLoan_Approve.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_EditLoan_Submit.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_NewLoan_Approve.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_NewLoan_Submit.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_CancelSubscription_Submit.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_EditSubscription_Approve.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_NewSubscription_Approve.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_EditSubscription_Submit.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_NewSubscription_Submit.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_SubmittedRequests.cs" />
+    <Compile Include="Models\DataObjects\Internal\Home_Employee.cs" />
+    <Compile Include="Models\DataObjects\Internal\Home_Start.cs" />
+    <Compile Include="Models\DataObjects\Internal\Home_Admin.cs" />
+    <Compile Include="Models\DataObjects\Internal\Misc_ContactUs.cs" />
+    <Compile Include="Models\DataObjects\Internal\User_Login.cs" />
+    <Compile Include="Models\DataObjects\Internal\Home_Main.cs" />
+    <Compile Include="Models\DataObjects\Internal\Misc_CommitteeMembers.cs" />
+    <Compile Include="Models\DataObjects\Internal\Request_CancelSubscription_Approve.cs" />
+    <Compile Include="Models\DB\ApprovalStatu.cs">
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\CommitteeMember.cs">
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\ContactUs.cs">
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\CostingBreakdownDetail.cs">
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\EmailConfiguration.cs">
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\Employee.cs">
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\EmployeeService.cs">
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\ExceptionAmount.cs">
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\FundSubscription.cs">
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\HRSheet.cs">
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\HRSheetData.cs">
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\HRSheetData_New.cs">
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\LoanAmount.cs">
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\LoanException.cs">
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\Main.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Main.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\Main.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\Main.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Main.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\Meeting.cs">
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\MeetingTransaction.cs">
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\RoleControlPage.cs">
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\SolidarityFundInformation.cs">
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\SubscriptionInformation.cs">
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\SubscriptionRulesAcceptance.cs">
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\SubscriptionTransaction.cs">
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\SystemExceptionLog.cs">
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\TransactionCommitteeDecision.cs">
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Templates\Employee\Template.xlsx" />
+    <Content Include="Uploads\IndexFile\TakafulSystemDetails.pdf" />
+    <Content Include="Uploads\IndexFile\Takaful_Info.doc" />
+    <Content Include="Uploads\IndexFile\Takaful_Info_.doc" />
+    <Content Include="Uploads\IndexFile\Takaful_Info_2.doc" />
+    <Content Include="Uploads\IndexFile\Takaful_Info_3.doc" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_201610563815783.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_20161056424686.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_201610564935124.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_201671065514913.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_201682272021255.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_201714164511228.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_2017315163857364.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_20173753055512.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_20173765440730.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_2017412435394.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_2018710121845537.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_20187106489488.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_201871065451820.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_201871081153619.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_201871085850478.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_201871090453.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_20187109919710.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_2018710992667.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_201871134150266.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_2018711343675.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_2018785268812.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_20187853615567.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_2018785374102.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_20187855246609.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_20187855444244.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_20187855751886.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_20187855823132.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_20187861157382.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_2018786225729.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_201878635485.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_20187869453.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_20187882646558.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_2018788274331.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_2018788274597.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_20187891624734.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_201878971467.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_2018789858237.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_2018789927318.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_2018789946149.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_20187934433461.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_2018793502637.xlsx" />
+    <Content Include="Uploads\Temp\CommitteeMeetingDecisions_2018794648441.xlsx" />
+    <Content Include="Uploads\Temp\Employees_201673151119618.xlsx" />
+    <Content Include="Uploads\Temp\Fund June 2016.xls" />
+    <Content Include="Uploads\Temp\HRSheet_CancelledLoans_201841082535865.xlsx" />
+    <Content Include="Uploads\Temp\HRSheet_CancelledLoans_2018711105645996.xlsx" />
+    <Content Include="Uploads\Temp\HRSheet_CancelledLoans_20187119196573.xlsx" />
+    <Content Include="Uploads\Temp\HRSheet_CancelledSubscriptions_20161016593839.xlsx" />
+    <Content Include="Uploads\Temp\HRSheet_CancelledSubscriptions_20187104235299.xlsx" />
+    <Content Include="Uploads\Temp\HRSheet_ModifiedInstallments_201610165954593.xlsx" />
+    <Content Include="Uploads\Temp\HRSheet_ModifiedInstallments_2018711823298.xlsx" />
+    <Content Include="Uploads\Temp\HRSheet_ModifiedSubscriptions_201610165832956.xlsx" />
+    <Content Include="Uploads\Temp\HRSheet_ModifiedSubscriptions_20184108223943.xlsx" />
+    <Content Include="Uploads\Temp\HRSheet_ModifiedSubscriptions_20184243474851.xlsx" />
+    <Content Include="Uploads\Temp\HRSheet_ModifiedSubscriptions_2018711810253.xlsx" />
+    <Content Include="Uploads\Temp\HRSheet_NewLoans_201610165935377.xlsx" />
+    <Content Include="Uploads\Temp\HRSheet_NewSubscriptions_201610165752227.xlsx" />
+    <Content Include="Uploads\Temp\HRSheet_NewSubscriptions_201871052753796.xlsx" />
+    <Content Include="Uploads\Temp\HRSheet_NewSubscriptions_201871144239875.xlsx" />
+    <Content Include="Uploads\Temp\HRSheet_NewSubscriptions_201871175615503.xlsx" />
+    <Content Include="Uploads\Temp\HRSheet_NewSubscriptions_2018789735375.xlsx" />
+    <Content Include="Uploads\Temp\HRSheet_NewSubscriptions_2018794726323.xlsx" />
+    <Content Include="Uploads\Temp\HRSheet_Normal_20166199483135.xlsx" />
+    <Content Include="Uploads\Temp\HRSheet_Normal_IgnoredRequests_201661994816177.xlsx" />
+    <Content Include="Uploads\Temp\June 2016.xls" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Log\" />
+    <Folder Include="UI\NewPages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;STAGING</DefineConstants>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>11205</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:11205/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent>if "Debug"=="$(ConfigurationName)" goto :debug
+if "Staging"=="$(ConfigurationName)" goto :staging
+if "Release"=="$(ConfigurationName)" goto :release
+goto :exit
+
+:debug
+del "$(ProjectDir)\Scripts\App\Shared\Config.js"
+copy "$(ProjectDir)\Scripts\App\Shared\Config.Debug.js" "$(ProjectDir)\Scripts\App\Shared\Config.js"
+goto :exit
+
+:staging
+else if "Staging"=="$(ConfigurationName)" (
+del "$(ProjectDir)\Scripts\App\Shared\Config.js"
+copy "$(ProjectDir)\Scripts\App\Shared\Config.Staging.js" "$(ProjectDir)\Scripts\App\Shared\Config.js"
+goto :exit
+
+:release
+else if "Release"=="$(ConfigurationName)" (
+del "$(ProjectDir)\Scripts\App\Shared\Config.js"
+copy "$(ProjectDir)\Scripts\App\Shared\Config.Release.js" "$(ProjectDir)\Scripts\App\Shared\Config.js"
+goto :exit
+
+:exit</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

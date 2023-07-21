@@ -1,0 +1,361 @@
+﻿<!DOCTYPE html>
+<html class="no-js loading" lang="ar" dir="rtl">
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link href="../../Content/Style/foundation.css" rel="stylesheet" />
+    <link href="../../Content/Style/foundation-datepicker.css" rel="stylesheet" />
+    <link href="../../Content/Style/normalize.css" rel="stylesheet" />
+    <link href="../../Content/Style/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../Content/Style/component.css" rel="stylesheet" />  <!-- InputFile -->
+    <link href="../../Content/Style/loadingScreen.css" rel="stylesheet" />
+    <link href="../../Content/Style/app.css" rel="stylesheet" />
+
+    <title>إدارة بيانات الموظفين</title>
+
+</head>
+
+<body>
+
+    <div class="off-canvas-wrap" data-offcanvas>
+        <div class="inner-wrap">
+            <!-- Canvas -->
+            <nav class="tab-bar hide-for-large">
+
+                <section class="middle tab-bar-section">
+                    <p class="title">دائرة الشؤون الاسلامية والعمل الخيري</p>
+                </section>
+
+                <section class="right-small">
+                    <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
+                </section>
+
+            </nav>
+            <!-- Aside Convas-Off -->
+            <aside class="right-off-canvas-menu">
+                <ul id="ulInternalMenu_Small" class="off-canvas-list"></ul>
+            </aside>
+
+            <!-- MODAL POPUPs (Msg - Confirmation - ...etc) -->
+            <!-- END MODAL -->
+
+            <div class="contain-to-grid">
+                <!-- Top Menu For PC -->
+                <nav class="top-bar hide-for-medium hide-for-small" data-topbar role="navigation">
+                    <ul class="title-area">
+                        <li class="name">
+                            <h1><a href="#"></a></h1>
+                        </li>
+                    </ul>
+
+                    <section class="top-bar-section">
+                        <!-- Right Nav Section -->
+                        <ul class="right">
+                            <li class="active"><a href="../Home/Main.html">الصفحة الرئيسية</a></li>
+                            <li class=""><a href="../Misc/ContactUs.html">اتصل بنا</a></li>
+                        </ul>
+
+                        <!-- Left Nav Section -->
+                        <ul id="ulInternalMenu_Large" class="left"></ul>
+                    </section>
+                </nav>
+                <!-- END Top Menu For PC -->
+                <!-- Content of child page -->
+                <section class="">
+                    <div class="row page-container">
+
+                        <div class="row collapse">
+                            <div class="large-1 small-2 columns"><img src="../../Content/Images/edit_subscription-icon.png" alt="" class="" /></div>
+                            <div class="large-3 small-10 columns">إدارة بيانات الموظفين</div>
+                            <div class="large-8 hide-for-small columns"><div class="lineB"></div></div>
+
+                        </div>
+                        <br />
+                        <div class="large-12 columns">
+
+                            <div class="row">
+                                <div class="content-section">
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-12  columns">الرقم الوظيفي</div>
+                                        <div class="large-4 small-12 columns">
+                                            <input id="txtEmployeeNumber" type="number" min="1" max="99999999" placeholder="أدخل الرقم ثم إضغط مفتاح الإدخال للبحث">
+                                        </div>
+                                        <div class="large-4 small-12 columns"><div id="btnUpdateFromGRP" style="display: none;" class=" subscribe-btn1">تحديث من قاعدة بيانات الحكومة الذكية</div></div>
+                                        <div class="large-2 small-12 columns"><div id="btnSearch" class=" subscribe-btn1">بحث</div></div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 small-12  columns">الاسم</div>
+                                        <div class="large-10 small-12 columns"><input id="txtName" type="text" maxlength="100" /></div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-6 columns">
+                                            <div class="row">
+                                                <div class="large-4 small-12 columns">الوظيفة</div>
+                                                <div class="large-8 small-12 columns"><input id="txtPosition" type="text" maxlength="100" /></div>
+                                            </div>
+                                        </div>
+                                        <div class="large-6 columns">
+                                            <div class="row">
+                                                <div class="large-6 small-12  columns">الإدارة</div>
+                                                <div class="large-6 small-12 columns"><input id="txtDepartment" type="text" maxlength="50" /></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-6 columns">
+                                            <div class="row">
+                                                <div class="large-4 small-12 columns">تاريخ التعيين</div>
+                                                <div class="large-8 small-12 columns"><input id="txtJoinDate" type="text" /></div>
+                                            </div>
+                                        </div>
+                                        <div class="large-6 columns">
+                                            <div class="row">
+                                                <div class="large-6 small-12  columns">الدرجة الوظيفية</div>
+                                                <div class="large-6 small-12 columns">
+                                                    <div class=" input-dp"><input id="txtJobDegree" type="text" maxlength="100" /></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-6 columns">
+                                            <div class="row">
+                                                <div class="large-4 small-12 columns">الراتب</div>
+                                                <div class="large-8 small-12 columns"><input id="txtSalary" type="number" min="1" max="999999999" /></div>
+                                            </div>
+                                        </div>
+                                        <div class="large-6 columns">
+                                            <div class="row">
+                                                <div class="large-6 small-12  columns">مكافأة نهاية الخدمة</div>
+                                                <div class="large-6 small-12 columns">
+                                                    <input id="txtEndServiceBenefits" type="number" min="1" max="999999999" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-6 columns">
+                                            <div class="row">
+                                                <div class="large-4 small-12 columns">الجنسية</div>
+                                                <div class="large-8 small-12 columns"><input id="txtNationality" type="text" maxlength="100" /></div>
+                                            </div>
+                                        </div>
+                                        <div class="large-6 columns">
+                                            <div class="row">
+                                                <div class="large-6 small-12  columns">الجنس / النوع</div>
+                                                <div class="large-6 small-12 columns">
+                                                    <select id="lstGender">
+                                                        <option value="1">ذكر</option>
+                                                        <option value="2">أنثى</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row min-hight">
+                                        <div class="large-12 columns">
+                                            <div class="row">
+                                                <div class="large-3 small-12 columns"><h5>&Xi; &nbsp; هل هو مواطن؟</h5></div>
+                                                <div class="large-9 small-12 columns"><input id="chkIsCitizen" type="checkbox" /></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-6 columns">
+                                            <div class="row">
+                                                <div class="large-4 small-12 columns">تاريخ الميلاد</div>
+                                                <div class="large-8 small-12 columns"><input id="txtBirthDate" type="text" /></div>
+                                            </div>
+                                        </div>
+                                        <div class="large-6 columns">
+                                            <div class="row">
+                                                <div class="large-6 small-12  columns">البريد الإلكترونى</div>
+                                                <div class="large-6 small-12 columns">
+                                                    <input id="txtEmail" type="text" maxlength="100" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-6 columns">
+                                            <div class="row">
+                                                <div class="large-4 small-12 columns">الهاتف الجوال</div>
+                                                <div class="large-8 small-12 columns"><input id="txtMobile" type="text" maxlength="20" /></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-2 columns">
+                                            <div class="row">
+                                                <div class="large-12 small-12  columns">تحميل ملف إكسل</div>
+                                            </div>
+                                        </div>
+                                        <div class="large-7 columns">
+                                            <div class="row">
+                                                <div class="large-12 small-12  columns">
+                                                    <!--<input type="file" name="file-2[]" id="file-2" class="inputfile inputfile-2" data-multiple-caption="{count} files selected" multiple />-->
+                                                    <form>
+                                                        <input type="file" id="filUpload" class="inputfile inputfile-2" />
+                                                        <label for="filUpload"><i class="fa fa-upload"></i><span> إختر الملف &hellip;</span></label>
+                                                    </form>
+                                                    <progress id="progUpload" value="0" max="100"></progress>
+                                                    <button id="btnCancelUpload">إلغاء تحميل الملف</button>
+                                                    <a href="../../Templates/Employee/Template.xlsx">نموذج ملف رفع البيانات</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="large-3 columns">
+                                            <div class="large-12 small-12 columns">
+                                                <div id="btnUpload" class=" subscribe-btn1">تحميل الملف</div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row min-hight">
+                                    </div>
+
+                                    <div class="row min-hight">
+                                        <div class="large-4 columns">&nbsp;</div>
+                                        <div class="large-4 small-12 columns"><div id="btnSave" data-reveal-id="" class="subscribe-btn2"> <i class="fa fa-floppy-o"></i> حفظ </div></div>
+                                        <div class="large-4 columns">&nbsp;</div>
+                                    </div>
+                                    <div class="row min-hight">
+                                        <div class="large-4 columns">&nbsp;</div>
+                                        <div class="large-4 small-12 columns"><div id="btnCancel" style="display: none;" data-reveal-id="" class="subscribe-btn2"> <i class="fa fa-floppy-o"></i> إلغاء </div></div>
+                                        <div class="large-4 columns">&nbsp;</div>
+                                    </div>
+
+                                    <!--  -->
+                                    <div class="lineB"></div>
+                                    <div class="row">
+                                        <table id="mainTable" class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th width="100" class="">الرقم الوظيفي</th>
+                                                    <th width="300" class="">الاســــم</th>
+                                                    <th width="150" class="hide-for-small">الوظيفة</th>
+                                                    <th width="100" class="hide-for-small">الإدارة</th>
+                                                    <th width="200" class="hide-for-small">تاريخ التعيين</th>
+                                                    <th width="200" class="hide-for-small">الراتب</th>
+                                                    <th width="200" class="">تحكم</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tblEmployees">
+                                                <!--<tr>
+                                                    <td class=""><a href="#">11474</a></td>
+                                                    <td>إبراهيم عبد اللطيف إبراهيم	</td>
+                                                    <td class="hide-for-small"> باحث أول	</td>
+                                                    <td>إدارة البحوث	</td>
+                                                    <td class="hide-for-small">May 27, 2007	</td>
+                                                    <td class="hide-for-small">11834</td>
+                                                    <td>
+                                                        <div class="row collapse">
+                                                            <div class="large-6 columns"><div class="subscribe-btn3"><i class="fa fa-edit"></i></div></div>
+                                                            <div class="large-6  columns"><div class="subscribe-btn3"><i class="fa fa-remove"></i></div></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>-->
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="row">
+                                        <div id="btnExport" class="large-12 columns"><a>استخراج الجدول الى ملف اكسل</a></div>
+                                    </div>
+
+                                    <!--<div class="row ">
+                                        <div class="large-12 columns">
+                                            <ul class="pagination">
+                                                <li class="arrow unavailable"><a href="">&laquo;</a></li>
+                                                <li class="current"><a href="">1</a></li>
+                                                <li><a href="">2</a></li>
+                                                <li><a href="">3</a></li>
+                                                <li><a href="">4</a></li>
+                                                <li class="unavailable"><a href="">&hellip;</a></li>
+                                                <li><a href="">12</a></li>
+                                                <li><a href="">13</a></li>
+                                                <li class="arrow"><a href="">&raquo;</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>-->
+
+                                    <div class="row ">
+                                        <div class="large-4 columns">&nbsp;</div>
+                                        <div class="large-4 small-12 columns"><div id="btnHistoryBack" data-reveal-id="" class="subscribe-btn2">رجــــــــــــــــوع</div></div>
+                                        <div class="large-4 columns">&nbsp;</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </section>
+                <!-- END Content of child page -->
+                <!-- Footer -->
+                <footer class="">
+                    <div class="row text-center">
+                        <div class="large-12 columns footer">
+                            <span>جميع الحقوق محفوظة</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- END Footer -->
+
+                <a class="exit-off-canvas"></a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Master Page Scripts -->
+    <!--<script type="text/javascript" src="cordova.js"></script>-->
+    <script src="../../Scripts/Tools/JQuery/jquery-2.1.3.min.js"></script>
+    <script src="../../Scripts/Tools/JQuery/jquery.dataTables.min.js"></script>
+    <script src="../../Scripts/Tools/Foundation/vendor/modernizr.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/foundation.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation-datepicker/foundation-datepicker.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/foundation.offcanvas.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/foundation.orbit.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/foundation.tooltip.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/foundation.reveal.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/foundation.topbar.js"></script>
+    <script src="../../Scripts/Tools/Foundation/foundation/dataTables.foundation.min.js"></script>
+    <!-- InputFile -->
+    <script src="../../Scripts/Tools/inputfile/custom-file-input.js"></script>
+    <script src="../../Scripts/Tools/inputfile/jquery.custom-file-input.js"></script>
+
+    <script src="../../Scripts/App/Shared/Config.js"></script>
+    <script src="../../Scripts/App/Shared/Utility.js"></script>
+    <script src="../../Scripts/App/Shared/CommonMethods.js"></script>
+
+    <script src="../../Scripts/App/UI/Master/01-UiMapping.js"></script>
+    <script src="../../Scripts/App/UI/Master/02-EventHandlers.js"></script>
+    <script src="../../Scripts/App/UI/Master/03-CustomMethods.js"></script>
+    <script src="../../Scripts/App/UI/Master/Main.js"></script>
+
+    <!-- Child Page Scripts -->
+    <script src="../../Scripts/App/UI/Employee/DataManagement/01-UiMapping.js"></script>
+    <script src="../../Scripts/App/UI/Employee/DataManagement/02-EventHandlers.js"></script>
+    <script src="../../Scripts/App/UI/Employee/DataManagement/03-CustomMethods.js"></script>
+    <script src="../../Scripts/App/UI/Employee/DataManagement/Main.js"></script>
+
+
+</body>
+
+</html>
